@@ -415,7 +415,7 @@ if(cookies!=null)
 		//定义连接字符串,东八区GMT%2B8
 		String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
 		//和数据库建立连接
-		Connection conn= DriverManager.getConnection(url,"root","yuan1234");
+		Connection conn= DriverManager.getConnection(url,"root","********");
 		Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//参数设置默认的话rs只能用next()
 		String s="select A.*,B.store from goods A ,storeacc B where A.storeid=B.storeid and (id="+goodslist[0];
 		for(int i=1;i<goodslist.length;i++)//不知道筛选条件过多会不会崩溃
@@ -476,7 +476,7 @@ if(cookies!=null)
         	//定义连接字符串,东八区GMT%2B8
         	String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
         	//和数据库建立连接
-        	Connection conn= DriverManager.getConnection(url,"root","yuan1234");
+        	Connection conn= DriverManager.getConnection(url,"root","********");
         	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//参数设置默认的话rs只能用next()
         	String string="select id,picture,name from goods";
         	ResultSet rs=st.executeQuery(string);
