@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <% 
-response.setHeader("Pragma","No-cache");//ºóÍËÊ±Ç¿ÖÆË¢ĞÂ²»Ê¹ÓÃ»º´æ
+response.setHeader("Pragma","No-cache");//åé€€æ—¶å¼ºåˆ¶åˆ·æ–°ä¸ä½¿ç”¨ç¼“å­˜
 response.setHeader("Cache-Control","No-cache");
 response.setDateHeader("Expires", -1);
 response.setHeader("Cache-Control", "No-store");
@@ -22,17 +22,17 @@ if(userid!=null){
 
 try{
 	Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-	//¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+	//å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
 	String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-	//ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
-	Connection conn= DriverManager.getConnection(url,"root","yuan1234");
-	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
+	//å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
+	Connection conn= DriverManager.getConnection(url,"root","********");
+	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
 	ResultSet rs=st.executeQuery("select nickname,head from myuser where id="+"\""+userid+"\"");
 	rs.next();
 	nickname=rs.getString("nickname");
 	head=rs.getString("head");
 	if(head!=null){
-		String gbk=URLEncoder.encode(head,"gb18030");//ÓĞÖĞÎÄÒª×ªÂë,jspµÄsrcµØÖ·Ïàµ±ÓÚ´ò¿ªÒ»¸öÍøÒ³Í¼Æ¬£¬²»ÄÜÓĞÖĞÎÄÒª×ªÂë
+		String gbk=URLEncoder.encode(head,"gb18030");//æœ‰ä¸­æ–‡è¦è½¬ç ,jspçš„srcåœ°å€ç›¸å½“äºæ‰“å¼€ä¸€ä¸ªç½‘é¡µå›¾ç‰‡ï¼Œä¸èƒ½æœ‰ä¸­æ–‡è¦è½¬ç 
 		head="/pt/imeg/"+gbk;
 	}
 	else head="/pt/imeg/timg1.jpg";
@@ -49,7 +49,7 @@ catch(Exception e){
 
 <head>
 	<meta charset="GB18030">
-	<title>¹ºÎï³µ</title>
+	<title>è´­ç‰©è½¦</title>
 	<link rel="stylesheet" type="text/css" href="taotao.css">
 	<style>
 		.theimgstyle {
@@ -111,15 +111,15 @@ catch(Exception e){
 			var second = t.getSeconds();
 			var curWeek;
 			switch (week) {
-				case 0: curWeek = "ĞÇÆÚÈÕ"; break;
-				case 1: curWeek = "ĞÇÆÚÒ»"; break;
-				case 2: curWeek = "ĞÇÆÚ¶ş"; break;
-				case 3: curWeek = "ĞÇÆÚÈı"; break;
-				case 4: curWeek = "ĞÇÆÚËÄ"; break;
-				case 5: curWeek = "ĞÇÆÚÎå"; break;
-				case 6: curWeek = "ĞÇÆÚÁù"; break;
+				case 0: curWeek = "æ˜ŸæœŸæ—¥"; break;
+				case 1: curWeek = "æ˜ŸæœŸä¸€"; break;
+				case 2: curWeek = "æ˜ŸæœŸäºŒ"; break;
+				case 3: curWeek = "æ˜ŸæœŸä¸‰"; break;
+				case 4: curWeek = "æ˜ŸæœŸå››"; break;
+				case 5: curWeek = "æ˜ŸæœŸäº”"; break;
+				case 6: curWeek = "æ˜ŸæœŸå…­"; break;
 			}
-			var time = " " + year + "Äê" + month + "ÔÂ" + day + "ÈÕ " + curWeek + " " + hour + ":" + minute + ":" + second;
+			var time = " " + year + "å¹´" + month + "æœˆ" + day + "æ—¥ " + curWeek + " " + hour + ":" + minute + ":" + second;
 			document.getElementById("time").innerHTML = time;
 		}
 		setInterval("showTime()", 1000);
@@ -137,7 +137,7 @@ catch(Exception e){
 			if ((count % 2) == 1) { document.getElementById("imgclick").src = "timg (2).jpg"; }
 			else if ((count % 2) == 0) { document.getElementById("imgclick").src = "timg (1).jpg"; }
 		}
-		function up(g)/*µã°´Å¥¿ØÖÆÊıÁ¿*/ {
+		function up(g)/*ç‚¹æŒ‰é’®æ§åˆ¶æ•°é‡*/ {
 			var goods = g;
 			var num = parseInt(document.getElementById(goods).value);
 			num = num + 1;
@@ -148,7 +148,7 @@ catch(Exception e){
 			var str;
 			var str1;
 			for (var i = 0; i < ca.length; i++) {
-				var c = ca[i].trim();/*È¥¿Õ¸ñ*/
+				var c = ca[i].trim();/*å»ç©ºæ ¼*/
 				if (c.indexOf("goodsid") == 0) str = c.substring("goodsid=".length, c.length);
 				if (c.indexOf("num") == 0) str1 = c.substring("num=".length, c.length);
 			}
@@ -185,7 +185,7 @@ catch(Exception e){
 			var str;
 			var str1;
 			for (var i = 0; i < ca.length; i++) {
-				var c = ca[i].trim();/*È¥¿Õ¸ñ*/
+				var c = ca[i].trim();/*å»ç©ºæ ¼*/
 				if (c.indexOf("goodsid") == 0) str = c.substring("goodsid=".length, c.length);
 				if (c.indexOf("num") == 0) str1 = c.substring("num=".length, c.length);
 			}
@@ -207,7 +207,7 @@ catch(Exception e){
 			document.cookie = "num=" + numstr + ";";
 			document.getElementById(goods).parentElement.lastElementChild.value = num;
 		}
-		function changeid(g)/*ÊäÈëÎÄ±¾¿òĞŞ¸Ä¹ºÂòÊı*/ {
+		function changeid(g)/*è¾“å…¥æ–‡æœ¬æ¡†ä¿®æ”¹è´­ä¹°æ•°*/ {
 			var goods = g;
 			var string = document.getElementById(goods).value;
 			var num = parseInt(document.getElementById(goods).value);
@@ -221,7 +221,7 @@ catch(Exception e){
 			var str;
 			var str1;
 			for (var i = 0; i < ca.length; i++) {
-				var c = ca[i].trim();/*È¥¿Õ¸ñ*/
+				var c = ca[i].trim();/*å»ç©ºæ ¼*/
 				if (c.indexOf("goodsid") == 0) str = c.substring("goodsid=".length, c.length);
 				if (c.indexOf("num") == 0) str1 = c.substring("num=".length, c.length);
 			}
@@ -243,7 +243,7 @@ catch(Exception e){
 			document.cookie = "num=" + numstr + ";";
 			document.getElementById(goods).parentElement.lastElementChild.value = num;
 		}
-		function deleteid(g)/*É¾³ı¹ºÎï³µÖĞÉÌÆ·*/ {
+		function deleteid(g)/*åˆ é™¤è´­ç‰©è½¦ä¸­å•†å“*/ {
 			var goods = g;
 			var string = document.getElementById(goods).value;
 			var num = parseInt(document.getElementById(goods).value);
@@ -253,7 +253,7 @@ catch(Exception e){
 			var str;
 			var str1;
 			for (var i = 0; i < ca.length; i++) {
-				var c = ca[i].trim();/*È¥¿Õ¸ñ*/
+				var c = ca[i].trim();/*å»ç©ºæ ¼*/
 				if (c.indexOf("goodsid") == 0) str = c.substring("goodsid=".length, c.length);
 				if (c.indexOf("num") == 0) str1 = c.substring("num=".length, c.length);
 			}
@@ -278,7 +278,7 @@ catch(Exception e){
 			var check = document.getElementById("all").checked;
 			var checknum = document.getElementsByName("num");
 			var checkgoods = document.getElementsByName("goods");
-			if (check) {/*µ¥¶ÀÓÃ²»ĞĞ£¬ÒªÓÃif-elseÊ¶±ğ*/
+			if (check) {/*å•ç‹¬ç”¨ä¸è¡Œï¼Œè¦ç”¨if-elseè¯†åˆ«*/
 				for (var i = 0; i < checknum.length; i++) {
 					checknum[i].checked = true;
 					checkgoods[i].checked = true;
@@ -298,7 +298,7 @@ catch(Exception e){
 				bro.checked = true;
 			else bro.checked = false;
 		}
-		function allprice()/*¼ÆËã¼Û¸ñ*/ {
+		function allprice()/*è®¡ç®—ä»·æ ¼*/ {
 			var numlist = document.getElementsByName("num");
 			var number = 0;
 			for (var i = 0; i < numlist.length; i++) {
@@ -321,17 +321,17 @@ catch(Exception e){
 	onchange="allprice()">
 	<div class="firsttitle">
 		<a href="loginregister.html?login=true"
-			style="color: red;margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">µÇÂ¼</a>
-		<a href="currentregister.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">×¢²á</a>
-		<a href="userimf.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">¸öÈËÒ³Ãæ</a>
-		<a href="Cart.jsp" style="margin-left: 10px;margin-right: 10px;">ÎÒµÄ¹ºÎï³µ</a>
+			style="color: red;margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">ç™»å½•</a>
+		<a href="currentregister.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">æ³¨å†Œ</a>
+		<a href="userimf.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">ä¸ªäººé¡µé¢</a>
+		<a href="Cart.jsp" style="margin-left: 10px;margin-right: 10px;">æˆ‘çš„è´­ç‰©è½¦</a>
 		<a href="orderManage.jsp?action=1"
-			style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">¹ºÂò¼ÇÂ¼</a>
-		<a href="logout.jsp" style="margin-left: 10px;margin-right: 10px;">×¢Ïú</a>
-		<a href="index.jsp" style="margin-left: 10px;margin-right: 10px;">Ö÷Ò³</a>
+			style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">è´­ä¹°è®°å½•</a>
+		<a href="logout.jsp" style="margin-left: 10px;margin-right: 10px;">æ³¨é”€</a>
+		<a href="index.jsp" style="margin-left: 10px;margin-right: 10px;">ä¸»é¡µ</a>
 		<span id="time" style="float:right;width: 150px;"> </span>
-		<a href="goodsManage.jsp" style="float: right;margin-left: 10px;margin-right: 10px;">ÉÌ¼ÒÈë¿Ú</a>
-		<a href="mailo:GREYSEID@hotmail.com" style="float: right;margin-left: 10px;margin-right: 10px;">¿Í·ş</a>
+		<a href="goodsManage.jsp" style="float: right;margin-left: 10px;margin-right: 10px;">å•†å®¶å…¥å£</a>
+		<a href="mailo:GREYSEID@hotmail.com" style="float: right;margin-left: 10px;margin-right: 10px;">å®¢æœ</a>
 	</div>
 	<div style="background-color: white;width: 100%;height: 150px;">
 		<div style="width: 1500px;height: 150px;border:  0;background-color: white;margin: 0 auto;">
@@ -342,15 +342,15 @@ catch(Exception e){
 				<center>
 					<form action="search.jsp" style="padding: 40px 0;">
 						<input type="text" id="searchText" placeholder="SEARCH" class="searchstyle" name='search'><input
-							type="submit" value="ËÑË÷" class="searchButton">
+							type="submit" value="æœç´¢" class="searchButton">
 					</form>
 				</center>
 			</div>
 			<div style="float: left;height: 100%;width: 25%;">
 				<form action="login.jsp" class="loginregister" style="display:<%=boolblockout%>;">
-					<label for="userid">ÕË&nbsp;ºÅ </label><input type="text" id="userid" placeholder="USERID"
+					<label for="userid">è´¦&nbsp;å· </label><input type="text" id="userid" placeholder="USERID"
 						class="lrstyle" required="required" name="userid"><br>
-					<label for="userpwd">ÃÜ&nbsp;Âë </label><input type="password" id="userpwd" placeholder="PASSWORD"
+					<label for="userpwd">å¯†&nbsp;ç  </label><input type="password" id="userpwd" placeholder="PASSWORD"
 						class="lrstyle" required="required" name="userpwd">
 					<div><input type='hidden' name='action' value='2'>
 						<input type="submit" value="LOGIN"><a href="currentregister.jsp"
@@ -362,24 +362,24 @@ catch(Exception e){
 								href="userimf.jsp"><%=nickname %></a></span></div>
 					<div
 						style="width:100px;height:100px;border-radius:50%;overflow: hidden;float:right;position: relative;top: 10%;">
-						<img alt="Í·Ïñ" src="<%=head%>" style="height:100%;width: 100%"></div>
+						<img alt="å¤´åƒ" src="<%=head%>" style="height:100%;width: 100%"></div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div style="width: 1500px;height: 1800px;margin:0 auto;">
 		<div style='height:100%;width:85%;float: left;'>
-			<h1>¹ºÎï³µ</h1>
+			<h1>è´­ç‰©è½¦</h1>
 			<form action="createorder.jsp" onkeydown="if(event.keyCode==13)return false;" method="get">
 				<table>
 					<tr>
-						<td><input type="checkbox" value="all" id="all" onclick="check()">È«Ñ¡</td>
-						<td>ÉÌÆ·id</td>
-						<td>ÉÌÆ·Ãû</td>
+						<td><input type="checkbox" value="all" id="all" onclick="check()">å…¨é€‰</td>
+						<td>å•†å“id</td>
+						<td>å•†å“å</td>
 						<td></td>
-						<td>ÉÌÆ·ÊıÁ¿</td>
-						<td>µ¥¼Û</td>
-						<td>É¾³ı</td>
+						<td>å•†å“æ•°é‡</td>
+						<td>å•ä»·</td>
+						<td>åˆ é™¤</td>
 					</tr>
 					<%
 Cookie goodscookie=null;
@@ -412,13 +412,13 @@ if(cookies!=null)
 	{
 	try{
 		Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-		//¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+		//å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
 		String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-		//ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
+		//å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
 		Connection conn= DriverManager.getConnection(url,"root","yuan1234");
-		Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
+		Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
 		String s="select A.*,B.store from goods A ,storeacc B where A.storeid=B.storeid and (id="+goodslist[0];
-		for(int i=1;i<goodslist.length;i++)//²»ÖªµÀÉ¸Ñ¡Ìõ¼ş¹ı¶à»á²»»á±ÀÀ£
+		for(int i=1;i<goodslist.length;i++)//ä¸çŸ¥é“ç­›é€‰æ¡ä»¶è¿‡å¤šä¼šä¸ä¼šå´©æºƒ
 		{
 			s+=" or id="+goodslist[i];
 		}
@@ -438,16 +438,16 @@ if(cookies!=null)
 			out.print("<td>"+"<input type='checkbox' value='"+rs.getString("id")+"'"+" name='goods' onclick='checkone("+rs.getRow()+")' id='"+rs.getRow()+"'></td>");
 			out.print("<td>"+rs.getString("id")+"</td>");
 			out.print("<td>"+rs.getString("name")+"</td>");
-			out.print("<td><div style='width:50px;height:50px;'>"+"<a href='Goods.jsp?goodsid="+rs.getString("id")+"'><img style='width:100%;height:100%;' alt='Í¼Æ¬' src='/pt/imeg/"+((rs.getString("picture")==null||"".equals(rs.getString("picture")))?("timg (3).jpg"):(URLEncoder.encode(rs.getString("picture"),"gb18030")))+"'"+"</a></div></td>");
+			out.print("<td><div style='width:50px;height:50px;'>"+"<a href='Goods.jsp?goodsid="+rs.getString("id")+"'><img style='width:100%;height:100%;' alt='å›¾ç‰‡' src='/pt/imeg/"+((rs.getString("picture")==null||"".equals(rs.getString("picture")))?("timg (3).jpg"):(URLEncoder.encode(rs.getString("picture"),"gb18030")))+"'"+"</a></div></td>");
 			for(int i=0;i<goodslist.length;i++)
 			{
 				if(goodslist[i].equals(rs.getString("id"))){
 					
-					out.print("<td><button type=button onclick='up("+goodslist[i]+")'>¡ü</button><input id='"+goodslist[i]+"' type='text' value='"+numlist[i]+"' size=1 onkeyup='changeid("+goodslist[i]+")'oninput=\"value=value.replace(/\\D|^0/g,'')\"><button type=button onclick='down("+goodslist[i]+")'>¡ı</button><input type='checkbox' value='"+numlist[i]+"'name='num' hidden></td>");
+					out.print("<td><button type=button onclick='up("+goodslist[i]+")'>â†‘</button><input id='"+goodslist[i]+"' type='text' value='"+numlist[i]+"' size=1 onkeyup='changeid("+goodslist[i]+")'oninput=\"value=value.replace(/\\D|^0/g,'')\"><button type=button onclick='down("+goodslist[i]+")'>â†“</button><input type='checkbox' value='"+numlist[i]+"'name='num' hidden></td>");
 				}
 			}
 			out.print("<td>"+rs.getString("price")+"</td>");
-			out.print("<td><a onclick='deleteid("+rs.getString("id")+")'>É¾³ı</a></td>");
+			out.print("<td><a onclick='deleteid("+rs.getString("id")+")'>åˆ é™¤</a></td>");
 			out.print("</tr>");
 		}
 		rs.close();
@@ -464,29 +464,29 @@ if(cookies!=null)
 }
 %>
 				</table>
-				<input type="submit" value="½áËã"><span>×Ü¼Û:</span><span id='price'>0</span><input type="hidden"
+				<input type="submit" value="ç»“ç®—"><span>æ€»ä»·:</span><span id='price'>0</span><input type="hidden"
 					id='allprice' name='allprice'>
-				<br><a onclick="clearcart();">Çå¿Õ¹ºÎï³µ</a>
+				<br><a onclick="clearcart();">æ¸…ç©ºè´­ç‰©è½¦</a>
 			</form>
 		</div>
 		<div style='height:100%;width:15%;float: left;' class='goods'>
 			<%
-        try{//ÒòÎª²»»áÍÆ¼öËã·¨£¬ËùÒÔ¼òµ¥Õ¹Ê¾Ò»ÏÂ±í¸ñÖĞÇ°¼¸ÏîµÄÉÌÆ·
+        try{//å› ä¸ºä¸ä¼šæ¨èç®—æ³•ï¼Œæ‰€ä»¥ç®€å•å±•ç¤ºä¸€ä¸‹è¡¨æ ¼ä¸­å‰å‡ é¡¹çš„å•†å“
         	Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-        	//¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+        	//å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
         	String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-        	//ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
+        	//å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
         	Connection conn= DriverManager.getConnection(url,"root","yuan1234");
-        	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
+        	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
         	String string="select id,picture,name from goods";
         	ResultSet rs=st.executeQuery(string);
         	//rs.last();
         	//if(rs.getRow()>0){
        		int v=0;
        		//rs.first();
-       		while(rs.next()&&v!=8)//ÏÔÊ¾ÉÌÆ·ĞÅÏ¢
+       		while(rs.next()&&v!=8)//æ˜¾ç¤ºå•†å“ä¿¡æ¯
        		{
-       			out.print("<a href='Goods.jsp?goodsid="+rs.getString("id")+"'><div class='divdiv' ><img src='"+(rs.getString("picture")==null||"".equals(rs.getString("picture"))?"/pt/imeg/timg (3).jpg":"/pt/imeg/"+URLEncoder.encode(rs.getString("picture"),"gb18030"))+"' alt='ÕâÊÇÉÌÆ·'></div></a>");
+       			out.print("<a href='Goods.jsp?goodsid="+rs.getString("id")+"'><div class='divdiv' ><img src='"+(rs.getString("picture")==null||"".equals(rs.getString("picture"))?"/pt/imeg/timg (3).jpg":"/pt/imeg/"+URLEncoder.encode(rs.getString("picture"),"gb18030"))+"' alt='è¿™æ˜¯å•†å“'></div></a>");
        			out.print("<a href='Goods.jsp?goodsid="+rs.getString("id")+"'><div class='divstyle' >"+rs.getString("name")+"</div></a><br>");
        			v++;
        		}
