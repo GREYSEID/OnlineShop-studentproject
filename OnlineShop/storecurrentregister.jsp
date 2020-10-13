@@ -19,7 +19,7 @@ else{
 }
 %>
 	<meta charset="GB18030">
-	<title>ÏêÏ¸×¢²á</title>
+	<title>è¯¦ç»†æ³¨å†Œ</title>
 	<link rel="stylesheet" type="text/css" href="taotao.css">
 	<style type="text/css">
 		a {
@@ -72,15 +72,15 @@ else{
 			var second = t.getSeconds();
 			var curWeek;
 			switch (week) {
-				case 0: curWeek = "ĞÇÆÚÈÕ"; break;
-				case 1: curWeek = "ĞÇÆÚÒ»"; break;
-				case 2: curWeek = "ĞÇÆÚ¶ş"; break;
-				case 3: curWeek = "ĞÇÆÚÈı"; break;
-				case 4: curWeek = "ĞÇÆÚËÄ"; break;
-				case 5: curWeek = "ĞÇÆÚÎå"; break;
-				case 6: curWeek = "ĞÇÆÚÁù"; break;
+				case 0: curWeek = "æ˜ŸæœŸæ—¥"; break;
+				case 1: curWeek = "æ˜ŸæœŸä¸€"; break;
+				case 2: curWeek = "æ˜ŸæœŸäºŒ"; break;
+				case 3: curWeek = "æ˜ŸæœŸä¸‰"; break;
+				case 4: curWeek = "æ˜ŸæœŸå››"; break;
+				case 5: curWeek = "æ˜ŸæœŸäº”"; break;
+				case 6: curWeek = "æ˜ŸæœŸå…­"; break;
 			}
-			var time = " " + year + "Äê" + month + "ÔÂ" + day + "ÈÕ " + curWeek + " " + hour + ":" + minute + ":" + second;
+			var time = " " + year + "å¹´" + month + "æœˆ" + day + "æ—¥ " + curWeek + " " + hour + ":" + minute + ":" + second;
 			document.getElementById("time").innerHTML = time;
 		}
 		setInterval("showTime()", 1000);
@@ -90,25 +90,25 @@ else{
 <body style="margin: 0;padding: 0;overflow: visible;background-color: #f5f5f5;" onload="showTime()">
 	<div class="firsttitle">
 		<a href="storeLogin.html"
-			style="color: red;margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">µÇÂ¼</a>
+			style="color: red;margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">ç™»å½•</a>
 		<a href="storecurrentregister.jsp"
-			style="margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">×¢²á</a>
-		<a href="storeuserimf.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">ÉÌ¼ÒĞÅÏ¢ĞŞ¸Ä</a>
+			style="margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">æ³¨å†Œ</a>
+		<a href="storeuserimf.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">å•†å®¶ä¿¡æ¯ä¿®æ”¹</a>
 		<a href="orderManage.jsp?action=2"
-			style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">¹ºÂò¼ÇÂ¼</a>
-		<a href="logout.jsp?action=2" style="margin-left: 10px;margin-right: 10px;">×¢Ïú</a>
-		<a href="goodsManage.jsp" style="margin-left: 10px;margin-right: 10px;">Ö÷Ò³</a>
+			style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">è´­ä¹°è®°å½•</a>
+		<a href="logout.jsp?action=2" style="margin-left: 10px;margin-right: 10px;">æ³¨é”€</a>
+		<a href="goodsManage.jsp" style="margin-left: 10px;margin-right: 10px;">ä¸»é¡µ</a>
 		<span id="time" style="float:right;width: 150px;"> </span>
-		<a href="index.jsp" style="float: right;margin-left: 10px;margin-right: 10px;">¿Í»§Èë¿Ú</a>
-		<a href="mailo:GREYSEID@hotmail.com" style="float: right;margin-left: 10px;margin-right: 10px;">¿Í·ş</a>
+		<a href="index.jsp" style="float: right;margin-left: 10px;margin-right: 10px;">å®¢æˆ·å…¥å£</a>
+		<a href="mailo:GREYSEID@hotmail.com" style="float: right;margin-left: 10px;margin-right: 10px;">å®¢æœ</a>
 	</div>
-	<a href="goodsManage.jsp">Ö÷Ò³</a>
+	<a href="goodsManage.jsp">ä¸»é¡µ</a>
 	<br>
 	<br>
 	<br>
 	<br>
 	<div class=borderstyle>
-		<h1>ÉÌ¼ÒÏêÏ¸×¢²á</h1>
+		<h1>å•†å®¶è¯¦ç»†æ³¨å†Œ</h1>
 		<form action="storeinsertregister.jsp" method="post" style="text-align:center;" enctype="multipart/form-data">
 			<table style="margin: 0 auto;text-align: left;">
 				<tbody>
@@ -116,13 +116,13 @@ else{
 						<td><input type="file" name="fileUpload" accept="image/*" onchange="see('files','imgs')"
 								id="files"></td>
 						<td>
-							<div style="height: 100px;width:100px;overflow: hidden;border-radius: 50%;"><img alt="Í·Ïñ"
+							<div style="height: 100px;width:100px;overflow: hidden;border-radius: 50%;"><img alt="å¤´åƒ"
 									src="/pt/imeg/timg1.jpg" style="height: 100%;" id="imgs"></div>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<label for='id'>ÉÌµêID:</label>
+							<label for='id'>å•†åº—ID:</label>
 						</td>
 						<td>
 							<input type="text" name='id' id='id' required="required">
@@ -130,7 +130,7 @@ else{
 					</tr>
 					<tr>
 						<td>
-							<label for='email'>ÓÊÏä:</label>
+							<label for='email'>é‚®ç®±:</label>
 						</td>
 						<td>
 							<input type='text' name='email' id='email'>
@@ -138,7 +138,7 @@ else{
 					</tr>
 					<tr>
 						<td>
-							<label for='name'>ÉÌµêÃû</label>
+							<label for='name'>å•†åº—å</label>
 						</td>
 						<td>
 							<input type='text' name='name' id='name' required>
@@ -146,7 +146,7 @@ else{
 					</tr>
 					<tr>
 						<td>
-							<label for='userpwd'>ÃÜÂë:</label>
+							<label for='userpwd'>å¯†ç :</label>
 						</td>
 						<td>
 							<input type='password' name='pwd' id='pwd' required='required' onkeyup="test()">
@@ -154,7 +154,7 @@ else{
 					</tr>
 					<tr>
 						<td>
-							<label for='confirm'>È·ÈÏÃÜÂë:</label>
+							<label for='confirm'>ç¡®è®¤å¯†ç :</label>
 						</td>
 						<td>
 							<input type='password' id='confirm' name='confirm' onkeyup="test()" required='required'>
@@ -162,7 +162,7 @@ else{
 					</tr>
 					<tr>
 						<td>
-							<label for='phone'>ÊÖ»úºÅ:</label>
+							<label for='phone'>æ‰‹æœºå·:</label>
 						</td>
 						<td>
 							<input type='text' name='phone' id='phone' oninput="value=value.replace(/[^\d]/g,'')">
@@ -170,19 +170,19 @@ else{
 					</tr>
 					<tr>
 						<td>
-							<label for='city'>³Ç&nbsp;&nbsp;&nbsp;ÊĞ:</label>
+							<label for='city'>åŸ&nbsp;&nbsp;&nbsp;å¸‚:</label>
 						</td>
 						<td style="padding-left=0;">
 							<select name="city">
 								<%
 			  	try{
 			  	Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-		  	    //¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+		  	    //å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
 		  	    String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-		  	    //ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
-		  	    Connection conn= DriverManager.getConnection(url,"root","yuan1234");
+		  	    //å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
+		  	    Connection conn= DriverManager.getConnection(url,"root","********");
 		  	  	Statement stmt=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-			  	ResultSet res=stmt.executeQuery("select cityname from city");//Ç¶Ì×Ê¹ÓÃ¶àÒ»¸östatement
+			  	ResultSet res=stmt.executeQuery("select cityname from city");//åµŒå¥—ä½¿ç”¨å¤šä¸€ä¸ªstatement
 			  	out.print("<option value='null' selected='selected'>---</option>");
 			  	while(res.next())
 			  	{
@@ -196,7 +196,7 @@ else{
 			  	catch(Exception e)
 			  	{
 			  		e.printStackTrace();
-			  		out.print("<script>alert('¶ÁÈ¡Êı¾İ¿â´íÎó'); window.location.href = 'storecurrentregister.jsp';</script>");
+			  		out.print("<script>alert('è¯»å–æ•°æ®åº“é”™è¯¯'); window.location.href = 'storecurrentregister.jsp';</script>");
 			  	}
 			  	%>
 							</select>
@@ -204,7 +204,7 @@ else{
 					</tr>
 					<tr>
 						<td style="vertical-align:text-top;">
-							<label for='address'>µØ&nbsp;&nbsp;&nbsp;Ö·:</label>
+							<label for='address'>åœ°&nbsp;&nbsp;&nbsp;å€:</label>
 						</td>
 						<td colspan='2'>
 							<textarea rows='5' cols='40' name='address' id='address'></textarea>
@@ -217,7 +217,7 @@ else{
 					</tr>
 				</tbody>
 			</table>
-			<input type="submit" value="×¢²á" id="submit">
+			<input type="submit" value="æ³¨å†Œ" id="submit">
 		</form>
 	</div>
 </body>
