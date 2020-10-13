@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="GB18030">
+	<title>welcome</title>
+	<style>
+		div {
+			height: 100px;
+			width: 300px;
+			margin: 0 auto;
+			color: white;
+			font-size: 50px;
+			position: absolute;
+			top: 40%;
+			left: 40%;
+			text-shadow: 0 0 10px aqua;
+		}
+
+		body {
+			background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1591871543&di=6950d10d2cb4485bd01ab2253829849f&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fwallpaper%2F1306%2F03%2Fc0%2F21608389_1370244342428.jpg);
+			background-size: 100%;
+		}
+	</style>
+	<script type="text/javascript">
+		var t = 1;
+		function timer() {
+			document.getElementById("time").innerText = "" + t + "s";
+			t--;
+			if (t == 0) window.location.href = "index.jsp";
+		}
+		setInterval(timer, 1000);
+	</script>
+</head>
+
+<body>
+	<div>
+		<span>welcome</span>
+		<span id="time"></span>
+	</div>
+</body>
+
+</html>

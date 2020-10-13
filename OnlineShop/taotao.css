@@ -1,0 +1,206 @@
+@charset "utf-8";
+body {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.firsttitle {
+    background-color: #CCCCCC;
+    padding: 5px;
+    font-size: x-small;
+    height: 15px;
+    top: 0;
+}
+
+a {
+    text-decoration: none;
+    color: grey;
+}
+
+a:visited {
+    color: grey;
+}
+
+a:hover {
+    color: red;
+}
+
+input {
+    box-sizing: border-box;
+}
+
+input.searchstyle {
+    height: 30px;
+    width: 500px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border: 1px solid blue;
+    vertical-align: bottom;
+}
+
+input::-webkit-input-placeholder {
+    text-align: center;
+}
+
+input.searchstyle:focus {
+    transition: 0.3s;
+    border-radius: 0px;
+    box-shadow: 0 0 5px blue;
+}
+
+input.searchButton {
+    height: 30px;
+    width: 100px;
+    border: 1px solid blue;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    vertical-align: bottom;
+    background-color: #0066ff;
+    color: white;
+}
+
+input.searchButton:focus {
+    transition: 0.3s;
+    box-shadow: 0 0 5px blue;
+}
+
+form.loginregister {
+    float: left;
+    text-align: center;
+}
+
+input.lrstyle {
+    margin: 10px 0 10px 0;
+    width: 300px;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+
+.liststyle {
+    width: 200px;
+    height: auto;
+    position: sticky;
+    top: 0;
+    float: left;
+    border: 1px solid #4a93ff;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.liststyle a.one {
+    text-decoration: none;
+    color: rgb(46, 46, 46);
+    display: block;
+    width: 200px;
+    height: 30px;
+}
+
+.liststyle a.one:hover {
+    color: rgb(255, 123, 123);
+    background-color: rgb(211, 211, 211);
+}
+
+span.arrowstyle {
+    float: right;
+    font-weight: bolder;
+}
+
+td.imgstyle {
+    height: 333px;
+    width: 333px;
+}
+
+td.goodsstyle {
+    width: 333px;
+    height: 30px;
+    background-color: rgb(214, 214, 214);
+    border: 0;
+}
+
+div.wordstyle {
+    text-align: center;
+    font-size: 15px;
+    height: 100%;
+    width: 100%;
+    border: 0;
+    cursor: default;
+    color: rgb(49, 49, 49);
+}
+
+.wordstyle:hover {
+    color: rgb(255, 58, 58);
+}
+
+img {
+    vertical-align: bottom;
+}
+
+div.store {
+    float: left;
+    width: 270px;
+}
+
+.store img {
+    width: 80px;
+    height: 80px;
+}
+
+.store a {
+    float: left;
+    margin: 5px;
+}
+
+div.final {
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    font-size: 10px;
+}
+
+
+.hidehide {
+    position: absolute;
+    left: 201px;
+    border: 1px solid #4a93ff;
+    top: 23px;
+    background-color: #fff;
+    display: none;
+    width: 200px;
+    height: 496px;
+}
+
+.showhide {
+    list-style: none;
+}
+
+.showhide:hover .hidehide {
+    display: block;
+}
+
+.hidehide .more {
+    font-size: 10px;
+    color: black;
+}
+
+.hidehide a.two {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.hidehide a.two:hover {
+    color: red;
+}
+
+.hidehide span {
+    float: left;
+    margin: 10px;
+    cursor: default;
+}
+
+.hidehide span:hover {
+    background-color: rgb(199, 199, 199);
+}
