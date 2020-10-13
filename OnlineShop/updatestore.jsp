@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="GB18030">
-<title>¸üĞÂĞÅÏ¢</title>
+<title>æ›´æ–°ä¿¡æ¯</title>
 </head>
 <body>
 <jsp:useBean id="mySmartUpload" scope="page" class="com.jspsmart.upload.SmartUpload"/>
@@ -15,15 +15,15 @@ try{
 	count=Integer.parseInt(application.getAttribute("counter").toString());
 }
 catch(Exception e){
-    out.println("counterÃ»ÉèÖÃ");
+    out.println("counteræ²¡è®¾ç½®");
 }
 String head=null;
-String filepath="D:\\pt\\imeg";//ÉÏ´«µÄÍ¼Æ¬·ÅÔÚĞéÄâÄ¿Â¼/pt/imeg/
+String filepath="D:\\pt\\imeg";//ä¸Šä¼ çš„å›¾ç‰‡æ”¾åœ¨è™šæ‹Ÿç›®å½•/pt/imeg/
 try{
 mySmartUpload.initialize(pageContext);
-mySmartUpload.setAllowedFilesList("jpg,bmp,gif,png,JEPG,BMP,GIF,PNG,jpeg,JPG");//ÉèÖÃ½ÓÊÕÎÄ¼şÀàĞÍ
-mySmartUpload.setMaxFileSize(10000000);    //ÏŞÖÆÉÏ´«ÎÄ¼şµÄ³¤¶È
-		  mySmartUpload.setTotalMaxFileSize(20000000);//ÏŞÖÆÉÏ´«ÎÄ¼şµÄ×Ü³¤¶È
+mySmartUpload.setAllowedFilesList("jpg,bmp,gif,png,JEPG,BMP,GIF,PNG,jpeg,JPG");//è®¾ç½®æ¥æ”¶æ–‡ä»¶ç±»å‹
+mySmartUpload.setMaxFileSize(10000000);    //é™åˆ¶ä¸Šä¼ æ–‡ä»¶çš„é•¿åº¦
+		  mySmartUpload.setTotalMaxFileSize(20000000);//é™åˆ¶ä¸Šä¼ æ–‡ä»¶çš„æ€»é•¿åº¦
 mySmartUpload.upload();
 com.jspsmart.upload.File myfile=mySmartUpload.getFiles().getFile(0);
 java.io.File f=new java.io.File(filepath+"\\"+myfile.getFileName());
@@ -32,7 +32,7 @@ if(!myfile.isMissing())
 	if(!f.exists()){
 		myfile.saveAs(filepath+"\\"+myfile.getFileName());
 		head=myfile.getFileName();
-		out.print("ÉÏ´«³É¹¦");
+		out.print("ä¸Šä¼ æˆåŠŸ");
 	}
 	else{
 		String str=null;
@@ -47,7 +47,7 @@ if(!myfile.isMissing())
 		head=str+myfile.getFileName();
 		count++;
 		application.setAttribute("counter",count);
-		out.print("ÉÏ´«³É¹¦");
+		out.print("ä¸Šä¼ æˆåŠŸ");
 	}
 }
 }
@@ -67,11 +67,11 @@ catch(Exception e)
         	String storeid=(String)session.getAttribute("storeid");
             if(storeid==null)response.sendRedirect("goodsManage.jsp");
                Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-          	  //¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+          	  //å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
           	  String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai";
-          	  //ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
-          	  Connection conn= DriverManager.getConnection(url,"root","yuan1234");
-	          	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
+          	  //å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
+          	  Connection conn= DriverManager.getConnection(url,"root","********");
+	          	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
 		        String email=mySmartUpload.getRequest().getParameter("storeemail");
 		        String name=mySmartUpload.getRequest().getParameter("storename");
 		        String pwd=mySmartUpload.getRequest().getParameter("storepwd");
@@ -86,12 +86,12 @@ catch(Exception e)
       			+((head==null)?"":(",picture='"+head+"'"))+" where storeid='"+storeid+"'";
 		      	int result=st.executeUpdate(sql);
 		      	if(result==0){
-		      		java.io.File f=new java.io.File(filepath+head);//Èç¹û¸üĞÂÊ§°Üµ«ÊÇÎÄ¼şÒÑ¾­ÉÏ´«³É¹¦ÁË£¬ËùÒÔÒªÉ¾³ı
+		      		java.io.File f=new java.io.File(filepath+head);//å¦‚æœæ›´æ–°å¤±è´¥ä½†æ˜¯æ–‡ä»¶å·²ç»ä¸Šä¼ æˆåŠŸäº†ï¼Œæ‰€ä»¥è¦åˆ é™¤
 		        	if(!f.exists()){
 		        		f.delete();
-		        		out.print("É¾³ı³É¹¦");
+		        		out.print("åˆ é™¤æˆåŠŸ");
 		        	}
-		      		out.print("<script>alert('¸üĞÂÊ§°Ü');window.location.href='userimf.jsp';</script>");
+		      		out.print("<script>alert('æ›´æ–°å¤±è´¥');window.location.href='userimf.jsp';</script>");
 		      	}
 		      	st.close();
 				conn.close();
@@ -101,10 +101,10 @@ catch(Exception e)
         {
         	out.print(e);
         	e.printStackTrace();
-        	java.io.File f=new java.io.File(filepath+head);//Èç¹û¸üĞÂÊ§°Üµ«ÊÇÎÄ¼şÒÑ¾­ÉÏ´«³É¹¦ÁË£¬ËùÒÔÒªÉ¾³ı
+        	java.io.File f=new java.io.File(filepath+head);//å¦‚æœæ›´æ–°å¤±è´¥ä½†æ˜¯æ–‡ä»¶å·²ç»ä¸Šä¼ æˆåŠŸäº†ï¼Œæ‰€ä»¥è¦åˆ é™¤
         	if(!f.exists()){
         		f.delete();
-        		out.print("É¾³ı³É¹¦");
+        		out.print("åˆ é™¤æˆåŠŸ");
         	}
         }
         %>
