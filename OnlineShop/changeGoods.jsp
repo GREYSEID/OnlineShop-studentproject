@@ -5,7 +5,7 @@
 
 <head>
 	<meta charset="GB18030">
-	<title>¸üĞÂÉÌÆ·</title>
+	<title>æ›´æ–°å•†å“</title>
 	<%
 String storeid=(String)session.getAttribute("storeid");
 String boolcodeout="inline";
@@ -34,13 +34,13 @@ String goodsintroduction=null;
 String goodscount=null;
 try{
   Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-  //¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+  //å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
   String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-  //ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
-  Connection conn= DriverManager.getConnection(url,"root","yuan1234");
-	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
+  //å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
+  Connection conn= DriverManager.getConnection(url,"root","********");
+	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
 	ResultSet rs=st.executeQuery("select * from goods where id="+"\""+goodsid+"\"");
-	rs.next();//»ñÈ¡ÉÌÆ·µÄÏêÏ¸ĞÅÏ¢
+	rs.next();//è·å–å•†å“çš„è¯¦ç»†ä¿¡æ¯
 	goodspicture=rs.getString("picture");
 	goodspicture2=rs.getString("picture2");
 	goodspicture3=rs.getString("picture3");
@@ -140,15 +140,15 @@ catch(Exception e)
 			var second = t.getSeconds();
 			var curWeek;
 			switch (week) {
-				case 0: curWeek = "ĞÇÆÚÈÕ"; break;
-				case 1: curWeek = "ĞÇÆÚÒ»"; break;
-				case 2: curWeek = "ĞÇÆÚ¶ş"; break;
-				case 3: curWeek = "ĞÇÆÚÈı"; break;
-				case 4: curWeek = "ĞÇÆÚËÄ"; break;
-				case 5: curWeek = "ĞÇÆÚÎå"; break;
-				case 6: curWeek = "ĞÇÆÚÁù"; break;
+				case 0: curWeek = "æ˜ŸæœŸæ—¥"; break;
+				case 1: curWeek = "æ˜ŸæœŸä¸€"; break;
+				case 2: curWeek = "æ˜ŸæœŸäºŒ"; break;
+				case 3: curWeek = "æ˜ŸæœŸä¸‰"; break;
+				case 4: curWeek = "æ˜ŸæœŸå››"; break;
+				case 5: curWeek = "æ˜ŸæœŸäº”"; break;
+				case 6: curWeek = "æ˜ŸæœŸå…­"; break;
 			}
-			var time = " " + year + "Äê" + month + "ÔÂ" + day + "ÈÕ " + curWeek + " " + hour + ":" + minute + ":" + second;
+			var time = " " + year + "å¹´" + month + "æœˆ" + day + "æ—¥ " + curWeek + " " + hour + ":" + minute + ":" + second;
 			document.getElementById("time").innerHTML = time;
 		}
 		setInterval("showTime()", 1000);
@@ -158,25 +158,25 @@ catch(Exception e)
 <body style="margin: 0;padding: 0;overflow: visible;background-color: #f5f5f5;" onload="showTime()">
 	<div class="firsttitle">
 		<a href="storeLogin.html"
-			style="color: red;margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">µÇÂ¼</a>
+			style="color: red;margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">ç™»å½•</a>
 		<a href="storecurrentregister.jsp"
-			style="margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">×¢²á</a>
-		<a href="storeuserimf.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">ÉÌ¼ÒĞÅÏ¢ĞŞ¸Ä</a>
+			style="margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">æ³¨å†Œ</a>
+		<a href="storeuserimf.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">å•†å®¶ä¿¡æ¯ä¿®æ”¹</a>
 		<a href="orderManage.jsp?action=2"
-			style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">¹ºÂò¼ÇÂ¼</a>
-		<a href="logout.jsp" style="margin-left: 10px;margin-right: 10px;">×¢Ïú</a>
-		<a href="goodsManage.jsp" style="margin-left: 10px;margin-right: 10px;">Ö÷Ò³</a>
+			style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">è´­ä¹°è®°å½•</a>
+		<a href="logout.jsp" style="margin-left: 10px;margin-right: 10px;">æ³¨é”€</a>
+		<a href="goodsManage.jsp" style="margin-left: 10px;margin-right: 10px;">ä¸»é¡µ</a>
 		<span id="time" style="float:right;width: 150px;"> </span>
-		<a href="index.jsp" style="float: right;margin-left: 10px;margin-right: 10px;">¿Í»§Èë¿Ú</a>
-		<a href="mailo:GREYSEID@hotmail.com" style="float: right;margin-left: 10px;margin-right: 10px;">¿Í·ş</a>
+		<a href="index.jsp" style="float: right;margin-left: 10px;margin-right: 10px;">å®¢æˆ·å…¥å£</a>
+		<a href="mailo:GREYSEID@hotmail.com" style="float: right;margin-left: 10px;margin-right: 10px;">å®¢æœ</a>
 	</div>
-	<a href="goodsManage.jsp">Ö÷Ò³</a>
+	<a href="goodsManage.jsp">ä¸»é¡µ</a>
 	<br>
 	<br>
 	<br>
 	<br>
 	<div class=borderstyle>
-		<h1>¸üĞÂÉÌÆ·</h1>
+		<h1>æ›´æ–°å•†å“</h1>
 		<form action="changegood.jsp" method="post" enctype="multipart/form-data">
 			<table style="text-align: left;margin: 0 auto;">
 				<tr>
@@ -191,7 +191,7 @@ catch(Exception e)
 						<input type="file" name="fileUpload" accept="image/*"
 							onchange="see('files','imgs','piturenum1')" id="files"></td>
 					<td>
-						<div style="height: 100px;width:100px;overflow: hidden;"><img alt="Í¼Æ¬" src="<%=goodspicture %>"
+						<div style="height: 100px;width:100px;overflow: hidden;"><img alt="å›¾ç‰‡" src="<%=goodspicture %>"
 								style="height: 100%;" id="imgs"></div>
 					</td>
 				</tr>
@@ -201,7 +201,7 @@ catch(Exception e)
 						<input type="file" name="fileUpload" accept="image/*"
 							onchange="see('files2','imgs2','piturenum2')" id="files2"></td>
 					<td>
-						<div style="height: 100px;width:100px;overflow: hidden;"><img alt="Í¼Æ¬" src="<%=goodspicture2 %>"
+						<div style="height: 100px;width:100px;overflow: hidden;"><img alt="å›¾ç‰‡" src="<%=goodspicture2 %>"
 								style="height: 100%;" id="imgs2"></div>
 					</td>
 				</tr>
@@ -211,7 +211,7 @@ catch(Exception e)
 						<input type="file" name="fileUpload" accept="image/*"
 							onchange="see('files3','imgs3','piturenum3')" id="files3"></td>
 					<td>
-						<div style="height: 100px;width:100px;overflow: hidden;"><img alt="Í¼Æ¬" src="<%=goodspicture3 %>"
+						<div style="height: 100px;width:100px;overflow: hidden;"><img alt="å›¾ç‰‡" src="<%=goodspicture3 %>"
 								style="height: 100%;" id="imgs3"></div>
 					</td>
 				</tr>
@@ -221,30 +221,30 @@ catch(Exception e)
 						<input type="file" name="fileUpload" accept="image/*"
 							onchange="see('files4','imgs4','piturenum4')" id="files4"></td>
 					<td>
-						<div style="height: 100px;width:100px;overflow: hidden;"><img alt="Í¼Æ¬" src="<%=goodspicture4 %>"
+						<div style="height: 100px;width:100px;overflow: hidden;"><img alt="å›¾ç‰‡" src="<%=goodspicture4 %>"
 								style="height: 100%;" id="imgs4"></div>
 					</td>
 				</tr>
 				<tr>
-					<td><label for="goodsname">ÉÌÆ·Ãû</label></td>
+					<td><label for="goodsname">å•†å“å</label></td>
 					<td><input type="text" name="goodsname" id="goodsname" value="<%=goodsname %>"></td>
 				</tr>
 				<tr>
-					<td><label for="goodsprice">¼Û¸ñ</label></td>
+					<td><label for="goodsprice">ä»·æ ¼</label></td>
 					<td><input type="text" name="goodsprice" id="goodsprice" value="<%=goodsprice %>"
 							required="required"></td>
 				</tr>
 				<tr>
-					<td><label for="goodscount">¿â´æ</label></td>
+					<td><label for="goodscount">åº“å­˜</label></td>
 					<td><input type="text" name="goodscount" id="goodscount" value="<%=goodscount %>"
 							required="required" oninput="value=value.replace(/[^\d]/g,'')"></td>
 				</tr>
 				<tr>
-					<td><label for="goodstag">±êÇ©</label></td>
+					<td><label for="goodstag">æ ‡ç­¾</label></td>
 					<td><input type="text" name="goodstag" id="goodstag" value="<%=goodstag %>"></td>
 				</tr>
 				<tr>
-					<td style="vertical-align:text-top;"><label for="goodsintroduction">½éÉÜ</label>
+					<td style="vertical-align:text-top;"><label for="goodsintroduction">ä»‹ç»</label>
 					<td><textarea rows="5" cols="40" colspan="2" name="goodsintroduction"
 							id="goodsintroduction"><%=goodsintroduction %></textarea></td>
 				</tr>
@@ -254,7 +254,7 @@ catch(Exception e)
 					<td style="width: 140px;"></td>
 				</tr>
 			</table>
-			<input type="submit" value="¸üĞÂ">
+			<input type="submit" value="æ›´æ–°">
 		</form>
 	</div>
 	<br>
