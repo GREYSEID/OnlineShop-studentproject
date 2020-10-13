@@ -290,7 +290,7 @@ catch(Exception e)
 	                    //定义连接字符串,东八区GMT%2B8
 	                    String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
 	                    //和数据库建立连接
-	                    Connection conn= DriverManager.getConnection(url,"root","yuan1234");
+	                    Connection conn= DriverManager.getConnection(url,"root","********");
 	                	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//参数设置默认的话rs只能用next()
 	                	ResultSet rs=st.executeQuery("select nickname,head from myuser where id="+userid);
 	                	while(rs.next())
@@ -329,7 +329,7 @@ try{//因为不会推荐算法，所以简单展示一下表格中前几项的�
 	//定义连接字符串,东八区GMT%2B8
 	String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
 	//和数据库建立连接
-	Connection conn= DriverManager.getConnection(url,"root","yuan1234");
+	Connection conn= DriverManager.getConnection(url,"root","********");
 	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//参数设置默认的话rs只能用next()
 	String str="select picture,email,phone,address from storeacc where storeid="+storeid;
 	ResultSet rs=st.executeQuery(str);
