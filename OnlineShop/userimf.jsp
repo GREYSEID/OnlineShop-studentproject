@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>ÓÃ»§ĞÅÏ¢</title>
+        <title>ç”¨æˆ·ä¿¡æ¯</title>
         <meta charset="GB18030">
         <meta name="author" content="GREYSEID">
         <link rel="stylesheet" type="text/css" href="taotao.css">
@@ -54,15 +54,15 @@
             var second = t.getSeconds();
             var curWeek;
             switch (week) {
-                case 0: curWeek = "ĞÇÆÚÈÕ"; break;
-                case 1: curWeek = "ĞÇÆÚÒ»"; break;
-                case 2: curWeek = "ĞÇÆÚ¶ş"; break;
-                case 3: curWeek = "ĞÇÆÚÈı"; break;
-                case 4: curWeek = "ĞÇÆÚËÄ"; break;
-                case 5: curWeek = "ĞÇÆÚÎå"; break;
-                case 6: curWeek = "ĞÇÆÚÁù"; break;
+                case 0: curWeek = "æ˜ŸæœŸæ—¥"; break;
+                case 1: curWeek = "æ˜ŸæœŸä¸€"; break;
+                case 2: curWeek = "æ˜ŸæœŸäºŒ"; break;
+                case 3: curWeek = "æ˜ŸæœŸä¸‰"; break;
+                case 4: curWeek = "æ˜ŸæœŸå››"; break;
+                case 5: curWeek = "æ˜ŸæœŸäº”"; break;
+                case 6: curWeek = "æ˜ŸæœŸå…­"; break;
             }
-            var time = " " + year + "Äê" + month + "ÔÂ" + day + "ÈÕ " + curWeek + " " + hour + ":" + minute + ":" + second;
+            var time = " " + year + "å¹´" + month + "æœˆ" + day + "æ—¥ " + curWeek + " " + hour + ":" + minute + ":" + second;
             document.getElementById("time").innerHTML = time;
         }
         setInterval("showTime()", 1000);
@@ -83,18 +83,18 @@
     }
     %>
     <div class="firsttitle">
-        <a href="loginregister.html?login=true" style="color: red;margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">µÇÂ¼</a>
-        <a href="currentregister.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">×¢²á</a>
-        <a href="userimf.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">¸öÈËÒ³Ãæ</a>
-        <a href="Cart.jsp" style="margin-left: 10px;margin-right: 10px;">ÎÒµÄ¹ºÎï³µ</a>
-        <a href="orderManage.jsp?action=1" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">¹ºÂò¼ÇÂ¼</a>
-        <a href="logout.jsp" style="margin-left: 10px;margin-right: 10px;">×¢Ïú</a>
-        <a href="index.jsp" style="margin-left: 10px;margin-right: 10px;">Ö÷Ò³</a>
+        <a href="loginregister.html?login=true" style="color: red;margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">ç™»å½•</a>
+        <a href="currentregister.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">æ³¨å†Œ</a>
+        <a href="userimf.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">ä¸ªäººé¡µé¢</a>
+        <a href="Cart.jsp" style="margin-left: 10px;margin-right: 10px;">æˆ‘çš„è´­ç‰©è½¦</a>
+        <a href="orderManage.jsp?action=1" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">è´­ä¹°è®°å½•</a>
+        <a href="logout.jsp" style="margin-left: 10px;margin-right: 10px;">æ³¨é”€</a>
+        <a href="index.jsp" style="margin-left: 10px;margin-right: 10px;">ä¸»é¡µ</a>
         <span id="time" style="float:right;width: 150px;"> </span>
-        <a href="goodsManage.jsp" style="float: right;margin-left: 10px;margin-right: 10px;">ÉÌ¼ÒÈë¿Ú</a>
-        <a href="mailo:GREYSEID@hotmail.com" style="float: right;margin-left: 10px;margin-right: 10px;">¿Í·ş</a>
+        <a href="goodsManage.jsp" style="float: right;margin-left: 10px;margin-right: 10px;">å•†å®¶å…¥å£</a>
+        <a href="mailo:GREYSEID@hotmail.com" style="float: right;margin-left: 10px;margin-right: 10px;">å®¢æœ</a>
     </div>
-    <a href="index.jsp">Ö÷Ò³</a>
+    <a href="index.jsp">ä¸»é¡µ</a>
     <br>
     <br>
     <br>
@@ -107,86 +107,86 @@
         <%
         request.setCharacterEncoding("gb18030");
         String register=request.getParameter("register");
-        String value="ĞŞ¸Ä";
+        String value="ä¿®æ”¹";
         if("true".equals(register)){
-        	out.print("<h1>ÍêÉÆ×ÊÁÏ</h1>");
-        	value="ÍêÉÆ";
+        	out.print("<h1>å®Œå–„èµ„æ–™</h1>");
+        	value="å®Œå–„";
         }
         try{
 	        Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-	  	    //¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+	  	    //å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
 	  	    String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-	  	    //ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
-	  	    Connection conn= DriverManager.getConnection(url,"root","yuan1234");
-		  	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
+	  	    //å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
+	  	    Connection conn= DriverManager.getConnection(url,"root","********");
+		  	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
 		  	ResultSet rs=st.executeQuery("select * from myuser where id="+"\""+userid+"\"");
 		  	Statement stmt=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-		  	ResultSet res=stmt.executeQuery("select cityname from city");//Ç¶Ì×Ê¹ÓÃ¶àÒ»¸östatement
+		  	ResultSet res=stmt.executeQuery("select cityname from city");//åµŒå¥—ä½¿ç”¨å¤šä¸€ä¸ªstatement
 		  	if(rs.next())
 		  	{
-		  		String email=rs.getString("email");//tryÄÚµÄ±äÁ¿Ò²Ëã¾Ö²¿±äÁ¿£¬±ğµÄ¿é²»ÄÜÓÃ
+		  		String email=rs.getString("email");//tryå†…çš„å˜é‡ä¹Ÿç®—å±€éƒ¨å˜é‡ï¼Œåˆ«çš„å—ä¸èƒ½ç”¨
 		  		String nickname=rs.getString("nickname");
 		  		String name=rs.getString("name");
-		  		String age=rs.getString("age");//intÃ»ÓĞnull£¬Ö»ÓĞ0
+		  		String age=rs.getString("age");//intæ²¡æœ‰nullï¼Œåªæœ‰0
 			  	String pwd=rs.getString("pwd");
 			  	String phone=rs.getString("phone");
 			  	String address=rs.getString("address");
 			  	String city=rs.getString("city");
 			  	String head=rs.getString("head");
 			  	String gbk=null;
-			  	if(head!=null)gbk=URLEncoder.encode(head,"gb18030");//ÓĞÖĞÎÄÒª×ªÂë
+			  	if(head!=null)gbk=URLEncoder.encode(head,"gb18030");//æœ‰ä¸­æ–‡è¦è½¬ç 
 			  	%><tr><td><input type='file' name='fileUpload' accept="image/*" onchange="see('files','imgs')" id="files"></td><td>
-				<div style='height: 100px;width:100px;overflow: hidden;border-radius: 50%;'><img alt='Í·Ïñ' src="<%=(head==null?"/pt/imeg/timg1.jpg":"/pt/imeg/"+gbk) %>" style='height: 100%;' id='imgs'></div>
+				<div style='height: 100px;width:100px;overflow: hidden;border-radius: 50%;'><img alt='å¤´åƒ' src="<%=(head==null?"/pt/imeg/timg1.jpg":"/pt/imeg/"+gbk) %>" style='height: 100%;' id='imgs'></div>
 				</td></tr><%
 			  	out.print("<tr><td>");
-			  	out.print("<label for='userid'>ÓÃ»§ID:</label>");
+			  	out.print("<label for='userid'>ç”¨æˆ·ID:</label>");
 			  	out.print("</td><td>");
 			  	out.print("<input type=\"text\" disabled=true value='"+userid+"' name='userid' id='userid'>");
 			  	out.print("</td></tr>");
 			  	out.print("<tr><td>");
-			  	out.print("<label for='usernickname'>êÇ³Æ:</label>");
+			  	out.print("<label for='usernickname'>æ˜µç§°:</label>");
 			  	out.print("</td><td>");
-			  	if(nickname==null)out.print("<input type='text' name='usernickname' id='usernickname'>");//Èç¹ûÊıÖµÎªnullµÄ»°¿ÉÒÔ¼Ó.equals("null")
+			  	if(nickname==null)out.print("<input type='text' name='usernickname' id='usernickname'>");//å¦‚æœæ•°å€¼ä¸ºnullçš„è¯å¯ä»¥åŠ .equals("null")
 			  	else out.println("<input type='text' value='"+nickname+"' name='usernickname' id='usernickname'>");
 			  	out.print("</td></tr>");
 			  	out.print("<tr><td>");
-			  	out.print("<label for='useremail'>ÓÊÏä:</label>");
+			  	out.print("<label for='useremail'>é‚®ç®±:</label>");
 			  	out.print("</td><td>");
-			  	if(email==null)out.print("<input type='text' name='useremail' id='useremail'>");//Èç¹ûÊıÖµÎªnullµÄ»°¿ÉÒÔ¼Ó.equals("null")
+			  	if(email==null)out.print("<input type='text' name='useremail' id='useremail'>");//å¦‚æœæ•°å€¼ä¸ºnullçš„è¯å¯ä»¥åŠ .equals("null")
 			  	else out.println("<input type='text' value='"+email+"' name='useremail' id='useremail'>");
 			  	out.print("</td></tr>");
 			  	out.print("<tr><td>");
-			  	out.print("<label for='username'>ĞÕÃû:</label>");
+			  	out.print("<label for='username'>å§“å:</label>");
 			  	out.print("</td><td>");
 			  	if(name==null)out.print("<input type='text' name='username' id='username'>");
 			  	else out.print("<input type='text' value='"+name+"' name='username' id='username'>");
 			  	out.print("</td></tr>");
 			  	out.print("<tr><td>");
-			  	out.print("<label for='userage'>ÄêÁä:</label>");
+			  	out.print("<label for='userage'>å¹´é¾„:</label>");
 			  	out.print("</td><td>");
-			  	if(age==null)out.print("<input type='text' name='userage' id='userage' oninput = \"value=value.replace(/[^\\d]/g,'')\">");//Ö»ÄÜÊäÈëÊı×Ö
+			  	if(age==null)out.print("<input type='text' name='userage' id='userage' oninput = \"value=value.replace(/[^\\d]/g,'')\">");//åªèƒ½è¾“å…¥æ•°å­—
 			  	else out.print("<input type='text' value='"+age+"' name='userage' id='userage' oninput = \"value=value.replace(/[^\\d]/g,'')\">");
 			  	out.print("</td></tr>");
 			  	out.print("<tr><td>");
-			  	out.print("<label for='userpwd'>ÃÜÂë:</label>");
+			  	out.print("<label for='userpwd'>å¯†ç :</label>");
 			  	out.print("</td><td>");
 			  	if(pwd==null)out.print("<input type='password' name='userpwd' id='userpwd' required='required' onkeyup=\"test()\">");
 			  	else out.print("<input type='password' value='"+pwd+"' name=userpwd id='userpwd' required='required' onkeyup=\"test()\">");
 			  	out.print("</td></tr>");
 			  	out.print("<tr><td>");
-			  	%><label for='confirm'>È·ÈÏÃÜÂë:</label><%
+			  	%><label for='confirm'>ç¡®è®¤å¯†ç :</label><%
 			  	out.print("</td><td>");		
 			  	if(pwd==null)out.print("<input type='password' id='confirm' name='confirm' onkeyup=\"test()\" required='required'>");
 			  	else out.print("<input type='password' id='confirm' name='confirm' onkeyup=\"test()\" value='"+pwd+"'required='required'>");
 			  	out.print("</td></tr>");
 			  	out.print("<tr><td>");
-			  	out.print("<label for='userphone'>ÊÖ»úºÅ:</label>");
+			  	out.print("<label for='userphone'>æ‰‹æœºå·:</label>");
 			  	out.print("</td><td>");
 			  	if(phone==null)out.print("<input type='text' name='userphone' id='userphone' oninput = \"value=value.replace(/[^\\d]/g,'')\">");
 			  	else out.print("<input type='text' value='"+phone+"' name='userphone' id='userphone' oninput = \"value=value.replace(/[^\\d]/g,'')\">");
 			  	out.print("</td></tr>");
 			  	out.print("<tr><td>");
-			  	out.print("<label for='usercity'>³Ç&nbsp;&nbsp;&nbsp;ÊĞ:</label>");
+			  	out.print("<label for='usercity'>åŸ&nbsp;&nbsp;&nbsp;å¸‚:</label>");
 			  	out.print("</td><td style=\"padding-left=0;\">");
 			  	/*if(city==null)out.print("<input type='text' name='usercity' id='usercity'>");
 			  	else out.print("<input type='text' value='"+city+"' name='usercity' id='usercity'>");*/
@@ -200,7 +200,7 @@
 			  	%></select><%
 			  	out.print("</td></tr>");
 			  	out.print("<tr><td style=\"vertical-align:text-top;\">");
-			  	out.print("<label for='useraddress'>µØ&nbsp;&nbsp;&nbsp;Ö·:</label>");
+			  	out.print("<label for='useraddress'>åœ°&nbsp;&nbsp;&nbsp;å€:</label>");
 			  	out.print("</td><td  colspan='2'>");
 			  	if(address==null)out.print("<textarea rows='5' cols='40' name='useraddress' id='useraddress'>"+"</textarea>");
 			  	else out.print("<textarea rows='5' cols='40' name='useraddress' id='useraddress'>"+address+"</textarea>");
