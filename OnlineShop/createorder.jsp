@@ -5,7 +5,7 @@
 
 <head>
 	<meta charset="GB18030">
-	<title>´´½¨¶©µ¥</title>
+	<title>åˆ›å»ºè®¢å•</title>
 	<%
 String userid=(String)session.getAttribute("userid");
 if(userid==null)response.sendRedirect("loginregister.html");
@@ -37,15 +37,15 @@ if(request.getParameterValues("num")==null)out.print("<script>window.location.hr
 			var second = t.getSeconds();
 			var curWeek;
 			switch (week) {
-				case 0: curWeek = "ĞÇÆÚÈÕ"; break;
-				case 1: curWeek = "ĞÇÆÚÒ»"; break;
-				case 2: curWeek = "ĞÇÆÚ¶ş"; break;
-				case 3: curWeek = "ĞÇÆÚÈı"; break;
-				case 4: curWeek = "ĞÇÆÚËÄ"; break;
-				case 5: curWeek = "ĞÇÆÚÎå"; break;
-				case 6: curWeek = "ĞÇÆÚÁù"; break;
+				case 0: curWeek = "æ˜ŸæœŸæ—¥"; break;
+				case 1: curWeek = "æ˜ŸæœŸä¸€"; break;
+				case 2: curWeek = "æ˜ŸæœŸäºŒ"; break;
+				case 3: curWeek = "æ˜ŸæœŸä¸‰"; break;
+				case 4: curWeek = "æ˜ŸæœŸå››"; break;
+				case 5: curWeek = "æ˜ŸæœŸäº”"; break;
+				case 6: curWeek = "æ˜ŸæœŸå…­"; break;
 			}
-			var time = " " + year + "Äê" + month + "ÔÂ" + day + "ÈÕ " + curWeek + " " + hour + ":" + minute + ":" + second;
+			var time = " " + year + "å¹´" + month + "æœˆ" + day + "æ—¥ " + curWeek + " " + hour + ":" + minute + ":" + second;
 			document.getElementById("time").innerHTML = time;
 		}
 		setInterval("showTime()", 1000);
@@ -68,13 +68,13 @@ if(request.getParameterValues("num")==null)out.print("<script>window.location.hr
 
 <body style="margin: 0;padding: 0;overflow: visible;background-color: #f5f5f5;" onload="allprice();showtime()">
 	<div class="firsttitle">
-		<a href="userimf.jsp" style="margin-left: 10px;margin-right: 10px;">¸öÈËÒ³Ãæ</a>
-		<a href="Cart.jsp" style="margin-left: 10px;margin-right: 10px;">ÎÒµÄ¹ºÎï³µ</a>
-		<a href="orderManage.jsp?action=1" style="margin-left: 10px;margin-right: 10px;">¹ºÂò¼ÇÂ¼</a>
-		<a href="logout.jsp" style="margin-left: 10px;margin-right: 10px;">×¢Ïú</a>
-		<a href="index.jsp" style="margin-left: 10px;margin-right: 10px;">Ö÷Ò³</a>
+		<a href="userimf.jsp" style="margin-left: 10px;margin-right: 10px;">ä¸ªäººé¡µé¢</a>
+		<a href="Cart.jsp" style="margin-left: 10px;margin-right: 10px;">æˆ‘çš„è´­ç‰©è½¦</a>
+		<a href="orderManage.jsp?action=1" style="margin-left: 10px;margin-right: 10px;">è´­ä¹°è®°å½•</a>
+		<a href="logout.jsp" style="margin-left: 10px;margin-right: 10px;">æ³¨é”€</a>
+		<a href="index.jsp" style="margin-left: 10px;margin-right: 10px;">ä¸»é¡µ</a>
 		<span id="time" style="float:right;width: 150px;"> </span>
-		<a href="mailo:GREYSEID@hotmail.com" style="float: right;margin-left: 10px;margin-right: 10px;">¿Í·ş</a>
+		<a href="mailo:GREYSEID@hotmail.com" style="float: right;margin-left: 10px;margin-right: 10px;">å®¢æœ</a>
 	</div>
 	<form action="ordercreate.jsp" method="get" onkeydown="if(event.keyCode==13)return false;"
 		style="margin:0 auto;text-align: center;">
@@ -84,14 +84,14 @@ String phone="";
 String name="";
 try{
 	Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-	//¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+	//å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
 	String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-	//ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
-	Connection co= DriverManager.getConnection(url,"root","yuan1234");
+	//å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
+	Connection co= DriverManager.getConnection(url,"root","********");
 	Statement sta=co.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
 	ResultSet resu=sta.executeQuery("select name,phone,address from myuser where id="+userid);
 	resu.next();
-	address=resu.getString("address");//»ñÈ¡Ä¬ÈÏµÄÊÕ»õÈËĞÅÏ¢
+	address=resu.getString("address");//è·å–é»˜è®¤çš„æ”¶è´§äººä¿¡æ¯
 	phone=resu.getString("phone");
 	name=resu.getString("name");
 	resu.close();
@@ -103,19 +103,19 @@ catch(Exception e)
 	e.printStackTrace();
 }
 %>
-		<label>ÊÖ»ú</label><input type="text" name="phone" value="<%=phone==null?"":phone %>"
+		<label>æ‰‹æœº</label><input type="text" name="phone" value="<%=phone==null?"":phone %>"
 			oninput="value=value.replace(/[^\d]/g,'')" required>
-		<label>ÊÕ»õÈË</label><input type="text" name="name" value="<%=name==null?"":name%>" required>
-		<p>ÌîĞ´µØÖ·</p>
+		<label>æ”¶è´§äºº</label><input type="text" name="name" value="<%=name==null?"":name%>" required>
+		<p>å¡«å†™åœ°å€</p>
 		<textarea rows="5" cols="50" id="address" name="address" required><%=address==null?"":address %></textarea>
 		<table style="text-align: center;margin: 0 auto;">
 			<tr>
 				<td></td>
-				<td>ÉÌÆ·id</td>
-				<td>ÉÌÆ·Ãû</td>
+				<td>å•†å“id</td>
+				<td>å•†å“å</td>
 				<td></td>
-				<td>ÉÌÆ·ÊıÁ¿</td>
-				<td>µ¥¼Û</td>
+				<td>å•†å“æ•°é‡</td>
+				<td>å•ä»·</td>
 			</tr>
 			<%
 request.setCharacterEncoding("gb18030");
@@ -126,20 +126,20 @@ String[] numlist=request.getParameterValues("num");
 if(goodslist!=null&&numlist!=null){
 try{
 	Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-	//¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+	//å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
 	String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-	//ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
-	Connection conn= DriverManager.getConnection(url,"root","yuan1234");
-	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
+	//å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
+	Connection conn= DriverManager.getConnection(url,"root","********");
+	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
 	String s="select A.*,B.store from goods A ,storeacc B where A.storeid=B.storeid and (id="+goodslist[0];
-	for(int i=1;i<goodslist.length;i++)//²»ÖªµÀÉ¸Ñ¡Ìõ¼ş¹ı¶à»á²»»á±ÀÀ£
+	for(int i=1;i<goodslist.length;i++)//ä¸çŸ¥é“ç­›é€‰æ¡ä»¶è¿‡å¤šä¼šä¸ä¼šå´©æºƒ
 	{
 		s+=" or id="+goodslist[i];
 	}
 	s+=" )";
 	ResultSet rs=st.executeQuery(s);
 	String nowstore="";
-	while(rs.next())//°´ÕÕËù¸øµÄĞÅÏ¢£¬ÏÔÊ¾Òª¹ºÂòÉÌÆ·µÄÏêÏ¸ĞÅÏ¢
+	while(rs.next())//æŒ‰ç…§æ‰€ç»™çš„ä¿¡æ¯ï¼Œæ˜¾ç¤ºè¦è´­ä¹°å•†å“çš„è¯¦ç»†ä¿¡æ¯
 	{
 		String store=rs.getString("store");
 		if(!nowstore.equals(store)){
@@ -152,13 +152,13 @@ try{
 		out.print("<td>"+"<input type='checkbox' value='"+rs.getString("id")+"'"+" name='goods' onclick='checkone("+rs.getRow()+")' id='"+rs.getRow()+"' checked hidden></td>");
 		out.print("<td>"+rs.getString("id")+"</td>");
 		out.print("<td>"+rs.getString("name")+"</td>");
-		out.print("<td><div style='width:50px;height:50px;'>"+"<img style='width:100%;height:100%;' alt='Í¼Æ¬' src='/pt/imeg/"+((rs.getString("picture")==null||"".equals(rs.getString("picture")))?("timg (3).jpg"):(URLEncoder.encode(rs.getString("picture"),"gb18030")))+"'"+"</div></td>");
+		out.print("<td><div style='width:50px;height:50px;'>"+"<img style='width:100%;height:100%;' alt='å›¾ç‰‡' src='/pt/imeg/"+((rs.getString("picture")==null||"".equals(rs.getString("picture")))?("timg (3).jpg"):(URLEncoder.encode(rs.getString("picture"),"gb18030")))+"'"+"</div></td>");
 		for(int i=0;i<goodslist.length;i++)
 		{
 			if(goodslist[i].equals(rs.getString("id"))){
 				int count=Integer.parseInt(rs.getString("count"));
-				if(count<Integer.parseInt(numlist[i])){//¼ì²â¿â´æÊÇ·ñ³ä×ã
-					out.print("<script>alert('"+rs.getString("name")+"¿â´æ²»×ã');window.location.href='Cart.jsp';</script>");
+				if(count<Integer.parseInt(numlist[i])){//æ£€æµ‹åº“å­˜æ˜¯å¦å……è¶³
+					out.print("<script>alert('"+rs.getString("name")+"åº“å­˜ä¸è¶³');window.location.href='Cart.jsp';</script>");
 				}
 				out.print("<td>"+numlist[i]+"<input type='checkbox' value='"+numlist[i]+"'name='num'  checked hidden></td>");
 			}
@@ -173,7 +173,7 @@ catch(Exception e)
 }
 %>
 		</table>
-		<button type="submit">Ìá½»¶©µ¥</button><span>×Ü¼Û:</span><span id='price'>0</span><input type="hidden" id='allprice'
+		<button type="submit">æäº¤è®¢å•</button><span>æ€»ä»·:</span><span id='price'>0</span><input type="hidden" id='allprice'
 			name='allprice'>
 	</form>
 </body>
