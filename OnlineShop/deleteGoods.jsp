@@ -5,7 +5,7 @@
 
 <head>
 	<meta charset="GB18030">
-	<title>É¾³ıÉÌÆ·</title>
+	<title>åˆ é™¤å•†å“</title>
 </head>
 
 <body>
@@ -17,28 +17,28 @@ try{
 	request.setCharacterEncoding("gb18030");
 	String goodsid=request.getParameter("goodsid");
 	Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-	//¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+	//å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
 	String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-	//ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
-	Connection conn= DriverManager.getConnection(url,"root","yuan1234");
+	//å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
+	Connection conn= DriverManager.getConnection(url,"root","********");
 	Statement stmt=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-	ResultSet res=stmt.executeQuery("select picture from goods where id='"+goodsid+"'");//»ñÈ¡ÉÌÆ·µÄÍ¼Æ¬ĞÅÏ¢
+	ResultSet res=stmt.executeQuery("select picture from goods where id='"+goodsid+"'");//è·å–å•†å“çš„å›¾ç‰‡ä¿¡æ¯
 	String filepath="D:\\pt\\imeg\\";
 	res.next();
 	String filetruepath=filepath+res.getString("picture");
-	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
-	int rs=st.executeUpdate("delete from goods where id='"+goodsid+"'");//É¾³ıÉÌÆ·
+	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
+	int rs=st.executeUpdate("delete from goods where id='"+goodsid+"'");//åˆ é™¤å•†å“
 	res.close();
 	st.close();
 	stmt.close();
 	conn.close();
 	if(rs==0){
-		out.print("¸üĞÂÊ§°Ü");
-		out.print("<script>alert('¸üĞÂÊ§°Ü');</script>");
+		out.print("æ›´æ–°å¤±è´¥");
+		out.print("<script>alert('æ›´æ–°å¤±è´¥');</script>");
 	}
 	else{
 		File file=new File(filetruepath);
-		if(!file.exists())file.delete();//É¾³ıÉÏ´«µÄÍ¼Æ¬
+		if(!file.exists())file.delete();//åˆ é™¤ä¸Šä¼ çš„å›¾ç‰‡
 	}
 	response.sendRedirect("goodsManage.jsp");
 }
