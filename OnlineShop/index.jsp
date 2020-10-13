@@ -10,7 +10,7 @@ String boolblockout="block";
 String boolblockin="none";
 String head="/pt/imeg/timg1.jpg";
 String nickname=null;
-if(userid!=null){//¼ì²âÓÃ»§ÊÇ·ñµÇÂ¼£¬µÇÂ¼ÁË¾ÍÏÔÊ¾¸öÈËĞÅÏ¢µÈ£¬Ã»µÇÂ½¾ÍÏÔÊ¾µÇÂ¼×¢²áÒ³Ãæ
+if(userid!=null){//æ£€æµ‹ç”¨æˆ·æ˜¯å¦ç™»å½•ï¼Œç™»å½•äº†å°±æ˜¾ç¤ºä¸ªäººä¿¡æ¯ç­‰ï¼Œæ²¡ç™»é™†å°±æ˜¾ç¤ºç™»å½•æ³¨å†Œé¡µé¢
 	boolcodeout="none";
 	boolcodein="inline";
 	boolblockout="none";
@@ -18,17 +18,17 @@ if(userid!=null){//¼ì²âÓÃ»§ÊÇ·ñµÇÂ¼£¬µÇÂ¼ÁË¾ÍÏÔÊ¾¸öÈËĞÅÏ¢µÈ£¬Ã»µÇÂ½¾ÍÏÔÊ¾µÇÂ¼×¢²
 
 try{
 	Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-	//¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+	//å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
 	String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-	//ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
-	Connection conn= DriverManager.getConnection(url,"root","yuan1234");
-	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
-	ResultSet rs=st.executeQuery("select nickname,head from myuser where id="+"\""+userid+"\"");//»ñÈ¡ÓÃ»§µÄêÇ³ÆÍ·Ïñ£¬ÏÔÊ¾
+	//å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
+	Connection conn= DriverManager.getConnection(url,"root","********");
+	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
+	ResultSet rs=st.executeQuery("select nickname,head from myuser where id="+"\""+userid+"\"");//è·å–ç”¨æˆ·çš„æ˜µç§°å¤´åƒï¼Œæ˜¾ç¤º
 	rs.next();
 	nickname=rs.getString("nickname");
 	head=rs.getString("head");
 	if(head!=null){
-		String gbk=URLEncoder.encode(head,"gb18030");//ÓĞÖĞÎÄÒª×ªÂë,jspµÄsrcµØÖ·Ïàµ±ÓÚ´ò¿ªÒ»¸öÍøÒ³Í¼Æ¬£¬²»ÄÜÓĞÖĞÎÄÒª×ªÂë
+		String gbk=URLEncoder.encode(head,"gb18030");//æœ‰ä¸­æ–‡è¦è½¬ç ,jspçš„srcåœ°å€ç›¸å½“äºæ‰“å¼€ä¸€ä¸ªç½‘é¡µå›¾ç‰‡ï¼Œä¸èƒ½æœ‰ä¸­æ–‡è¦è½¬ç 
 		head="/pt/imeg/"+gbk;
 	}
 	else head="/pt/imeg/timg1.jpg";
@@ -43,7 +43,7 @@ catch(Exception e){
 %>
 
 <head>
-    <title>ÌÔÌÔ</title>
+    <title>æ·˜æ·˜</title>
     <meta name="author" content="GREYSEID">
     <meta charset="gb18030">
     <link rel="stylesheet" type="text/css" href="taotao.css">
@@ -118,15 +118,15 @@ catch(Exception e){
             var second = t.getSeconds();
             var curWeek;
             switch (week) {
-                case 0: curWeek = "ĞÇÆÚÈÕ"; break;
-                case 1: curWeek = "ĞÇÆÚÒ»"; break;
-                case 2: curWeek = "ĞÇÆÚ¶ş"; break;
-                case 3: curWeek = "ĞÇÆÚÈı"; break;
-                case 4: curWeek = "ĞÇÆÚËÄ"; break;
-                case 5: curWeek = "ĞÇÆÚÎå"; break;
-                case 6: curWeek = "ĞÇÆÚÁù"; break;
+                case 0: curWeek = "æ˜ŸæœŸæ—¥"; break;
+                case 1: curWeek = "æ˜ŸæœŸä¸€"; break;
+                case 2: curWeek = "æ˜ŸæœŸäºŒ"; break;
+                case 3: curWeek = "æ˜ŸæœŸä¸‰"; break;
+                case 4: curWeek = "æ˜ŸæœŸå››"; break;
+                case 5: curWeek = "æ˜ŸæœŸäº”"; break;
+                case 6: curWeek = "æ˜ŸæœŸå…­"; break;
             }
-            var time = " " + year + "Äê" + month + "ÔÂ" + day + "ÈÕ " + curWeek + " " + hour + ":" + minute + ":" + second;
+            var time = " " + year + "å¹´" + month + "æœˆ" + day + "æ—¥ " + curWeek + " " + hour + ":" + minute + ":" + second;
             document.getElementById("time").innerHTML = time;
         }
         setInterval("showTime()", 1000);
@@ -149,22 +149,22 @@ catch(Exception e){
             String[]goodsl = new String[4];
         String[]goodsp = new String[4];
         int count = -1;
-        try {//¶ÔÍÆ¼öÀ¸£¬Ò²¾ÍÊÇ¹«¸æ´°¿Ú½øĞĞ²Ù×÷
+        try {//å¯¹æ¨èæ ï¼Œä¹Ÿå°±æ˜¯å…¬å‘Šçª—å£è¿›è¡Œæ“ä½œ
             Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-            //¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+            //å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
             String url = "jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai";
-            //ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
-            Connection conn = DriverManager.getConnection(url, "root", "yuan1234");
-            Statement st = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
+            //å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
+            Connection conn = DriverManager.getConnection(url, "root", "********");
+            Statement st = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
             String str = "select id,picture from goods " + "where count+0>0 ";
             ResultSet rs = st.executeQuery(str);
             while (rs.next() && count < 3) {
                 count++;
-                goodsl[count] = "Goods.jsp?goodsid=" + rs.getString("id");//»ñÈ¡4¸öÉÌÆ·
+                goodsl[count] = "Goods.jsp?goodsid=" + rs.getString("id");//è·å–4ä¸ªå•†å“
                 goodsp[count] = "/pt/imeg/" + ((rs.getString("picture") == null || "".equals(rs.getString("picture")) ? ("timg (3).jpg") : rs.getString("picture")));
             }
             if (count < 3) {
-                for (int i = count; i < 3;)//Èç¹û²»×ã4¸öÉÌÆ·£¬¾Í²¹×ã£¬·ÅÎª¿Õ
+                for (int i = count; i < 3;)//å¦‚æœä¸è¶³4ä¸ªå•†å“ï¼Œå°±è¡¥è¶³ï¼Œæ”¾ä¸ºç©º
                 {
                     count++;
                     i++;
@@ -181,14 +181,14 @@ catch(Exception e){
             e.printStackTrace();
         }
         %>
-            function imgchange() {/*¸ù¾İµã»÷µÄÍÆ¼öÀ¸µÄÑ¡Ïî½øĞĞÒÆ¶¯*/
+            function imgchange() {/*æ ¹æ®ç‚¹å‡»çš„æ¨èæ çš„é€‰é¡¹è¿›è¡Œç§»åŠ¨*/
                 if (currtime > 3) currtime = 0;
                 if (currtime < 0) currtime = 3;
                 var lis = document.getElementById("imgname");
                 var a = lis.firstElementChild;
                 var img = a.firstElementChild;
                 var imgli = document.getElementsByClassName("imgli");
-                for (var i = 0; i < 4; i++)/*µã»÷µÄ°´Å¥½øĞĞµã»÷Ğ§¹ûÏÔÊ¾*/ {
+                for (var i = 0; i < 4; i++)/*ç‚¹å‡»çš„æŒ‰é’®è¿›è¡Œç‚¹å‡»æ•ˆæœæ˜¾ç¤º*/ {
                     if (i == currtime) imgli[i].style.background = 'black';
                     else imgli[i].style.background = 'gray';
                 }
@@ -216,20 +216,20 @@ catch(Exception e){
 </head>
 
 <body style="margin: 0;padding: 0;overflow: visible;background-color: #f5f5f5;" onload="showTime()">
-    <!--È¡ÏûbodyÇ°µÄ¿ÕÏ¶-->
+    <!--å–æ¶ˆbodyå‰çš„ç©ºéš™-->
     <div class="firsttitle">
         <a href="loginregister.html?login=true"
-            style="color: red;margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">µÇÂ¼</a>
-        <a href="currentregister.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">×¢²á</a>
-        <a href="userimf.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">¸öÈËÒ³Ãæ</a>
-        <a href="Cart.jsp" style="margin-left: 10px;margin-right: 10px;">ÎÒµÄ¹ºÎï³µ</a>
+            style="color: red;margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">ç™»å½•</a>
+        <a href="currentregister.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">æ³¨å†Œ</a>
+        <a href="userimf.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">ä¸ªäººé¡µé¢</a>
+        <a href="Cart.jsp" style="margin-left: 10px;margin-right: 10px;">æˆ‘çš„è´­ç‰©è½¦</a>
         <a href="orderManage.jsp?action=1"
-            style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">¹ºÂò¼ÇÂ¼</a>
-        <a href="logout.jsp" style="margin-left: 10px;margin-right: 10px;">×¢Ïú</a>
-        <a href="index.jsp" style="margin-left: 10px;margin-right: 10px;">Ö÷Ò³</a>
+            style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">è´­ä¹°è®°å½•</a>
+        <a href="logout.jsp" style="margin-left: 10px;margin-right: 10px;">æ³¨é”€</a>
+        <a href="index.jsp" style="margin-left: 10px;margin-right: 10px;">ä¸»é¡µ</a>
         <span id="time" style="float:right;width: 150px;"> </span>
-        <a href="goodsManage.jsp" style="float: right;margin-left: 10px;margin-right: 10px;">ÉÌ¼ÒÈë¿Ú</a>
-        <a href="mailo:GREYSEID@hotmail.com" style="float: right;margin-left: 10px;margin-right: 10px;">¿Í·ş</a>
+        <a href="goodsManage.jsp" style="float: right;margin-left: 10px;margin-right: 10px;">å•†å®¶å…¥å£</a>
+        <a href="mailo:GREYSEID@hotmail.com" style="float: right;margin-left: 10px;margin-right: 10px;">å®¢æœ</a>
     </div>
     <div style="background-color: white;width: 100%;height: 150px;">
         <div style="width: 1500px;height: 150px;border:  0;background-color: white;margin: 0 auto;">
@@ -240,15 +240,15 @@ catch(Exception e){
                 <center>
                     <form action="search.jsp" style="padding: 40px 0;">
                         <input type="text" id="searchText" placeholder="SEARCH" class="searchstyle" name='search'><input
-                            type="submit" value="ËÑË÷" class="searchButton">
+                            type="submit" value="æœç´¢" class="searchButton">
                     </form>
                 </center>
             </div>
             <div style="float: left;height: 100%;width: 25%;">
                 <form action="login.jsp" class="loginregister" style="display:<%=boolblockout%>;">
-                    <label for="userid">ÕË&nbsp;ºÅ </label><input type="text" id="userid" placeholder="USERID"
+                    <label for="userid">è´¦&nbsp;å· </label><input type="text" id="userid" placeholder="USERID"
                         class="lrstyle" required="required" name="userid"><br>
-                    <label for="userpwd">ÃÜ&nbsp;Âë </label><input type="password" id="userpwd" placeholder="PASSWORD"
+                    <label for="userpwd">å¯†&nbsp;ç  </label><input type="password" id="userpwd" placeholder="PASSWORD"
                         class="lrstyle" required="required" name="userpwd">
                     <div>
                         <input type="submit" value="LOGIN"><a href="currentregister.jsp"
@@ -260,175 +260,175 @@ catch(Exception e){
                                 href="userimf.jsp"><%=nickname %></a></span></div>
                     <div
                         style="width:100px;height:100px;border-radius:50%;overflow: hidden;float:right;position: relative;top: 10%;">
-                        <img alt="Í·Ïñ" src="<%=head%>" style="height:100%;width: 100%"></div>
+                        <img alt="å¤´åƒ" src="<%=head%>" style="height:100%;width: 100%"></div>
                 </div>
             </div>
         </div>
     </div>
-    <!--×ö¸ö·ÖÀàÀ¸-->
+    <!--åšä¸ªåˆ†ç±»æ -->
     <div style="width: 1500px;height: 1800px;margin:0 auto;">
-        <!--Ä¿±êÊÇ·ÅÉÏÈ¥ÏÔÊ¾¶ş¼¶Ä¿Â¼,µã»÷Ö®ºó½ÓÊÕÊı¾İ¿âÖĞ´«À´µÄÊı¾İ·ÅÈë<table>ÖĞ-->
+        <!--ç›®æ ‡æ˜¯æ”¾ä¸Šå»æ˜¾ç¤ºäºŒçº§ç›®å½•,ç‚¹å‡»ä¹‹åæ¥æ”¶æ•°æ®åº“ä¸­ä¼ æ¥çš„æ•°æ®æ”¾å…¥<table>ä¸­-->
         <div class="liststyle" style='z-index:1;'>
             <h3
                 style="text-align: center;border: 1px solid #4a93ff;background-color: #4a93ff;color: white;width: 200px;border-top-left-radius: 15px;border-top-right-radius: 15px;margin-bottom: 0;margin-top: 0;">
-                ·ÖÀàµ¼º½
+                åˆ†ç±»å¯¼èˆª
             </h3>
             <ul style="float:right;margin-top: 0;">
-                <li class="showhide"><a class="one">Å®×° / ÄĞ×° / ÄÚÒÂ<span class="arrowstyle">></span></a>
+                <li class="showhide"><a class="one">å¥³è£… / ç”·è£… / å†…è¡£<span class="arrowstyle">></span></a>
                     <div class="hidehide">
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("Á¬ÒÂÈ¹","gb18030")%>'>Á¬ÒÂÈ¹</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("è¿è¡£è£™","gb18030")%>'>è¿è¡£è£™</a></span>
                         <span><a class="two"
-                                href='index.jsp?tag=<%=URLEncoder.encode("´ºÏÄĞÂÆ·","gb18030")%>'>´ºÏÄĞÂÆ·</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("TĞô","gb18030")%>'>TĞô</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("³ÄÉÀ","gb18030")%>'>³ÄÉÀ</a></span>
+                                href='index.jsp?tag=<%=URLEncoder.encode("æ˜¥å¤æ–°å“","gb18030")%>'>æ˜¥å¤æ–°å“</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("Tæ¤","gb18030")%>'>Tæ¤</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("è¡¬è¡«","gb18030")%>'>è¡¬è¡«</a></span>
                     </div>
                 </li>
-                <li class="showhide"><a class="one">Ğ¬Ñ¥ / Ïä°ü / Åä¼ş<span class="arrowstyle">></span></a>
+                <li class="showhide"><a class="one">é‹é´ / ç®±åŒ… / é…ä»¶<span class="arrowstyle">></span></a>
                     <div class="hidehide">
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("Å®°ü","gb18030")%>'>Å®°ü</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("É§°ü","gb18030")%>'>É§°ü</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("Ë«¼ç°ü","gb18030")%>'>Ë«¼ç°ü</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("ÄĞ°ü","gb18030")%>'>ÄĞ°ü</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("å¥³åŒ…","gb18030")%>'>å¥³åŒ…</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("éªšåŒ…","gb18030")%>'>éªšåŒ…</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("åŒè‚©åŒ…","gb18030")%>'>åŒè‚©åŒ…</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("ç”·åŒ…","gb18030")%>'>ç”·åŒ…</a></span>
                     </div>
                 </li>
-                <li class="showhide"><a class="one">Í¯×°Íæ¾ß / ÔĞ²ú / ÓÃÆ·<span class="arrowstyle">></span></a>
+                <li class="showhide"><a class="one">ç«¥è£…ç©å…· / å­•äº§ / ç”¨å“<span class="arrowstyle">></span></a>
                     <div class="hidehide">
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("Á¬ÒÂÈ¹","gb18030")%>'>Á¬ÒÂÈ¹</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("è¿è¡£è£™","gb18030")%>'>è¿è¡£è£™</a></span>
                         <span><a class="two"
-                                href='index.jsp?tag=<%=URLEncoder.encode("±£Å¯Á¬Ìå","gb18030")%>'>±£Å¯Á¬Ìå</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("¿ã×Ó","gb18030")%>'>¿ã×Ó</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("ÓğÈŞ","gb18030")%>'>ÓğÈŞ</a></span>
+                                href='index.jsp?tag=<%=URLEncoder.encode("ä¿æš–è¿ä½“","gb18030")%>'>ä¿æš–è¿ä½“</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("è£¤å­","gb18030")%>'>è£¤å­</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("ç¾½ç»’","gb18030")%>'>ç¾½ç»’</a></span>
                     </div>
                 </li>
-                <li class="showhide"><a class="one">¼Òµç / ÊıÂë / ÊÖ»ú<span class="arrowstyle">></span></a>
+                <li class="showhide"><a class="one">å®¶ç”µ / æ•°ç  / æ‰‹æœº<span class="arrowstyle">></span></a>
                     <div class="hidehide">
                         <span><a class="two"
-                                href='index.jsp?tag=<%=URLEncoder.encode("ÓÎÏ·Ö÷»ú","gb18030")%>'>ÓÎÏ·Ö÷»ú</a></span>
+                                href='index.jsp?tag=<%=URLEncoder.encode("æ¸¸æˆä¸»æœº","gb18030")%>'>æ¸¸æˆä¸»æœº</a></span>
                         <span><a class="two"
-                                href='index.jsp?tag=<%=URLEncoder.encode("ÊıÂë¾«Ñ¡","gb18030")%>'>ÊıÂë¾«Ñ¡</a></span>
+                                href='index.jsp?tag=<%=URLEncoder.encode("æ•°ç ç²¾é€‰","gb18030")%>'>æ•°ç ç²¾é€‰</a></span>
                         <span><a class="two"
-                                href='index.jsp?tag=<%=URLEncoder.encode("ÊÖ»ú¿ÇÌ×","gb18030")%>'>ÊÖ»ú¿ÇÌ×</a></span>
+                                href='index.jsp?tag=<%=URLEncoder.encode("æ‰‹æœºå£³å¥—","gb18030")%>'>æ‰‹æœºå£³å¥—</a></span>
                         <span><a class="two"
-                                href='index.jsp?tag=<%=URLEncoder.encode("Æ»¹ûÊÖ»ú¿Ç","gb18030")%>'>Æ»¹ûÊÖ»ú¿Ç</a></span>
+                                href='index.jsp?tag=<%=URLEncoder.encode("è‹¹æœæ‰‹æœºå£³","gb18030")%>'>è‹¹æœæ‰‹æœºå£³</a></span>
                     </div>
                 </li>
-                <li class="showhide"><a class="one">ÃÀ×± / Ï´»¤ / ±£½¡Æ·<span class="arrowstyle">></span></a>
+                <li class="showhide"><a class="one">ç¾å¦† / æ´—æŠ¤ / ä¿å¥å“<span class="arrowstyle">></span></a>
                     <div class="hidehide">
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("Ï´·¢Ë®","gb18030")%>'>Ï´·¢Ë®</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("»¤·¢ËØ","gb18030")%>'>»¤·¢ËØ</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("·¢Ä¤","gb18030")%>'>·¢Ä¤</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("æ´—å‘æ°´","gb18030")%>'>æ´—å‘æ°´</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("æŠ¤å‘ç´ ","gb18030")%>'>æŠ¤å‘ç´ </a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("å‘è†œ","gb18030")%>'>å‘è†œ</a></span>
                         <span><a class="two"
-                                href='index.jsp?tag=<%=URLEncoder.encode("Í··¢ÔìĞÍ","gb18030")%>'>Í··¢ÔìĞÍ</a></span>
+                                href='index.jsp?tag=<%=URLEncoder.encode("å¤´å‘é€ å‹","gb18030")%>'>å¤´å‘é€ å‹</a></span>
                     </div>
                 </li>
-                <li class="showhide"><a class="one">Öé±¦ / ÑÛ¾µ / ÊÖ±í<span class="arrowstyle">></span></a>
+                <li class="showhide"><a class="one">ç å® / çœ¼é•œ / æ‰‹è¡¨<span class="arrowstyle">></span></a>
                     <div class="hidehide">
                         <span><a class="two"
-                                href='index.jsp?tag=<%=URLEncoder.encode("çúçêÃÛÀ¯","gb18030")%>'>çúçêÃÛÀ¯</a></span>
+                                href='index.jsp?tag=<%=URLEncoder.encode("ç¥ç€èœœèœ¡","gb18030")%>'>ç¥ç€èœœèœ¡</a></span>
                         <span><a class="two"
-                                href='index.jsp?tag=<%=URLEncoder.encode("´äÊÖïí","gb18030")%>'>ôä´äÊÖïí</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("×ê½ä","gb18030")%>'>×ê½ä</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("²¬½ğ","gb18030")%>'>²¬½ğ</a></span>
+                                href='index.jsp?tag=<%=URLEncoder.encode("ç¿ æ‰‹é•¯","gb18030")%>'>ç¿¡ç¿ æ‰‹é•¯</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("é’»æˆ’","gb18030")%>'>é’»æˆ’</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("é“‚é‡‘","gb18030")%>'>é“‚é‡‘</a></span>
                     </div>
                 </li>
-                <li class="showhide"><a class="one">ÔË¶¯ / »§Íâ / ÀÖÆ÷<span class="arrowstyle">></span></a>
+                <li class="showhide"><a class="one">è¿åŠ¨ / æˆ·å¤– / ä¹å™¨<span class="arrowstyle">></span></a>
                     <div class="hidehide">
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("ÓãÏß","gb18030")%>'>ÓãÏß</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("ÓãÏßÂÖ","gb18030")%>'>ÓãÏßÂÖ</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("»§ÍâĞ¬","gb18030")%>'>»§ÍâĞ¬</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("µÇÉ½°ü","gb18030")%>'>µÇÉ½°ü</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("é±¼çº¿","gb18030")%>'>é±¼çº¿</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("é±¼çº¿è½®","gb18030")%>'>é±¼çº¿è½®</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("æˆ·å¤–é‹","gb18030")%>'>æˆ·å¤–é‹</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("ç™»å±±åŒ…","gb18030")%>'>ç™»å±±åŒ…</a></span>
                     </div>
                 </li>
-                <li class="showhide"><a class="one">ÓÎÏ· / ¶¯Âş / Ó°ÊÓ<span class="arrowstyle">></span></a>
+                <li class="showhide"><a class="one">æ¸¸æˆ / åŠ¨æ¼« / å½±è§†<span class="arrowstyle">></span></a>
                     <div class="hidehide">
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("ÊÖ°ì","gb18030")%>'>ÊÖ°ì</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("Ã¤ºĞ","gb18030")%>'>Ã¤ºĞ</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("º½º£Íõ","gb18030")%>'>º½º£Íõ</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("æ‰‹åŠ","gb18030")%>'>æ‰‹åŠ</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("ç›²ç›’","gb18030")%>'>ç›²ç›’</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("èˆªæµ·ç‹","gb18030")%>'>èˆªæµ·ç‹</a></span>
                         <span><a class="two"
-                                href='index.jsp?tag=<%=URLEncoder.encode("ÃüÔËÖ®Ò¹","gb18030")%>'>ÃüÔËÖ®Ò¹</a></span>
+                                href='index.jsp?tag=<%=URLEncoder.encode("å‘½è¿ä¹‹å¤œ","gb18030")%>'>å‘½è¿ä¹‹å¤œ</a></span>
                     </div>
                 </li>
-                <li class="showhide"><a class="one">ÃÀÊ³ / ÉúÏÊ / ÁãÊ³<span class="arrowstyle">></span></a>
+                <li class="showhide"><a class="one">ç¾é£Ÿ / ç”Ÿé²œ / é›¶é£Ÿ<span class="arrowstyle">></span></a>
                     <div class="hidehide">
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("ÀóÖ¦","gb18030")%>'>ÀóÖ¦</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("Ë®¹û","gb18030")%>'>Ë®¹û</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("°ÙÏã¹û","gb18030")%>'>°ÙÏã¹û</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("Ã¢¹û","gb18030")%>'>Ã¢¹û</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("è”æ","gb18030")%>'>è”æ</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("æ°´æœ","gb18030")%>'>æ°´æœ</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("ç™¾é¦™æœ","gb18030")%>'>ç™¾é¦™æœ</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("èŠ’æœ","gb18030")%>'>èŠ’æœ</a></span>
                     </div>
                 </li>
-                <li class="showhide"><a class="one">ÏÊ»¨ / ³èÎï / Å©×Ê<span class="arrowstyle">></span></a>
+                <li class="showhide"><a class="one">é²œèŠ± / å® ç‰© / å†œèµ„<span class="arrowstyle">></span></a>
                     <div class="hidehide">
                         <span><a class="two"
-                                href='index.jsp?tag=<%=URLEncoder.encode("½ø¿Ú¹·Á¸","gb18030")%>'>½ø¿Ú¹·Á¸</a></span>
+                                href='index.jsp?tag=<%=URLEncoder.encode("è¿›å£ç‹—ç²®","gb18030")%>'>è¿›å£ç‹—ç²®</a></span>
                         <span><a class="two"
-                                href='index.jsp?tag=<%=URLEncoder.encode("³èÎï·şÊÎ","gb18030")%>'>³èÎï·şÊÎ</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("¹·²ŞËù","gb18030")%>'>¹·²ŞËù</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("³èÎïÎÑ","gb18030")%>'>³èÎïÎÑ</a></span>
+                                href='index.jsp?tag=<%=URLEncoder.encode("å® ç‰©æœé¥°","gb18030")%>'>å® ç‰©æœé¥°</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("ç‹—å•æ‰€","gb18030")%>'>ç‹—å•æ‰€</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("å® ç‰©çª","gb18030")%>'>å® ç‰©çª</a></span>
                     </div>
                 </li>
-                <li class="showhide"><a class="one">ÃæÁÏ¼¯²É / ×°ĞŞ / ½¨²Ä<span class="arrowstyle">></span></a>
+                <li class="showhide"><a class="one">é¢æ–™é›†é‡‡ / è£…ä¿® / å»ºæ<span class="arrowstyle">></span></a>
                     <div class="hidehide">
                         <span><a class="two"
-                                href='index.jsp?tag=<%=URLEncoder.encode("É«¿¨×¨ÅÄ","gb18030")%>'>É«¿¨×¨ÅÄ</a></span>
+                                href='index.jsp?tag=<%=URLEncoder.encode("è‰²å¡ä¸“æ‹","gb18030")%>'>è‰²å¡ä¸“æ‹</a></span>
                         <span><a class="two"
-                                href='index.jsp?tag=<%=URLEncoder.encode("TĞôº¹²¼","gb18030")%>'>TĞôº¹²¼</a></span>
+                                href='index.jsp?tag=<%=URLEncoder.encode("Tæ¤æ±—å¸ƒ","gb18030")%>'>Tæ¤æ±—å¸ƒ</a></span>
                         <span><a class="two"
-                                href='index.jsp?tag=<%=URLEncoder.encode("ÂİÎÆÕëÖ¯ÃæÁÏ","gb18030")%>'>ÂİÎÆÕëÖ¯ÃæÁÏ</a></span>
+                                href='index.jsp?tag=<%=URLEncoder.encode("èºçº¹é’ˆç»‡é¢æ–™","gb18030")%>'>èºçº¹é’ˆç»‡é¢æ–™</a></span>
                         <span><a class="two"
-                                href='index.jsp?tag=<%=URLEncoder.encode("È«ÃŞÖñ½ÚÎÀÒÂ","gb18030")%>'>È«ÃŞÖñ½ÚÎÀÒÂ</a></span>
+                                href='index.jsp?tag=<%=URLEncoder.encode("å…¨æ£‰ç«¹èŠ‚å«è¡£","gb18030")%>'>å…¨æ£‰ç«¹èŠ‚å«è¡£</a></span>
                     </div>
                 </li>
-                <li class="showhide"><a class="one">¼Ò¾ß / ¼ÒÊÎ / ¼Ò·Ä<span class="arrowstyle">></span></a>
+                <li class="showhide"><a class="one">å®¶å…· / å®¶é¥° / å®¶çºº<span class="arrowstyle">></span></a>
                     <div class="hidehide">
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("¿ãÍà","gb18030")%>'>¿ãÍà</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("Á¬ÒÂÈ¹","gb18030")%>'>Á¬ÒÂÈ¹</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("Á¬ÒÂÈ¹","gb18030")%>'>Á¬ÒÂÈ¹</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("Á¬ÒÂÈ¹","gb18030")%>'>Á¬ÒÂÈ¹</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("è£¤è¢œ","gb18030")%>'>è£¤è¢œ</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("è¿è¡£è£™","gb18030")%>'>è¿è¡£è£™</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("è¿è¡£è£™","gb18030")%>'>è¿è¡£è£™</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("è¿è¡£è£™","gb18030")%>'>è¿è¡£è£™</a></span>
                     </div>
                 </li>
-                <li class="showhide"><a class="one">Æû³µ / ¶şÊÖ³µ / ÓÃÆ·<span class="arrowstyle">></span></a>
+                <li class="showhide"><a class="one">æ±½è½¦ / äºŒæ‰‹è½¦ / ç”¨å“<span class="arrowstyle">></span></a>
                     <div class="hidehide">
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("´°Á±","gb18030")%>'>´°Á±</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("µØÌº","gb18030")%>'>µØÌº</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("É³·¢µæ","gb18030")%>'>É³·¢µæ</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("Ê®×ÖĞå","gb18030")%>'>Ê®×ÖĞå</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("çª—å¸˜","gb18030")%>'>çª—å¸˜</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("åœ°æ¯¯","gb18030")%>'>åœ°æ¯¯</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("æ²™å‘å«","gb18030")%>'>æ²™å‘å«</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("åå­—ç»£","gb18030")%>'>åå­—ç»£</a></span>
                     </div>
                 </li>
-                <li class="showhide"><a class="one">°ì¹« / DIY / Îå½ğµç×Ó<span class="arrowstyle">></span></a>
+                <li class="showhide"><a class="one">åŠå…¬ / DIY / äº”é‡‘ç”µå­<span class="arrowstyle">></span></a>
                     <div class="hidehide">
                         <span><a class="two"
-                                href='index.jsp?tag=<%=URLEncoder.encode("¶¨ÖÆTĞô","gb18030")%>'>¶¨ÖÆTĞô</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("ÎÄ»¯ÉÀ","gb18030")%>'>ÎÄ»¯ÉÀ</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("¹¤×÷·ş","gb18030")%>'>¹¤×÷·ş</a></span>
+                                href='index.jsp?tag=<%=URLEncoder.encode("å®šåˆ¶Tæ¤","gb18030")%>'>å®šåˆ¶Tæ¤</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("æ–‡åŒ–è¡«","gb18030")%>'>æ–‡åŒ–è¡«</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("å·¥ä½œæœ","gb18030")%>'>å·¥ä½œæœ</a></span>
                         <span><a class="two"
-                                href='index.jsp?tag=<%=URLEncoder.encode("ÎÀÒÂ¶¨ÖÆ","gb18030")%>'>ÎÀÒÂ¶¨ÖÆ</a></span>
+                                href='index.jsp?tag=<%=URLEncoder.encode("å«è¡£å®šåˆ¶","gb18030")%>'>å«è¡£å®šåˆ¶</a></span>
                     </div>
                 </li>
-                <li class="showhide"><a class="one">°Ù»õ / ²Í³ø / ¼ÒÍ¥±£½¡<span class="arrowstyle">></span></a>
+                <li class="showhide"><a class="one">ç™¾è´§ / é¤å¨ / å®¶åº­ä¿å¥<span class="arrowstyle">></span></a>
                     <div class="hidehide">
                         <span><a class="two"
-                                href='index.jsp?tag=<%=URLEncoder.encode("ÊÕÄÉÕûÀí","gb18030")%>'>ÊÕÄÉÕûÀí</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("ÊÕÄÉÏä","gb18030")%>'>ÊÕÄÉÏä</a></span>
+                                href='index.jsp?tag=<%=URLEncoder.encode("æ”¶çº³æ•´ç†","gb18030")%>'>æ”¶çº³æ•´ç†</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("æ”¶çº³ç®±","gb18030")%>'>æ”¶çº³ç®±</a></span>
                         <span><a class="two"
-                                href='index.jsp?tag=<%=URLEncoder.encode("¶ùÍ¯ÊÕÄÉ¹ñ","gb18030")%>'>¶ùÍ¯ÊÕÄÉ¹ñ</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("Ñ¹Ëõ´ü","gb18030")%>'>Ñ¹Ëõ´ü</a></span>
+                                href='index.jsp?tag=<%=URLEncoder.encode("å„¿ç«¥æ”¶çº³æŸœ","gb18030")%>'>å„¿ç«¥æ”¶çº³æŸœ</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("å‹ç¼©è¢‹","gb18030")%>'>å‹ç¼©è¢‹</a></span>
                     </div>
                 </li>
-                <li class="showhide"><a class="one">Ñ§Ï° / ¿¨È¯ / ±¾µØ·şÎñ<span class="arrowstyle">></span></a>
+                <li class="showhide"><a class="one">å­¦ä¹  / å¡åˆ¸ / æœ¬åœ°æœåŠ¡<span class="arrowstyle">></span></a>
                     <div class="hidehide">
                         <span><a class="two"
-                                href='index.jsp?tag=<%=URLEncoder.encode("ÀÍ¶¯½Ú¸£Àû","gb18030")%>'>ÀÍ¶¯½Ú¸£Àû</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("³¬ÊĞ¿¨","gb18030")%>'>³¬ÊĞ¿¨</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("ÎÖ¶ûÂê","gb18030")%>'>ÎÖ¶ûÂê</a></span>
-                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("¼ÒÀÖ¸£","gb18030")%>'>¼ÒÀÖ¸£</a></span>
+                                href='index.jsp?tag=<%=URLEncoder.encode("åŠ³åŠ¨èŠ‚ç¦åˆ©","gb18030")%>'>åŠ³åŠ¨èŠ‚ç¦åˆ©</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("è¶…å¸‚å¡","gb18030")%>'>è¶…å¸‚å¡</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("æ²ƒå°”ç›","gb18030")%>'>æ²ƒå°”ç›</a></span>
+                        <span><a class="two" href='index.jsp?tag=<%=URLEncoder.encode("å®¶ä¹ç¦","gb18030")%>'>å®¶ä¹ç¦</a></span>
                     </div>
                 </li>
             </ul>
         </div>
         <div style="height: 1800px;width: 1020px;float: left;text-align: center;">
             <div style="width: 1020px;height: 300px;margin: 0 auto;position:relative;z-index:0;">
-                <!--  <a href=''><img alt='Í¼Æ¬' src='/pt/imeg/timg (3).jpg' style='width:100%;height: 100%;'></a>-->
-                <!--  ½«ÈÈ¶È¸ßµÄÉÌÆ··ÅÔÚÊ×Ò³Í¼Æ¬ÂÖ²¥Çø£¬ÍÆ¼öµÄËã·¨ÔİÊ±²»»á£¬ËùÒÔ¾Í¼òµ¥µØ½«ÉÌÆ·±í¸ñÖĞµØÉÌÆ·Õ¹Ê¾ÔÚÊ×Ò³ÖĞ-->
+                <!--  <a href=''><img alt='å›¾ç‰‡' src='/pt/imeg/timg (3).jpg' style='width:100%;height: 100%;'></a>-->
+                <!--  å°†çƒ­åº¦é«˜çš„å•†å“æ”¾åœ¨é¦–é¡µå›¾ç‰‡è½®æ’­åŒºï¼Œæ¨èçš„ç®—æ³•æš‚æ—¶ä¸ä¼šï¼Œæ‰€ä»¥å°±ç®€å•åœ°å°†å•†å“è¡¨æ ¼ä¸­åœ°å•†å“å±•ç¤ºåœ¨é¦–é¡µä¸­-->
                 <div style='position:absolute;right:20px;bottom:20px;'>
                     <ul>
                         <li class='imgli' onmouseover='currtime=0;imgchange();' onclick="currtime=0;imgchange();"></li>
@@ -437,10 +437,10 @@ catch(Exception e){
                         <li class='imgli' onmouseover='currtime=3;imgchange();' onclick="currtime=3;imgchange();"></li>
                     </ul>
                 </div>
-                <a style='left:0;' class='arrow' onclick='currtime=currtime-2;imgchange();'>¡û</a><a style='right:0px;'
-                    onclick='imgchange();' class='arrow'>¡ú</a>
+                <a style='left:0;' class='arrow' onclick='currtime=currtime-2;imgchange();'>â†</a><a style='right:0px;'
+                    onclick='imgchange();' class='arrow'>â†’</a>
                 <div style="width: 100%;height: 100%;">
-                    <div id='imgname'><a href=''><img alt='Í¼Æ¬' src='/pt/imeg/timg (3).jpg'
+                    <div id='imgname'><a href=''><img alt='å›¾ç‰‡' src='/pt/imeg/timg (3).jpg'
                                 style='width:1020px;height: 300px;'></a></div>
                 </div>
             </div>
@@ -453,11 +453,11 @@ catch(Exception e){
             request.setCharacterEncoding("gb18030");
             String tag=request.getParameter("tag");
             String storeid=request.getParameter("storeid");
-            int PageSize=9;//Ò»Ò³ÏÔÊ¾9Ìõ
-            int RowCount=0;//¼ÇÂ¼×ÜÊı
-            int PageCount=1;//×ÜÒ³Êı
-            int Page=1;//ÏÔÊ¾µÄÒ³Âë
-            String strPage=null;//½ÓÊÕÒ³Âë
+            int PageSize=9;//ä¸€é¡µæ˜¾ç¤º9æ¡
+            int RowCount=0;//è®°å½•æ€»æ•°
+            int PageCount=1;//æ€»é¡µæ•°
+            int Page=1;//æ˜¾ç¤ºçš„é¡µç 
+            String strPage=null;//æ¥æ”¶é¡µç 
             String[]goodslist=request.getParameterValues("goodslist");
             String s="";
             String sr=" ( ";
@@ -477,18 +477,18 @@ catch(Exception e){
             sr+=" )";
             try{
             	Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-            	//¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+            	//å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
             	String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-            	//ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
-            	Connection conn= DriverManager.getConnection(url,"root","yuan1234");
-            	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
+            	//å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
+            	Connection conn= DriverManager.getConnection(url,"root","********");
+            	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
             	String str="select id,picture,introduction,name from goods "+"where count+0>0 "+(((tag==null||"".equals(tag))?"":" and tag like '"+tag+"' ")+((storeid==null||"".equals(storeid))?"":(" and storeid="+storeid))+(" (  )".equals(sr)?"":" and "+sr));
             	ResultSet rs=st.executeQuery(str);
             	if(rs.next())
             	{
             		rs.last();
             		RowCount=rs.getRow();
-            		PageCount=(RowCount+PageSize-1)/PageSize;//×ÜÒ³Êı£¬¼Ó1´Ó1¿ªÊ¼Êı
+            		PageCount=(RowCount+PageSize-1)/PageSize;//æ€»é¡µæ•°ï¼ŒåŠ 1ä»1å¼€å§‹æ•°
             	
             	strPage=request.getParameter("page");
             	if(strPage==null)Page=1;
@@ -497,18 +497,18 @@ catch(Exception e){
             		if(Page>PageCount)Page=PageCount;
             		if(Page<1)Page=1;
             	}
-            	if(PageCount>0)rs.absolute((Page-1)*PageSize+1);//Ìø×ªµ½Ö¸¶¨¼ÇÂ¼Î»ÖÃ
+            	if(PageCount>0)rs.absolute((Page-1)*PageSize+1);//è·³è½¬åˆ°æŒ‡å®šè®°å½•ä½ç½®
             	int i=0;
             	while(i<PageSize&&rs!=null&&!rs.isAfterLast())
             	{
             		goodsid=rs.getString("id");
-            		introduction=rs.getString("name");//¸Ä³É»ñÈ¡Ãû×ÖÊı¾İ
+            		introduction=rs.getString("name");//æ”¹æˆè·å–åå­—æ•°æ®
             		picture=rs.getString("picture");
             		introduction=(introduction==null?"":introduction);
             		picture=(picture==null||"".equals(picture)?"timg (3).jpg":URLEncoder.encode(picture,"gb18030"));
             		out.print("<div style='height:363px;width:333px;float:left;margin:3px;'>");
-            		out.print("<a href='Goods.jsp?goodsid="+goodsid+"'>"+"<div class='theimgstyle'>"+"<img alt='ÕâÊÇÍ¼Æ¬' src='/pt/imeg/"+picture+"'style='height: 333px;width: 333px;'></div></a>");
-            		out.print("<a href='Goods.jsp?goodsid="+goodsid+"'>"+"<div class='thegoodsstyle'>"+introduction+"</div></a><a class='buygoodsstyle' href='addCart.jsp?action=1&num=1&goodsid="+goodsid+"'><img alt='¹ºÎï³µ' src='timg (3).jpg' style='width:100%;height:100%;'></a>");
+            		out.print("<a href='Goods.jsp?goodsid="+goodsid+"'>"+"<div class='theimgstyle'>"+"<img alt='è¿™æ˜¯å›¾ç‰‡' src='/pt/imeg/"+picture+"'style='height: 333px;width: 333px;'></div></a>");
+            		out.print("<a href='Goods.jsp?goodsid="+goodsid+"'>"+"<div class='thegoodsstyle'>"+introduction+"</div></a><a class='buygoodsstyle' href='addCart.jsp?action=1&num=1&goodsid="+goodsid+"'><img alt='è´­ç‰©è½¦' src='timg (3).jpg' style='width:100%;height:100%;'></a>");
             		out.print("</div>");
             		i++;
             		rs.next();
@@ -532,16 +532,16 @@ catch(Exception e){
                     <%
 				if(Page>1)
 				{
-					out.print("&nbsp;<a href='index.jsp?page=1"+(tag==null||"".equals(tag)?"":"&tag="+URLEncoder.encode(tag,"gb18030"))+(storeid==null||"".equals(storeid)?"":"&storeid="+storeid)+s+"'>Ê×&nbsp;Ò³</a>&nbsp;");
-					out.print("&nbsp;<a href='index.jsp?page="+(Page-1)+(tag==null||"".equals(tag)?"":"&tag="+URLEncoder.encode(tag,"gb18030"))+(storeid==null||"".equals(storeid)?"":"&storeid="+storeid)+s+"'>ÉÏÒ»Ò³</a>&nbsp;");
+					out.print("&nbsp;<a href='index.jsp?page=1"+(tag==null||"".equals(tag)?"":"&tag="+URLEncoder.encode(tag,"gb18030"))+(storeid==null||"".equals(storeid)?"":"&storeid="+storeid)+s+"'>é¦–&nbsp;é¡µ</a>&nbsp;");
+					out.print("&nbsp;<a href='index.jsp?page="+(Page-1)+(tag==null||"".equals(tag)?"":"&tag="+URLEncoder.encode(tag,"gb18030"))+(storeid==null||"".equals(storeid)?"":"&storeid="+storeid)+s+"'>ä¸Šä¸€é¡µ</a>&nbsp;");
 				}
-				out.print("&nbsp;µÚ"+Page+"Ò³&nbsp;");
+				out.print("&nbsp;ç¬¬"+Page+"é¡µ&nbsp;");
 				if(Page<PageCount)
 				{
-					out.print("&nbsp;<a href='index.jsp?page="+(Page+1)+(tag==null||"".equals(tag)?"":"&tag="+URLEncoder.encode(tag,"gb18030"))+(storeid==null||"".equals(storeid)?"":"&storeid="+storeid)+s+"'>ÏÂÒ»Ò³</a>&nbsp;");
-					out.print("&nbsp;<a href='index.jsp?page="+PageCount+(tag==null||"".equals(tag)?"":"&tag="+URLEncoder.encode(tag,"gb18030"))+(storeid==null||"".equals(storeid)?"":"&storeid="+storeid)+s+"'>Î²&nbsp;Ò³</a>&nbsp;");
+					out.print("&nbsp;<a href='index.jsp?page="+(Page+1)+(tag==null||"".equals(tag)?"":"&tag="+URLEncoder.encode(tag,"gb18030"))+(storeid==null||"".equals(storeid)?"":"&storeid="+storeid)+s+"'>ä¸‹ä¸€é¡µ</a>&nbsp;");
+					out.print("&nbsp;<a href='index.jsp?page="+PageCount+(tag==null||"".equals(tag)?"":"&tag="+URLEncoder.encode(tag,"gb18030"))+(storeid==null||"".equals(storeid)?"":"&storeid="+storeid)+s+"'>å°¾&nbsp;é¡µ</a>&nbsp;");
 				}
-				out.print("&nbsp;Ìø×ªµ½"+((tag==null||"".equals(tag))?"":"<input type='hidden' name='tag' value="+tag+">")+((storeid==null||"".equals(storeid))?"":"<input type='hidden' name='storeid' value='"+storeid+"'>")+"<input type='text' name='page' size=2>Ò³&nbsp;¹²"+PageCount+"Ò³&nbsp;");
+				out.print("&nbsp;è·³è½¬åˆ°"+((tag==null||"".equals(tag))?"":"<input type='hidden' name='tag' value="+tag+">")+((storeid==null||"".equals(storeid))?"":"<input type='hidden' name='storeid' value='"+storeid+"'>")+"<input type='text' name='page' size=2>é¡µ&nbsp;å…±"+PageCount+"é¡µ&nbsp;");
 				if(goodslist!=null)
 					{
 						for(int i=0;i<goodslist.length;i++)
@@ -556,22 +556,22 @@ catch(Exception e){
         </div>
         <div class="store">
             <%
-        try{//ÒòÎª²»»áÍÆ¼öËã·¨£¬ËùÒÔ¼òµ¥Õ¹Ê¾Ò»ÏÂ±í¸ñÖĞÇ°¼¸ÏîµÄÉÌ±ê
+        try{//å› ä¸ºä¸ä¼šæ¨èç®—æ³•ï¼Œæ‰€ä»¥ç®€å•å±•ç¤ºä¸€ä¸‹è¡¨æ ¼ä¸­å‰å‡ é¡¹çš„å•†æ ‡
         	Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-        	//¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+        	//å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
         	String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-        	//ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
-        	Connection conn= DriverManager.getConnection(url,"root","yuan1234");
-        	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
+        	//å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
+        	Connection conn= DriverManager.getConnection(url,"root","********");
+        	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
         	String str="select storeid,picture from storeacc";
         	ResultSet rs=st.executeQuery(str);
         	//rs.last();
         	//if(rs.getRow()>0){
        		int flag=0;
        		//rs.first();
-       		while(rs.next()&&flag!=8)//ÏÔÊ¾ÉÌµêĞÅÏ¢
+       		while(rs.next()&&flag!=8)//æ˜¾ç¤ºå•†åº—ä¿¡æ¯
        		{
-       			out.print("<a href='index.jsp?storeid="+rs.getString("storeid")+"'><img src='"+(rs.getString("picture")==null||"".equals(rs.getString("picture"))?"timg.jpg":"/pt/imeg/"+URLEncoder.encode(rs.getString("picture"),"gb18030"))+"' alt='ÕâÊÇÉÌ±ê'></a>");
+       			out.print("<a href='index.jsp?storeid="+rs.getString("storeid")+"'><img src='"+(rs.getString("picture")==null||"".equals(rs.getString("picture"))?"timg.jpg":"/pt/imeg/"+URLEncoder.encode(rs.getString("picture"),"gb18030"))+"' alt='è¿™æ˜¯å•†æ ‡'></a>");
        			flag++;
        		}
         	//}
@@ -588,7 +588,7 @@ catch(Exception e){
         %>
         </div>
     </div>
-    <img onclick="imgclick()" src="timg (1).jpg" alt="Í¼Æ¬" id="imgclick" style="height: 100px;width: 100px;">
+    <img onclick="imgclick()" src="timg (1).jpg" alt="å›¾ç‰‡" id="imgclick" style="height: 100px;width: 100px;">
     <br>
     <br>
     <br>
@@ -596,10 +596,10 @@ catch(Exception e){
     <br>
     <br>
     <div class="final">
-        <!--½áÎ²-->
-        <div style="text-align: center;">ÃâÔğÉùÃ÷<br>
-            ±¾ÍøÕ¾ËùÕ¹Ê¾µÄĞÅÏ¢ÎªÍøÕ¾ËùÓĞÕß×ÔĞĞÌá¹©£¬ÄÚÈİÕæÊµĞÔ¡¢×¼È·ĞÔ¡¢ºÏ·¨ĞÔÓÉÍøÕ¾ËùÓĞÕß¸ºÔğ<br>
-            Èç¹û±¾ÍøÕ¾Õ¹Ê¾ĞÅÏ¢ÇÖ·¸ÄúµÄ°æÈ¨»òÆäËûºÏ·¨È¨Òæ£¬ÇëÁªÏµ<a href="mailo:GREYSEID@hotmail.com">GREYSEID@hotmail.com</a>
+        <!--ç»“å°¾-->
+        <div style="text-align: center;">å…è´£å£°æ˜<br>
+            æœ¬ç½‘ç«™æ‰€å±•ç¤ºçš„ä¿¡æ¯ä¸ºç½‘ç«™æ‰€æœ‰è€…è‡ªè¡Œæä¾›ï¼Œå†…å®¹çœŸå®æ€§ã€å‡†ç¡®æ€§ã€åˆæ³•æ€§ç”±ç½‘ç«™æ‰€æœ‰è€…è´Ÿè´£<br>
+            å¦‚æœæœ¬ç½‘ç«™å±•ç¤ºä¿¡æ¯ä¾µçŠ¯æ‚¨çš„ç‰ˆæƒæˆ–å…¶ä»–åˆæ³•æƒç›Šï¼Œè¯·è”ç³»<a href="mailo:GREYSEID@hotmail.com">GREYSEID@hotmail.com</a>
         </div>
     </div>
 </body>
