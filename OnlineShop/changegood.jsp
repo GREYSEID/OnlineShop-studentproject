@@ -5,7 +5,7 @@
 
 <head>
 	<meta charset="GB18030">
-	<title>¸üĞÂÉÌÆ·</title>
+	<title>æ›´æ–°å•†å“</title>
 </head>
 
 <body>
@@ -23,14 +23,14 @@ try{
 	count=Integer.parseInt(application.getAttribute("counter").toString());
 }
 catch(Exception e){
-    out.println("counterÃ»ÉèÖÃ");
+    out.println("counteræ²¡è®¾ç½®");
 }
-String filepath="D:\\pt\\imeg";//ÉÏ´«µÄÍ¼Æ¬·ÅÔÚĞéÄâÄ¿Â¼/pt/imeg/
+String filepath="D:\\pt\\imeg";//ä¸Šä¼ çš„å›¾ç‰‡æ”¾åœ¨è™šæ‹Ÿç›®å½•/pt/imeg/
 try{
 mySmartUpload.initialize(pageContext);
-mySmartUpload.setAllowedFilesList("jpg,bmp,gif,png,JPG,BMP,GIF,PNG,jpeg,JPEG");//ÉèÖÃ½ÓÊÕÎÄ¼şÀàĞÍ
-mySmartUpload.setMaxFileSize(10000000);    //ÏŞÖÆÉÏ´«ÎÄ¼şµÄ³¤¶È
-mySmartUpload.setTotalMaxFileSize(20000000);//ÏŞÖÆÉÏ´«ÎÄ¼şµÄ×Ü³¤¶È
+mySmartUpload.setAllowedFilesList("jpg,bmp,gif,png,JPG,BMP,GIF,PNG,jpeg,JPEG");//è®¾ç½®æ¥æ”¶æ–‡ä»¶ç±»å‹
+mySmartUpload.setMaxFileSize(10000000);    //é™åˆ¶ä¸Šä¼ æ–‡ä»¶çš„é•¿åº¦
+mySmartUpload.setTotalMaxFileSize(20000000);//é™åˆ¶ä¸Šä¼ æ–‡ä»¶çš„æ€»é•¿åº¦
 mySmartUpload.upload();
 picturenum=mySmartUpload.getRequest().getParameterValues("picturenum");
 for(int i=0;i<picturenum.length;i++)
@@ -42,13 +42,13 @@ for(int i=0;i<picturenum.length;i++)
 		if(!f.exists()){
 			myfile.saveAs(filepath+"\\"+myfile.getFileName());
 			goodspicturestring[Integer.parseInt(picturenum[i])]=myfile.getFileName();
-			out.print("ÉÏ´«³É¹¦");
+			out.print("ä¸Šä¼ æˆåŠŸ");
 		}
 		else{
 			String str=null;
 			while(true)
 			{
-				str=""+count;//·ÀÖ¹ÖØÃû
+				str=""+count;//é˜²æ­¢é‡å
 				java.io.File fi=new java.io.File(filepath+"\\"+str+myfile.getFileName());
 				if(!fi.exists())break;
 				count++;
@@ -57,7 +57,7 @@ for(int i=0;i<picturenum.length;i++)
 			goodspicturestring[Integer.parseInt(picturenum[i])]=str+myfile.getFileName();
 			count++;
 			application.setAttribute("counter",count);
-			out.print("ÉÏ´«³É¹¦");
+			out.print("ä¸Šä¼ æˆåŠŸ");
 		}
 	}
 }
@@ -83,10 +83,10 @@ try{
 	String goodsintroduction=mySmartUpload.getRequest().getParameter("goodsintroduction");
 	String goodscount=mySmartUpload.getRequest().getParameter("goodscount");
 	Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-	//¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+	//å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
 	String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-	//ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
-	Connection conn= DriverManager.getConnection(url,"root","yuan1234");
+	//å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
+	Connection conn= DriverManager.getConnection(url,"root","********");
 	Statement stmt=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
 	ResultSet res=stmt.executeQuery("select picture,picture2,picture3,picture4 from goods where id='"+goodsid+"'");
 	res.next();
@@ -113,13 +113,13 @@ try{
 			java.io.File file=new File(filepath+goodspicturestring[Integer.parseInt(picturenum[i])]);
 			if(!file.exists())file.delete();
 		}
-		out.print("¸üĞÂÊ§°Ü");
+		out.print("æ›´æ–°å¤±è´¥");
 		response.sendRedirect("changeGoods.jsp?goodsid="+goodsid);
 	}
 	else{
 		for(int i=0;i<picturenum.length;i++)
 		{
-			java.io.File file=new java.io.File(filepath+"\\"+(oldpicturestring[Integer.parseInt(picturenum[i])]==null?"":oldpicturestring[Integer.parseInt(picturenum[i])]));//¸üĞÂ³É¹¦½«¾ÉÍ¼Æ¬É¾³ı
+			java.io.File file=new java.io.File(filepath+"\\"+(oldpicturestring[Integer.parseInt(picturenum[i])]==null?"":oldpicturestring[Integer.parseInt(picturenum[i])]));//æ›´æ–°æˆåŠŸå°†æ—§å›¾ç‰‡åˆ é™¤
 			if(!file.isFile())file.delete();
 		}
 		}
@@ -132,7 +132,7 @@ catch(Exception e)
 {
 	for(int i=0;i<picturenum.length;i++)
 	{
-		java.io.File file=new java.io.File(filepath+"\\"+(goodspicturestring[Integer.parseInt(picturenum[i])]==null?"":goodspicturestring[Integer.parseInt(picturenum[i])]));//¸üĞÂÊ§°ÜÒª°ÑÉÏ´«µÄÎÄ¼şÉ¾³ı
+		java.io.File file=new java.io.File(filepath+"\\"+(goodspicturestring[Integer.parseInt(picturenum[i])]==null?"":goodspicturestring[Integer.parseInt(picturenum[i])]));//æ›´æ–°å¤±è´¥è¦æŠŠä¸Šä¼ çš„æ–‡ä»¶åˆ é™¤
 		if(!file.isFile())file.delete();
 	}
 	e.printStackTrace();
