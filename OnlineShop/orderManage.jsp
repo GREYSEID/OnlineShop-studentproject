@@ -5,7 +5,7 @@
 
 <head>
 	<meta charset="GB18030">
-	<title>¶©µ¥¹ÜÀí</title>
+	<title>è®¢å•ç®¡ç†</title>
 	<style>
 		.orderstyle {
 			display: "";
@@ -42,15 +42,15 @@
 			var second = t.getSeconds();
 			var curWeek;
 			switch (week) {
-				case 0: curWeek = "ĞÇÆÚÈÕ"; break;
-				case 1: curWeek = "ĞÇÆÚÒ»"; break;
-				case 2: curWeek = "ĞÇÆÚ¶ş"; break;
-				case 3: curWeek = "ĞÇÆÚÈı"; break;
-				case 4: curWeek = "ĞÇÆÚËÄ"; break;
-				case 5: curWeek = "ĞÇÆÚÎå"; break;
-				case 6: curWeek = "ĞÇÆÚÁù"; break;
+				case 0: curWeek = "æ˜ŸæœŸæ—¥"; break;
+				case 1: curWeek = "æ˜ŸæœŸä¸€"; break;
+				case 2: curWeek = "æ˜ŸæœŸäºŒ"; break;
+				case 3: curWeek = "æ˜ŸæœŸä¸‰"; break;
+				case 4: curWeek = "æ˜ŸæœŸå››"; break;
+				case 5: curWeek = "æ˜ŸæœŸäº”"; break;
+				case 6: curWeek = "æ˜ŸæœŸå…­"; break;
 			}
-			var time = " " + year + "Äê" + month + "ÔÂ" + day + "ÈÕ " + curWeek + " " + hour + ":" + minute + ":" + second;
+			var time = " " + year + "å¹´" + month + "æœˆ" + day + "æ—¥ " + curWeek + " " + hour + ":" + minute + ":" + second;
 			document.getElementById("time").innerHTML = time;
 		}
 		setInterval("showTime()", 1000);
@@ -79,7 +79,7 @@ String boolblockin="none";
 String head="/pt/imeg/timg1.jpg";
 String nickname=null;
 if(userid==null)out.print("<script>window.location.href='loginregister.html';</script>");
-if(userid!=null){//¼ì²âÓÃ»§ÊÇ·ñµÇÂ¼£¬µÇÂ¼ÁË¾ÍÏÔÊ¾¸öÈËĞÅÏ¢µÈ£¬Ã»µÇÂ½¾ÍÏÔÊ¾µÇÂ¼×¢²áÒ³Ãæ
+if(userid!=null){//æ£€æµ‹ç”¨æˆ·æ˜¯å¦ç™»å½•ï¼Œç™»å½•äº†å°±æ˜¾ç¤ºä¸ªäººä¿¡æ¯ç­‰ï¼Œæ²¡ç™»é™†å°±æ˜¾ç¤ºç™»å½•æ³¨å†Œé¡µé¢
 	boolcodeout="none";
 	boolcodein="inline";
 	boolblockout="none";
@@ -87,17 +87,17 @@ if(userid!=null){//¼ì²âÓÃ»§ÊÇ·ñµÇÂ¼£¬µÇÂ¼ÁË¾ÍÏÔÊ¾¸öÈËĞÅÏ¢µÈ£¬Ã»µÇÂ½¾ÍÏÔÊ¾µÇÂ¼×¢²
 
 try{
 	Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-	//¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+	//å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
 	String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-	//ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
-	Connection conn= DriverManager.getConnection(url,"root","yuan1234");
-	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
-	ResultSet rs=st.executeQuery("select nickname,head from myuser where id="+"\""+userid+"\"");//»ñÈ¡ÓÃ»§µÄêÇ³ÆÍ·Ïñ£¬ÏÔÊ¾
+	//å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
+	Connection conn= DriverManager.getConnection(url,"root","********");
+	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
+	ResultSet rs=st.executeQuery("select nickname,head from myuser where id="+"\""+userid+"\"");//è·å–ç”¨æˆ·çš„æ˜µç§°å¤´åƒï¼Œæ˜¾ç¤º
 	rs.next();
 	nickname=rs.getString("nickname");
 	head=rs.getString("head");
 	if(head!=null){
-		String gbk=URLEncoder.encode(head,"gb18030");//ÓĞÖĞÎÄÒª×ªÂë,jspµÄsrcµØÖ·Ïàµ±ÓÚ´ò¿ªÒ»¸öÍøÒ³Í¼Æ¬£¬²»ÄÜÓĞÖĞÎÄÒª×ªÂë
+		String gbk=URLEncoder.encode(head,"gb18030");//æœ‰ä¸­æ–‡è¦è½¬ç ,jspçš„srcåœ°å€ç›¸å½“äºæ‰“å¼€ä¸€ä¸ªç½‘é¡µå›¾ç‰‡ï¼Œä¸èƒ½æœ‰ä¸­æ–‡è¦è½¬ç 
 		head="/pt/imeg/"+gbk;
 	}
 	else head="/pt/imeg/timg1.jpg";
@@ -111,14 +111,14 @@ catch(Exception e){
 }
 %>
 	<div class="firsttitle">
-		<a href="userimf.jsp" style="margin-left: 10px;margin-right: 10px;">¸öÈËÒ³Ãæ</a>
-		<a href="Cart.jsp" style="margin-left: 10px;margin-right: 10px;">ÎÒµÄ¹ºÎï³µ</a>
-		<a href="orderManage.jsp?action=1" style="margin-left: 10px;margin-right: 10px">¹ºÂò¼ÇÂ¼</a>
-		<a href="logout.jsp" style="margin-left: 10px;margin-right: 10px;">×¢Ïú</a>
-		<a href="index.jsp" style="margin-left: 10px;margin-right: 10px;">Ö÷Ò³</a>
+		<a href="userimf.jsp" style="margin-left: 10px;margin-right: 10px;">ä¸ªäººé¡µé¢</a>
+		<a href="Cart.jsp" style="margin-left: 10px;margin-right: 10px;">æˆ‘çš„è´­ç‰©è½¦</a>
+		<a href="orderManage.jsp?action=1" style="margin-left: 10px;margin-right: 10px">è´­ä¹°è®°å½•</a>
+		<a href="logout.jsp" style="margin-left: 10px;margin-right: 10px;">æ³¨é”€</a>
+		<a href="index.jsp" style="margin-left: 10px;margin-right: 10px;">ä¸»é¡µ</a>
 		<span id="time" style="float:right;width: 150px;"> </span>
-		<a href="goodsManage.jsp" style="float: right;margin-left: 10px;margin-right: 10px;">ÉÌ¼ÒÈë¿Ú</a>
-		<a href="mailo:GREYSEID@hotmail.com" style="float: right;margin-left: 10px;margin-right: 10px;">¿Í·ş</a>
+		<a href="goodsManage.jsp" style="float: right;margin-left: 10px;margin-right: 10px;">å•†å®¶å…¥å£</a>
+		<a href="mailo:GREYSEID@hotmail.com" style="float: right;margin-left: 10px;margin-right: 10px;">å®¢æœ</a>
 	</div>
 	<div style="background-color: white;width: 100%;height: 150px;">
 		<div style="width: 1500px;height: 150px;border:  0;background-color: white;margin: 0 auto;">
@@ -129,15 +129,15 @@ catch(Exception e){
 				<center>
 					<form action="search.jsp" style="padding: 40px 0;">
 						<input type="text" id="searchText" placeholder="SEARCH" class="searchstyle" name='search'><input
-							type="submit" value="ËÑË÷" class="searchButton">
+							type="submit" value="æœç´¢" class="searchButton">
 					</form>
 				</center>
 			</div>
 			<div style="float: left;height: 100%;width: 25%;">
 				<form action="login.jsp" class="loginregister" style="display:<%=boolblockout%>;">
-					<label for="userid">ÕË&nbsp;ºÅ </label><input type="text" id="userid" placeholder="USERID"
+					<label for="userid">è´¦&nbsp;å· </label><input type="text" id="userid" placeholder="USERID"
 						class="lrstyle" required="required" name="userid"><br>
-					<label for="userpwd">ÃÜ&nbsp;Âë </label><input type="password" id="userpwd" placeholder="PASSWORD"
+					<label for="userpwd">å¯†&nbsp;ç  </label><input type="password" id="userpwd" placeholder="PASSWORD"
 						class="lrstyle" required="required" name="userpwd">
 					<div><input type='hidden' name='action' value='3'>
 						<input type="submit" value="LOGIN"><a href="currentregister.jsp"
@@ -149,7 +149,7 @@ catch(Exception e){
 								href="userimf.jsp"><%=nickname %></a></span></div>
 					<div
 						style="width:100px;height:100px;border-radius:50%;overflow: hidden;float:right;position: relative;top: 10%;">
-						<img alt="Í·Ïñ" src="<%=head%>" style="height:100%;width: 100%"></div>
+						<img alt="å¤´åƒ" src="<%=head%>" style="height:100%;width: 100%"></div>
 				</div>
 			</div>
 		</div>
@@ -157,33 +157,33 @@ catch(Exception e){
 	<div style="marign:0 auto;text-align: center;">
 		<table align="center">
 			<tr>
-				<td>¶©µ¥ºÅ</td>
-				<td>ÉÌµê</td>
-				<td>¹ºÂòÈÕÆÚ</td>
-				<td>¼Û¸ñ</td>
-				<td>¶©µ¥×´Ì¬</td>
-				<td>È¡Ïû¶©µ¥</td>
-				<td>È·ÈÏÊÕ»õ</td>
+				<td>è®¢å•å·</td>
+				<td>å•†åº—</td>
+				<td>è´­ä¹°æ—¥æœŸ</td>
+				<td>ä»·æ ¼</td>
+				<td>è®¢å•çŠ¶æ€</td>
+				<td>å–æ¶ˆè®¢å•</td>
+				<td>ç¡®è®¤æ”¶è´§</td>
 			</tr>
 			<%
-int PageSize=20;//Ò»Ò³ÏÔÊ¾20Ìõ
-int RowCount=0;//¼ÇÂ¼×ÜÊı
-int PageCount=1;//×ÜÒ³Êı
-int Page=1;//ÏÔÊ¾µÄÒ³Âë
-String strPage=null;//½ÓÊÕÒ³Âë
+int PageSize=20;//ä¸€é¡µæ˜¾ç¤º20æ¡
+int RowCount=0;//è®°å½•æ€»æ•°
+int PageCount=1;//æ€»é¡µæ•°
+int Page=1;//æ˜¾ç¤ºçš„é¡µç 
+String strPage=null;//æ¥æ”¶é¡µç 
 try{
 	Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-	//¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+	//å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
 	String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-	//ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
-	Connection conn= DriverManager.getConnection(url,"root","yuan1234");
-	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
+	//å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
+	Connection conn= DriverManager.getConnection(url,"root","********");
+	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
 	ResultSet rs=st.executeQuery("select A.*,B.store from orderlist A,storeacc B where A.storeid=B.storeid and userid="+"\""+userid+"\"");
 	if(rs.next())
 	{
 		rs.last();
 		RowCount=rs.getRow();
-		PageCount=(RowCount+PageSize-1)/PageSize;//×ÜÒ³Êı£¬¼Ó1´Ó1¿ªÊ¼Êı
+		PageCount=(RowCount+PageSize-1)/PageSize;//æ€»é¡µæ•°ï¼ŒåŠ 1ä»1å¼€å§‹æ•°
 
 	strPage=request.getParameter("page");
 	if(strPage==null)Page=1;
@@ -192,7 +192,7 @@ try{
 		if(Page>PageCount)Page=PageCount;
 		if(Page<1)Page=1;
 	}
-	if(PageCount>0)rs.absolute((Page-1)*PageSize+1);//Ìø×ªµ½Ö¸¶¨¼ÇÂ¼Î»ÖÃ
+	if(PageCount>0)rs.absolute((Page-1)*PageSize+1);//è·³è½¬åˆ°æŒ‡å®šè®°å½•ä½ç½®
 	int n=0;
 	while(n<PageSize&&rs!=null&&!rs.isAfterLast())
 	{
@@ -217,29 +217,29 @@ try{
 		out.print("<td>"+store+"</td>");
 		out.print("<td>"+time+"</td>");
 		out.print("<td>"+price+"</td>");
-		if(status.equals("´ıÖ§¸¶"))out.print("<td><a href='pay.jsp?allprice="+price+"&orderid="+id+"'>"+status+"</a></td>");
+		if(status.equals("å¾…æ”¯ä»˜"))out.print("<td><a href='pay.jsp?allprice="+price+"&orderid="+id+"'>"+status+"</a></td>");
 		else out.print("<td>"+status+"</td>");
-		out.print("<td><a href='"+"cancelorder.jsp?action=1&orderid="+id+"'>È¡Ïû¶©µ¥</a></td>");
-		if(!"ÒÑÊÕ»õ".equals(status)&&!"´ıÖ§¸¶".equals(status))out.print("<td><a href='"+"confirmget.jsp?orderid="+id+"'>È·ÈÏÊÕ»õ</a></td>");
+		out.print("<td><a href='"+"cancelorder.jsp?action=1&orderid="+id+"'>å–æ¶ˆè®¢å•</a></td>");
+		if(!"å·²æ”¶è´§".equals(status)&&!"å¾…æ”¯ä»˜".equals(status))out.print("<td><a href='"+"confirmget.jsp?orderid="+id+"'>ç¡®è®¤æ”¶è´§</a></td>");
 		else out.print("<td></td>");
 		out.print("</tr>");
 		for(int i=0;i<goodslist.length;i++)
 		{
 			out.print("<tr class='goodsstyle'><td colspan=7 >");
 			out.print("<table>");
-			Statement stmt=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
+			Statement stmt=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
 			ResultSet res=stmt.executeQuery("select * from goods where id="+"\""+goodslist[i]+"\"");
 			res.next();
 			String picture=res.getString("picture");
 			out.print("<tr><td rowspan=2>");
 			out.print("<a href='Goods.jsp?goodsid="+goodslist[i]+"'><img src='/pt/imeg/"+((picture==null||"".equals(picture))?"timg (3).jpg":picture)+"' alt='' style='height:50px;'></a>");
 			out.print("</td>");
-			out.print("<td>ÉÌÆ·id:"+res.getString("id")+"</td>");
-			out.print("<td>µ¥¼Û:"+res.getString("price")+"</td>");
+			out.print("<td>å•†å“id:"+res.getString("id")+"</td>");
+			out.print("<td>å•ä»·:"+res.getString("price")+"</td>");
 			out.print("</tr>");
 			out.print("<tr>");
-			out.print("<td>ÉÌÆ·Ãû:"+res.getString("name")+"</td>");
-			out.print("<td>¹ºÂòÊı:"+numlist[i]+"</td>");
+			out.print("<td>å•†å“å:"+res.getString("name")+"</td>");
+			out.print("<td>è´­ä¹°æ•°:"+numlist[i]+"</td>");
 			out.print("</tr>");
 			out.print("</table>");
 			//out.print
@@ -248,11 +248,11 @@ try{
 			res.close();
 		}
 		out.print("<tr class='goodsstyle'>");
-		out.print("<td style='text-align:left;'>ÊÕ»õÈË:"+name+"</td>");
-		out.print("<td style='text-align:left;'>ÊÕ»õÈËÁªÏµ·½Ê½:"+phone+"</td>");
-		out.print("<td style='text-align:left;'>¿ìµİµ¥ºÅ:"+(post==null?"":post)+"</td>");
+		out.print("<td style='text-align:left;'>æ”¶è´§äºº:"+name+"</td>");
+		out.print("<td style='text-align:left;'>æ”¶è´§äººè”ç³»æ–¹å¼:"+phone+"</td>");
+		out.print("<td style='text-align:left;'>å¿«é€’å•å·:"+(post==null?"":post)+"</td>");
 		out.print("</tr>");
-		out.print("<tr class='goodsstyle'><td colspan=7 style='text-align:left;'>ÊÕ»õµØÖ·:"+address+"</td></tr>");
+		out.print("<tr class='goodsstyle'><td colspan=7 style='text-align:left;'>æ”¶è´§åœ°å€:"+address+"</td></tr>");
 		out.print("</table>");
 		out.print("</td></tr>");
 		n++;
@@ -264,17 +264,17 @@ try{
 	out.print("<form action=\"orderManage.jsp\" method=\"get\">");
 	if(Page>1)
 	{
-		out.print("&nbsp;<a href='orderManage.jsp?action=1&page=1'>Ê×&nbsp;Ò³</a>&nbsp;");
-		out.print("&nbsp;<a href='orderManage.jsp?action=1&page="+(Page-1)+"'>ÉÏÒ»Ò³</a>&nbsp;");
+		out.print("&nbsp;<a href='orderManage.jsp?action=1&page=1'>é¦–&nbsp;é¡µ</a>&nbsp;");
+		out.print("&nbsp;<a href='orderManage.jsp?action=1&page="+(Page-1)+"'>ä¸Šä¸€é¡µ</a>&nbsp;");
 	}
-	out.print("&nbsp;µÚ"+Page+"Ò³&nbsp;");
+	out.print("&nbsp;ç¬¬"+Page+"é¡µ&nbsp;");
 	if(Page<PageCount)
 	{
-		out.print("&nbsp;<a href='orderManage.jsp?action=1&page="+(Page+1)+"'>ÏÂÒ»Ò³</a>&nbsp;");
-		out.print("&nbsp;<a href='orderManage.jsp?action=1&page="+PageCount+"'>Î²&nbsp;Ò³</a>&nbsp;");
+		out.print("&nbsp;<a href='orderManage.jsp?action=1&page="+(Page+1)+"'>ä¸‹ä¸€é¡µ</a>&nbsp;");
+		out.print("&nbsp;<a href='orderManage.jsp?action=1&page="+PageCount+"'>å°¾&nbsp;é¡µ</a>&nbsp;");
 	}
 	out.print("<input type='hidden' value=1 name='action'>");
-	out.print("&nbsp;Ìø×ªµ½<input type='text' name='page' size=2>Ò³&nbsp;¹²"+PageCount+"Ò³&nbsp;<input type='submit' value='go'>&nbsp;");
+	out.print("&nbsp;è·³è½¬åˆ°<input type='text' name='page' size=2>é¡µ&nbsp;å…±"+PageCount+"é¡µ&nbsp;<input type='submit' value='go'>&nbsp;");
 	out.print("</form>");
 }
 catch(Exception e)
@@ -288,43 +288,43 @@ else if("2".equals(action))
 	if(storeid==null)out.print("<script>window.location.href = 'goodsManage.jsp';</script>");
 	%>
 		<div class="firsttitle">
-			<a href="storeuserimf.jsp" style="margin-left: 10px;margin-right: 10px;">¸öÈËÒ³Ãæ</a>
-			<a href="orderManage.jsp?action=2" style="margin-left: 10px;margin-right: 10px">¹ºÂò¼ÇÂ¼</a>
-			<a href="logout.jsp?action=2" style="margin-left: 10px;margin-right: 10px;">×¢Ïú</a>
-			<a href="goodsManage.jsp" style="margin-left: 10px;margin-right: 10px;">Ö÷Ò³</a>
+			<a href="storeuserimf.jsp" style="margin-left: 10px;margin-right: 10px;">ä¸ªäººé¡µé¢</a>
+			<a href="orderManage.jsp?action=2" style="margin-left: 10px;margin-right: 10px">è´­ä¹°è®°å½•</a>
+			<a href="logout.jsp?action=2" style="margin-left: 10px;margin-right: 10px;">æ³¨é”€</a>
+			<a href="goodsManage.jsp" style="margin-left: 10px;margin-right: 10px;">ä¸»é¡µ</a>
 			<span id="time" style="float:right;width: 150px;"> </span>
-			<a href="index.jsp" style="float: right;margin-left: 10px;margin-right: 10px;">¿Í»§Èë¿Ú</a>
-			<a href="mailo:GREYSEID@hotmail.com" style="float: right;margin-left: 10px;margin-right: 10px;">¿Í·ş</a>
+			<a href="index.jsp" style="float: right;margin-left: 10px;margin-right: 10px;">å®¢æˆ·å…¥å£</a>
+			<a href="mailo:GREYSEID@hotmail.com" style="float: right;margin-left: 10px;margin-right: 10px;">å®¢æœ</a>
 		</div>
 		<div style="marign:0 auto;text-align: center;">
 			<table align="center">
 				<tr>
-					<td>¶©µ¥ºÅ</td>
-					<td>¹ºÂòÈÕÆÚ</td>
-					<td>¼Û¸ñ</td>
-					<td>¶©µ¥×´Ì¬</td>
-					<td>È¡Ïû¶©µ¥</td>
-					<td>È·ÈÏ·¢»õ</td>
+					<td>è®¢å•å·</td>
+					<td>è´­ä¹°æ—¥æœŸ</td>
+					<td>ä»·æ ¼</td>
+					<td>è®¢å•çŠ¶æ€</td>
+					<td>å–æ¶ˆè®¢å•</td>
+					<td>ç¡®è®¤å‘è´§</td>
 				</tr>
 				<%
-	int PageSize=20;//Ò»Ò³ÏÔÊ¾20Ìõ
-	int RowCount=0;//¼ÇÂ¼×ÜÊı
-	int PageCount=1;//×ÜÒ³Êı
-	int Page=1;//ÏÔÊ¾µÄÒ³Âë
-	String strPage=null;//½ÓÊÕÒ³Âë
+	int PageSize=20;//ä¸€é¡µæ˜¾ç¤º20æ¡
+	int RowCount=0;//è®°å½•æ€»æ•°
+	int PageCount=1;//æ€»é¡µæ•°
+	int Page=1;//æ˜¾ç¤ºçš„é¡µç 
+	String strPage=null;//æ¥æ”¶é¡µç 
 	try{
 		Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-		//¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+		//å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
 		String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-		//ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
-		Connection conn= DriverManager.getConnection(url,"root","yuan1234");
-		Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
+		//å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
+		Connection conn= DriverManager.getConnection(url,"root","********");
+		Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
 		ResultSet rs=st.executeQuery("select A.*,B.store from orderlist A,storeacc B where A.storeid=B.storeid and A.storeid="+"\""+storeid+"\"");
 		if(rs.next())
 		{
 			rs.last();
 			RowCount=rs.getRow();
-			PageCount=(RowCount+PageSize-1)/PageSize;//×ÜÒ³Êı£¬¼Ó1´Ó1¿ªÊ¼Êı
+			PageCount=(RowCount+PageSize-1)/PageSize;//æ€»é¡µæ•°ï¼ŒåŠ 1ä»1å¼€å§‹æ•°
 
 		strPage=request.getParameter("page");
 		if(strPage==null)Page=1;
@@ -333,7 +333,7 @@ else if("2".equals(action))
 			if(Page>PageCount)Page=PageCount;
 			if(Page<1)Page=1;
 		}
-		if(PageCount>0)rs.absolute((Page-1)*PageSize+1);//Ìø×ªµ½Ö¸¶¨¼ÇÂ¼Î»ÖÃ
+		if(PageCount>0)rs.absolute((Page-1)*PageSize+1);//è·³è½¬åˆ°æŒ‡å®šè®°å½•ä½ç½®
 		int n=0;
 		while(n<PageSize&&rs!=null&&!rs.isAfterLast())
 		{
@@ -357,27 +357,27 @@ else if("2".equals(action))
 			out.print("<td>"+time+"</td>");
 			out.print("<td>"+price+"</td>");
 			out.print("<td>"+status+"</td>");
-			out.print("<td><a href='"+"cancelorder.jsp?action=2&orderid="+id+"'>È¡Ïû¶©µ¥</a></td>");
-			if("ÒÑÖ§¸¶".equals(status))out.print("<td><a onclick='check("+id+")'>È·ÈÏ·¢»õ</a><form action='confirm.jsp' id='"+id+"' hidden><input type='hidden' value="+id+" name='goodsid'><input type='text' name='post'></form></td>");
+			out.print("<td><a href='"+"cancelorder.jsp?action=2&orderid="+id+"'>å–æ¶ˆè®¢å•</a></td>");
+			if("å·²æ”¯ä»˜".equals(status))out.print("<td><a onclick='check("+id+")'>ç¡®è®¤å‘è´§</a><form action='confirm.jsp' id='"+id+"' hidden><input type='hidden' value="+id+" name='goodsid'><input type='text' name='post'></form></td>");
 			else out.print("<td></td>");
 			out.print("</tr>");
 			for(int i=0;i<goodslist.length;i++)
 			{
 				out.print("<tr class='goodsstyle'><td colspan=6 >");
 				out.print("<table>");
-				Statement stmt=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
+				Statement stmt=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
 				ResultSet res=stmt.executeQuery("select * from goods where id="+"\""+goodslist[i]+"\"");
 				res.next();
 				String picture=res.getString("picture");
 				out.print("<tr><td rowspan=2>");
 				out.print("<a href='Goods.jsp?goodsid="+goodslist[i]+"'><img src='/pt/imeg/"+((picture==null||"".equals(picture))?"timg (3).jpg":picture)+"' alt='' style='height:50px;'></a>");
 				out.print("</td>");
-				out.print("<td>ÉÌÆ·id:"+res.getString("id")+"</td>");
-				out.print("<td>µ¥¼Û:"+res.getString("price")+"</td>");
+				out.print("<td>å•†å“id:"+res.getString("id")+"</td>");
+				out.print("<td>å•ä»·:"+res.getString("price")+"</td>");
 				out.print("</tr>");
 				out.print("<tr>");
-				out.print("<td>ÉÌÆ·Ãû:"+res.getString("name")+"</td>");
-				out.print("<td>¹ºÂòÊı:"+numlist[i]+"</td>");
+				out.print("<td>å•†å“å:"+res.getString("name")+"</td>");
+				out.print("<td>è´­ä¹°æ•°:"+numlist[i]+"</td>");
 				out.print("</tr>");
 				out.print("</table>");
 				//out.print
@@ -386,11 +386,11 @@ else if("2".equals(action))
 				res.close();
 			}
 			out.print("<tr class='goodsstyle'>");
-			out.print("<td style='text-align:left;'>ÊÕ»õÈË:"+name+"</td>");
-			out.print("<td style='text-align:left;'>ÊÕ»õÈËÁªÏµ·½Ê½:"+phone+"</td>");
-			out.print("<td style='text-align:left;'>¿ìµİµ¥ºÅ:"+(post==null?"":post)+"</td>");
+			out.print("<td style='text-align:left;'>æ”¶è´§äºº:"+name+"</td>");
+			out.print("<td style='text-align:left;'>æ”¶è´§äººè”ç³»æ–¹å¼:"+phone+"</td>");
+			out.print("<td style='text-align:left;'>å¿«é€’å•å·:"+(post==null?"":post)+"</td>");
 			out.print("</tr>");
-			out.print("<tr class='goodsstyle'><td colspan=6 style='text-align:left;'>ÊÕ»õµØÖ·:"+address+"</td></tr>");
+			out.print("<tr class='goodsstyle'><td colspan=6 style='text-align:left;'>æ”¶è´§åœ°å€:"+address+"</td></tr>");
 			out.print("</table>");
 			out.print("</td></tr>");
 			n++;
@@ -402,17 +402,17 @@ else if("2".equals(action))
 		out.print("<form action=\"orderManage.jsp\" method=\"get\">");
 		if(Page>1)
 		{
-			out.print("&nbsp;<a href='orderManage.jsp?action=2&page=1'>Ê×&nbsp;Ò³</a>&nbsp;");
-			out.print("&nbsp;<a href='orderManage.jsp?action=2&page="+(Page-1)+"'>ÉÏÒ»Ò³</a>&nbsp;");
+			out.print("&nbsp;<a href='orderManage.jsp?action=2&page=1'>é¦–&nbsp;é¡µ</a>&nbsp;");
+			out.print("&nbsp;<a href='orderManage.jsp?action=2&page="+(Page-1)+"'>ä¸Šä¸€é¡µ</a>&nbsp;");
 		}
-		out.print("&nbsp;µÚ"+Page+"Ò³&nbsp;");
+		out.print("&nbsp;ç¬¬"+Page+"é¡µ&nbsp;");
 		if(Page<PageCount)
 		{
-			out.print("&nbsp;<a href='orderManage.jsp?action=2&page="+(Page+1)+"'>ÏÂÒ»Ò³</a>&nbsp;");
-			out.print("&nbsp;<a href='orderManage.jsp?action=2&page="+PageCount+"'>Î²&nbsp;Ò³</a>&nbsp;");
+			out.print("&nbsp;<a href='orderManage.jsp?action=2&page="+(Page+1)+"'>ä¸‹ä¸€é¡µ</a>&nbsp;");
+			out.print("&nbsp;<a href='orderManage.jsp?action=2&page="+PageCount+"'>å°¾&nbsp;é¡µ</a>&nbsp;");
 		}
 		out.print("<input type='hidden' value=2 name='action'>");
-		out.print("&nbsp;Ìø×ªµ½<input type='text' name='page' size=2>Ò³&nbsp;¹²"+PageCount+"Ò³&nbsp;<input type='submit' value='go'>&nbsp;");
+		out.print("&nbsp;è·³è½¬åˆ°<input type='text' name='page' size=2>é¡µ&nbsp;å…±"+PageCount+"é¡µ&nbsp;<input type='submit' value='go'>&nbsp;");
 		out.print("</form>");
 	}
 	catch(Exception e)
