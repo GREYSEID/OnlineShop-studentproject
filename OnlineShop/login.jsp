@@ -4,7 +4,7 @@
 <html>
 
 <head>
-	<title>µÇÂ¼</title>
+	<title>ç™»å½•</title>
 	<meta charset="gb18030">
 	<meta name="author" content="GREYSEID">
 </head>
@@ -15,14 +15,14 @@ String action=request.getParameter("action");
 String goodsid=request.getParameter("goodsid");
 try{
 	    Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-	  //¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+	  //å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
 	    String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-	  //ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
-	    Connection conn= DriverManager.getConnection(url,"root","yuan1234");
+	  //å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
+	    Connection conn= DriverManager.getConnection(url,"root","********");
 		request.setCharacterEncoding("gb18030");
 		String userid=request.getParameter("userid");
 		String pwd=request.getParameter("userpwd");
-		Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
+		Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
 		ResultSet rs=st.executeQuery("select id,pwd from myuser where id="+"\""+userid+"\"");
 		rs.next();
 			if((userid.equals(rs.getString("id")))&&(pwd.equals(rs.getString("pwd"))))
@@ -34,7 +34,7 @@ try{
 				else response.sendRedirect("welcome.html");
 			}
 			else{
-				out.print("<script>alert('ÓÃ»§ÃûÃÜÂë²»´æÔÚ»ò´íÎó'); window.location.href = 'loginregister.html';</script>");
+				out.print("<script>alert('ç”¨æˆ·åå¯†ç ä¸å­˜åœ¨æˆ–é”™è¯¯'); window.location.href = 'loginregister.html';</script>");
 				//response.setHeader("Refresh", "3;loginregister.html");
 				//response.sendRedirect("loginregister.html");
 			}
@@ -44,13 +44,13 @@ try{
 }
 catch(ClassNotFoundException e)
 {
-	out.print("×°ÔØÊ§°Ü");
+	out.print("è£…è½½å¤±è´¥");
 }
 catch(SQLException e)
 {
 	out.println(e);
-	out.print("Á¬½ÓÊ§°Ü");
-	out.print("<script>alert('ÓÃ»§ÃûÃÜÂë²»´æÔÚ»ò´íÎó'); window.location.href = 'loginregister.html';</script>");
+	out.print("è¿æ¥å¤±è´¥");
+	out.print("<script>alert('ç”¨æˆ·åå¯†ç ä¸å­˜åœ¨æˆ–é”™è¯¯'); window.location.href = 'loginregister.html';</script>");
 	//response.sendRedirect("loginregister.html");
 }
 catch(Exception e)
