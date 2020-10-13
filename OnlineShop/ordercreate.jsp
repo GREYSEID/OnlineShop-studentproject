@@ -5,7 +5,7 @@
 
 <head>
 	<meta charset="GB18030">
-	<title>´´½¨¶©µ¥</title>
+	<title>åˆ›å»ºè®¢å•</title>
 </head>
 
 <body>
@@ -18,24 +18,24 @@ String name=request.getParameter("name");
 String phone=request.getParameter("phone");
 String[] goodslist=request.getParameterValues("goods");
 String[] numlist=request.getParameterValues("num");
-float[]pricelist=new float[goodslist.length];//Ã¿¸öÉÌÆ·¶ÔÓ¦µÄ¼Û¸ñ
-float[]countlist=new float[goodslist.length];//Ã¿¸ö¶©µ¥µÄ×Ü¼Û
-String[]goodsstoreidlist=new String[goodslist.length];//Ã¿¸öÉÌµê¶ÔÓ¦µÄÉÌµêid
+float[]pricelist=new float[goodslist.length];//æ¯ä¸ªå•†å“å¯¹åº”çš„ä»·æ ¼
+float[]countlist=new float[goodslist.length];//æ¯ä¸ªè®¢å•çš„æ€»ä»·
+String[]goodsstoreidlist=new String[goodslist.length];//æ¯ä¸ªå•†åº—å¯¹åº”çš„å•†åº—id
 Map<String, String> storemap = new HashMap<String,String>();
 String[]goodsstr=new String[goodslist.length];
 String[]numstr=new String[goodslist.length];
 String[]pricestr=new String[goodslist.length];
-String[]storename=new String[goodslist.length];//ÉÌµê
-int storenum=0;//ÉÌµê×ÜÊı¼´¶©µ¥×ÜÊı
+String[]storename=new String[goodslist.length];//å•†åº—
+int storenum=0;//å•†åº—æ€»æ•°å³è®¢å•æ€»æ•°
 try{
 	Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-	//¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+	//å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
 	String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-	//ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
-	Connection conn= DriverManager.getConnection(url,"root","yuan1234");
-	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
+	//å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
+	Connection conn= DriverManager.getConnection(url,"root","********");
+	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
 	String s="select A.*,B.store from goods A ,storeacc B where A.storeid=B.storeid and ( id="+goodslist[0];
-	for(int i=1;i<goodslist.length;i++)//²»ÖªµÀÉ¸Ñ¡Ìõ¼ş¹ı¶à»á²»»á±ÀÀ£
+	for(int i=1;i<goodslist.length;i++)//ä¸çŸ¥é“ç­›é€‰æ¡ä»¶è¿‡å¤šä¼šä¸ä¼šå´©æºƒ
 	{
 		s+=" or id="+goodslist[i];
 	}
@@ -55,7 +55,7 @@ try{
 			if(goodslist[i].equals(rs.getString("id"))){
 				pricelist[i]=Float.parseFloat(rs.getString("price"));
 				goodsstoreidlist[i]=rs.getString("storeid");
-				if(Integer.parseInt(numlist[i])>Integer.parseInt(rs.getString("count")))out.print("<script>alert('id"+goodslist[i]+"¿â´æ²»×ã'); window.location.href = 'Cart.jsp';</script>");
+				if(Integer.parseInt(numlist[i])>Integer.parseInt(rs.getString("count")))out.print("<script>alert('id"+goodslist[i]+"åº“å­˜ä¸è¶³'); window.location.href = 'Cart.jsp';</script>");
 			}
 		}
 	}
@@ -69,14 +69,14 @@ try{
 		else numstr[whestore]+=numlist[i]+"|";
 		countlist[whestore]+=Float.parseFloat(numlist[i])*pricelist[i];
 		Statement stmt=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-		String sql="update goods set count=count-"+numlist[i]+" where id="+goodslist[i];//¼õÈ¥ÉÌÆ·ÏìÓ¦ÊıÁ¿
+		String sql="update goods set count=count-"+numlist[i]+" where id="+goodslist[i];//å‡å»å•†å“å“åº”æ•°é‡
 		int result=stmt.executeUpdate(sql);
-		if(result==0)out.print("<script>alert('´´½¨¶©µ¥Ê§°Ü');window.location.href='Cart.jsp'</script>");
+		if(result==0)out.print("<script>alert('åˆ›å»ºè®¢å•å¤±è´¥');window.location.href='Cart.jsp'</script>");
 		stmt.close();
 	}
 	{
 		Statement stmt=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-		ResultSet res=stmt.executeQuery("select address from myuser where id="+userid);//»ñÈ¡µØÖ·ĞÅÏ¢
+		ResultSet res=stmt.executeQuery("select address from myuser where id="+userid);//è·å–åœ°å€ä¿¡æ¯
 		res.next();
 		if(address==null||"".equals(address))address=res.getString("address");
 		if(name==null||"".equals(name))name=res.getString("name");
@@ -89,7 +89,7 @@ try{
 	{
 		String str="insert into orderlist(id,userid,storeid,goodslist,numlist,price,address,status,name,phone,time)values(?,?,?,?,?,?,?,?,?,?,?) ";
 		PreparedStatement ps=conn.prepareStatement(str);
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//»ñÈ¡Ê±¼ä
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//è·å–æ—¶é—´
 		String date=df.format(new java.util.Date());
 		orderid[i]=Long.toString(System.currentTimeMillis());
 		ps.setString(1, orderid[i]);
@@ -99,14 +99,14 @@ try{
 		ps.setString(5, numstr[i]);
 		ps.setString(6, ""+countlist[i]);
 		ps.setString(7, address);
-		ps.setString(8,"´ıÖ§¸¶");
+		ps.setString(8,"å¾…æ”¯ä»˜");
 		ps.setString(9,name);
 		ps.setString(10,phone);
 		ps.setString(11,date);
 		ps.execute();
 		ps.close();
 	}
-	String stri="pay.jsp?allprice="+request.getParameter("allprice")+"&"+"orderid="+orderid[0];//Ìø×ªµ½Ö§¸¶½çÃæ
+	String stri="pay.jsp?allprice="+request.getParameter("allprice")+"&"+"orderid="+orderid[0];//è·³è½¬åˆ°æ”¯ä»˜ç•Œé¢
 	for(int i=1;i<storenum;i++)
 	{
 		stri+="&orderid="+orderid[i];
@@ -114,14 +114,14 @@ try{
 	rs.close();
 	st.close();
 	conn.close();
-	//É¾³ı´´½¨¶©µ¥Ö®ºóµÄ¹ºÎï³µµÄÄÚÈİ
+	//åˆ é™¤åˆ›å»ºè®¢å•ä¹‹åçš„è´­ç‰©è½¦çš„å†…å®¹
 	Cookie goodscookie=null;
 	Cookie[]cookies=null;
 	Cookie numcookie=null;
 	cookies=request.getCookies();
 	String str="";
 	String str1="";
-	String[]goodslist1=null;//¹ºÎï³µÖĞÉÌÆ·
+	String[]goodslist1=null;//è´­ç‰©è½¦ä¸­å•†å“
 	String[]numlist1=null;
 	if(cookies!=null)
 	{
@@ -146,7 +146,7 @@ try{
 			{
 				String strin="";
 				String g="";
-				for(int i=0;i<goodslist1.length;i++)//ÔÚ¹ºÎï³µÑ°ÕÒ¶©µ¥ÖĞµÄÉÌÆ·
+				for(int i=0;i<goodslist1.length;i++)//åœ¨è´­ç‰©è½¦å¯»æ‰¾è®¢å•ä¸­çš„å•†å“
 				{
 					if(!goodslist1[i].equals(goodslist[n])){
 						strin+=goodslist1[i]+"|";
