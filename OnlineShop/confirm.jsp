@@ -5,7 +5,7 @@
 
 <head>
 	<meta charset="GB18030">
-	<title>确认发货</title>
+	<title>纭鍙戣揣</title>
 </head>
 
 <body>
@@ -17,14 +17,14 @@ String id=request.getParameter("goodsid");
 String post=request.getParameter("post");
 try{
 	Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-	//定义连接字符串,东八区GMT%2B8
+	//瀹氫箟杩炴帴瀛楃涓�,涓滃叓鍖篏MT%2B8
 	String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-	//和数据库建立连接
-	Connection conn= DriverManager.getConnection(url,"root","yuan1234");
-	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//参数设置默认的话rs只能用next()
-	int result=st.executeUpdate("update orderlist set post='"+post+"'"+" , status='已发货' where id='"+id+"'");
+	//鍜屾暟鎹簱寤虹珛杩炴帴
+	Connection conn= DriverManager.getConnection(url,"root","********");
+	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//鍙傛暟璁剧疆榛樿鐨勮瘽rs鍙兘鐢╪ext()
+	int result=st.executeUpdate("update orderlist set post='"+post+"'"+" , status='宸插彂璐�' where id='"+id+"'");
 	if(result==0){
-		out.print("<script>alert('发货失败'); window.location.href = 'orderManage.jsp?action=2';</script>");
+		out.print("<script>alert('鍙戣揣澶辫触'); window.location.href = 'orderManage.jsp?action=2';</script>");
 	}
 	response.sendRedirect("orderManage.jsp?action=2");
 }
