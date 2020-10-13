@@ -18,7 +18,7 @@ if(userid!=null){
 }
 %>
 	<meta charset="GB18030">
-	<title>ÏêÏ¸×¢²á</title>
+	<title>è¯¦ç»†æ³¨å†Œ</title>
 	<link rel="stylesheet" type="text/css" href="taotao.css">
 	<style type="text/css">
 		a {
@@ -71,15 +71,15 @@ if(userid!=null){
 			var second = t.getSeconds();
 			var curWeek;
 			switch (week) {
-				case 0: curWeek = "ĞÇÆÚÈÕ"; break;
-				case 1: curWeek = "ĞÇÆÚÒ»"; break;
-				case 2: curWeek = "ĞÇÆÚ¶ş"; break;
-				case 3: curWeek = "ĞÇÆÚÈı"; break;
-				case 4: curWeek = "ĞÇÆÚËÄ"; break;
-				case 5: curWeek = "ĞÇÆÚÎå"; break;
-				case 6: curWeek = "ĞÇÆÚÁù"; break;
+				case 0: curWeek = "æ˜ŸæœŸæ—¥"; break;
+				case 1: curWeek = "æ˜ŸæœŸä¸€"; break;
+				case 2: curWeek = "æ˜ŸæœŸäºŒ"; break;
+				case 3: curWeek = "æ˜ŸæœŸä¸‰"; break;
+				case 4: curWeek = "æ˜ŸæœŸå››"; break;
+				case 5: curWeek = "æ˜ŸæœŸäº”"; break;
+				case 6: curWeek = "æ˜ŸæœŸå…­"; break;
 			}
-			var time = " " + year + "Äê" + month + "ÔÂ" + day + "ÈÕ " + curWeek + " " + hour + ":" + minute + ":" + second;
+			var time = " " + year + "å¹´" + month + "æœˆ" + day + "æ—¥ " + curWeek + " " + hour + ":" + minute + ":" + second;
 			document.getElementById("time").innerHTML = time;
 		}
 		setInterval("showTime()", 1000);
@@ -89,25 +89,25 @@ if(userid!=null){
 <body style="margin: 0;padding: 0;overflow: visible;background-color: #f5f5f5;" onload="showTime()">
 	<div class="firsttitle">
 		<a href="loginregister.html?login=true"
-			style="color: red;margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">µÇÂ¼</a>
-		<a href="currentregister.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">×¢²á</a>
-		<a href="userimf.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">¸öÈËÒ³Ãæ</a>
-		<a href="Cart.jsp" style="margin-left: 10px;margin-right: 10px;">ÎÒµÄ¹ºÎï³µ</a>
+			style="color: red;margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">ç™»å½•</a>
+		<a href="currentregister.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">æ³¨å†Œ</a>
+		<a href="userimf.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">ä¸ªäººé¡µé¢</a>
+		<a href="Cart.jsp" style="margin-left: 10px;margin-right: 10px;">æˆ‘çš„è´­ç‰©è½¦</a>
 		<a href="orderManage.jsp?action=1"
-			style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">¹ºÂò¼ÇÂ¼</a>
-		<a href="logout.jsp" style="margin-left: 10px;margin-right: 10px;">×¢Ïú</a>
-		<a href="index.jsp" style="margin-left: 10px;margin-right: 10px;">Ö÷Ò³</a>
+			style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">è´­ä¹°è®°å½•</a>
+		<a href="logout.jsp" style="margin-left: 10px;margin-right: 10px;">æ³¨é”€</a>
+		<a href="index.jsp" style="margin-left: 10px;margin-right: 10px;">ä¸»é¡µ</a>
 		<span id="time" style="float:right;width: 150px;"> </span>
-		<a href="goodsManage.jsp" style="float: right;margin-left: 10px;margin-right: 10px;">ÉÌ¼ÒÈë¿Ú</a>
-		<a href="mailo:GREYSEID@hotmail.com" style="float: right;margin-left: 10px;margin-right: 10px;">¿Í·ş</a>
+		<a href="goodsManage.jsp" style="float: right;margin-left: 10px;margin-right: 10px;">å•†å®¶å…¥å£</a>
+		<a href="mailo:GREYSEID@hotmail.com" style="float: right;margin-left: 10px;margin-right: 10px;">å®¢æœ</a>
 	</div>
-	<a href="index.jsp">Ö÷Ò³</a>
+	<a href="index.jsp">ä¸»é¡µ</a>
 	<br>
 	<br>
 	<br>
 	<br>
 	<div class=borderstyle>
-		<h1>ÏêÏ¸×¢²á</h1>
+		<h1>è¯¦ç»†æ³¨å†Œ</h1>
 		<form action="insertregister.jsp" method="post" style="text-align:center;" enctype="multipart/form-data">
 			<table style="margin: 0 auto;text-align: left;">
 				<tbody>
@@ -115,13 +115,13 @@ if(userid!=null){
 						<td><input type="file" name="fileUpload" accept="image/*" onchange="see('files','imgs')"
 								id="files"></td>
 						<td>
-							<div style="height: 100px;width:100px;overflow: hidden;border-radius: 50%;"><img alt="Í·Ïñ"
+							<div style="height: 100px;width:100px;overflow: hidden;border-radius: 50%;"><img alt="å¤´åƒ"
 									src="/pt/imeg/timg1.jpg" style="height: 100%;" id="imgs"></div>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<label for='userid'>ÓÃ»§ID:</label>
+							<label for='userid'>ç”¨æˆ·ID:</label>
 						</td>
 						<td>
 							<input type="text" name='userid' id='userid' required="required">
@@ -129,7 +129,7 @@ if(userid!=null){
 					</tr>
 					<tr>
 						<td>
-							<label for='usernickname'>êÇ³Æ:</label>
+							<label for='usernickname'>æ˜µç§°:</label>
 						</td>
 						<td>
 							<input type='text' name='usernickname' id='usernickname'>
@@ -137,7 +137,7 @@ if(userid!=null){
 					</tr>
 					<tr>
 						<td>
-							<label for='useremail'>ÓÊÏä:</label>
+							<label for='useremail'>é‚®ç®±:</label>
 						</td>
 						<td>
 							<input type='text' name='useremail' id='useremail'>
@@ -145,7 +145,7 @@ if(userid!=null){
 					</tr>
 					<tr>
 						<td>
-							<label for='username'>ĞÕÃû:</label>
+							<label for='username'>å§“å:</label>
 						</td>
 						<td>
 							<input type='text' name='username' id='username'>
@@ -153,7 +153,7 @@ if(userid!=null){
 					</tr>
 					<tr>
 						<td>
-							<label for='userage'>ÄêÁä:</label>
+							<label for='userage'>å¹´é¾„:</label>
 						</td>
 						<td>
 							<input type='text' name='userage' id='userage' oninput="value=value.replace(/[^\d]/g,'')">
@@ -161,7 +161,7 @@ if(userid!=null){
 					</tr>
 					<tr>
 						<td>
-							<label for='userpwd'>ÃÜÂë:</label>
+							<label for='userpwd'>å¯†ç :</label>
 						</td>
 						<td>
 							<input type='password' name='userpwd' id='userpwd' required='required' onkeyup="test()">
@@ -169,7 +169,7 @@ if(userid!=null){
 					</tr>
 					<tr>
 						<td>
-							<label for='confirm'>È·ÈÏÃÜÂë:</label>
+							<label for='confirm'>ç¡®è®¤å¯†ç :</label>
 						</td>
 						<td>
 							<input type='password' id='confirm' name='confirm' onkeyup="test()" required='required'>
@@ -177,7 +177,7 @@ if(userid!=null){
 					</tr>
 					<tr>
 						<td>
-							<label for='userphone'>ÊÖ»úºÅ:</label>
+							<label for='userphone'>æ‰‹æœºå·:</label>
 						</td>
 						<td>
 							<input type='text' name='userphone' id='userphone'
@@ -186,20 +186,20 @@ if(userid!=null){
 					</tr>
 					<tr>
 						<td>
-							<label for='usercity'>³Ç&nbsp;&nbsp;&nbsp;ÊĞ:</label>
+							<label for='usercity'>åŸ&nbsp;&nbsp;&nbsp;å¸‚:</label>
 						</td>
 						<td style="padding-left=0;">
 							<select name="usercity">
 								<%
 			  	try{
 			  	Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-		  	    //¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+		  	    //å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
 		  	    String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-		  	    //ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
-		  	    Connection conn= DriverManager.getConnection(url,"root","yuan1234");
+		  	    //å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
+		  	    Connection conn= DriverManager.getConnection(url,"root","********");
 		  	  	Statement stmt=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-			  	ResultSet res=stmt.executeQuery("select cityname from city");//Ç¶Ì×Ê¹ÓÃ¶àÒ»¸östatement
-			  	out.print("<option value='null' selected='selected'>---</option>");//Ñ¡Ôñ³ÇÊĞ
+			  	ResultSet res=stmt.executeQuery("select cityname from city");//åµŒå¥—ä½¿ç”¨å¤šä¸€ä¸ªstatement
+			  	out.print("<option value='null' selected='selected'>---</option>");//é€‰æ‹©åŸå¸‚
 			  	while(res.next())
 			  	{
 			  		String cityname=res.getString("cityname");
@@ -212,7 +212,7 @@ if(userid!=null){
 			  	catch(Exception e)
 			  	{
 			  		e.printStackTrace();
-			  		out.print("<script>alert('¶ÁÈ¡Êı¾İ¿â´íÎó'); window.location.href = 'currentregister.jsp';</script>");
+			  		out.print("<script>alert('è¯»å–æ•°æ®åº“é”™è¯¯'); window.location.href = 'currentregister.jsp';</script>");
 			  	}
 			  	%>
 							</select>
@@ -220,7 +220,7 @@ if(userid!=null){
 					</tr>
 					<tr>
 						<td style="vertical-align:text-top;">
-							<label for='useraddress'>µØ&nbsp;&nbsp;&nbsp;Ö·:</label>
+							<label for='useraddress'>åœ°&nbsp;&nbsp;&nbsp;å€:</label>
 						</td>
 						<td colspan='2'>
 							<textarea rows='5' cols='40' name='useraddress' id='useraddress'></textarea>
@@ -233,7 +233,7 @@ if(userid!=null){
 					</tr>
 				</tbody>
 			</table>
-			<input type="submit" value="×¢²á" id="submit">
+			<input type="submit" value="æ³¨å†Œ" id="submit">
 		</form>
 	</div>
 </body>
