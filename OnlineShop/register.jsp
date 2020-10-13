@@ -5,21 +5,21 @@
 
 <head>
 	<meta charset="GB18030">
-	<title>注册</title>
+	<title>娉ㄥ唽</title>
 </head>
 
 <body>
 	<%
 try{
 Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-//定义连接字符串,东八区GMT%2B8
+//瀹氫箟杩炴帴瀛楃涓�,涓滃叓鍖篏MT%2B8
 String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-//和数据库建立连接
-Connection conn= DriverManager.getConnection(url,"root","yuan1234");
+//鍜屾暟鎹簱寤虹珛杩炴帴
+Connection conn= DriverManager.getConnection(url,"root","********");
 request.setCharacterEncoding("GB18030");
 String userid=request.getParameter("registeruserid");
 String pwd=request.getParameter("registeruserpwd");
-Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//参数设置默认的话rs只能用next()
+Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//鍙傛暟璁剧疆榛樿鐨勮瘽rs鍙兘鐢╪ext()
 ResultSet rs=st.executeQuery("select id from myuser where id="+"\""+userid+"\"");
 rs.last();
 int last=rs.getRow();
@@ -28,14 +28,14 @@ if(last==0)
 	PreparedStatement ps=conn.prepareStatement("insert into myuser(id,pwd,nickname)values(?,?,?)");
 	ps.setString(1,userid);
 	ps.setString(2,pwd);
-	ps.setString(3,userid);//初创建的账号昵称为id号
+	ps.setString(3,userid);//鍒濆垱寤虹殑璐﹀彿鏄电О涓篿d鍙�
 	ps.execute();
 	ps.close();
 	session.setAttribute("userid", userid);
 	response.sendRedirect("userimf.jsp?register=true");
 }
 else{
-	out.println("<script>alert('用户名已存在');window.location.href='loginregister.html?login=false';</script>");
+	out.println("<script>alert('鐢ㄦ埛鍚嶅凡瀛樺湪');window.location.href='loginregister.html?login=false';</script>");
 	}
 rs.close();
 st.close();
