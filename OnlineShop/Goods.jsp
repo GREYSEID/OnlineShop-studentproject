@@ -39,13 +39,13 @@ String disabled="disabled";
 if(goodsid!=null&&goodsid!=""){
 try{
     Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-    //¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+    //å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
     String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-    //ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
-    Connection conn= DriverManager.getConnection(url,"root","yuan1234");
-	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
+    //å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
+    Connection conn= DriverManager.getConnection(url,"root","********");
+	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
 	ResultSet rs=st.executeQuery("select A.*,B.store,B.address from goods A,storeacc B where  A.storeid=B.storeid and id="+"\""+goodsid+"\"");
-	rs.next();//»ñÈ¡ÉÌÆ·Êı¾İ£¬È»ºóÏÔÊ¾
+	rs.next();//è·å–å•†å“æ•°æ®ï¼Œç„¶åæ˜¾ç¤º
 	picture=rs.getString("picture");
 	store=rs.getString("store");
 	count=rs.getString("count");
@@ -58,7 +58,7 @@ try{
 	picture3=rs.getString("picture3");
 	picture4=rs.getString("picture4");
 	storeid=rs.getString("storeid");
-	i = Integer.parseInt(count);//½«¿â´æ×ª»»ÎªÕûÊı
+	i = Integer.parseInt(count);//å°†åº“å­˜è½¬æ¢ä¸ºæ•´æ•°
 	if(i>0)
 	{
 		flag=true;
@@ -159,15 +159,15 @@ catch(Exception e)
             var second = t.getSeconds();
             var curWeek;
             switch (week) {
-                case 0: curWeek = "ĞÇÆÚÈÕ"; break;
-                case 1: curWeek = "ĞÇÆÚÒ»"; break;
-                case 2: curWeek = "ĞÇÆÚ¶ş"; break;
-                case 3: curWeek = "ĞÇÆÚÈı"; break;
-                case 4: curWeek = "ĞÇÆÚËÄ"; break;
-                case 5: curWeek = "ĞÇÆÚÎå"; break;
-                case 6: curWeek = "ĞÇÆÚÁù"; break;
+                case 0: curWeek = "æ˜ŸæœŸæ—¥"; break;
+                case 1: curWeek = "æ˜ŸæœŸä¸€"; break;
+                case 2: curWeek = "æ˜ŸæœŸäºŒ"; break;
+                case 3: curWeek = "æ˜ŸæœŸä¸‰"; break;
+                case 4: curWeek = "æ˜ŸæœŸå››"; break;
+                case 5: curWeek = "æ˜ŸæœŸäº”"; break;
+                case 6: curWeek = "æ˜ŸæœŸå…­"; break;
             }
-            var time = " " + year + "Äê" + month + "ÔÂ" + day + "ÈÕ " + curWeek + " " + hour + ":" + minute + ":" + second;
+            var time = " " + year + "å¹´" + month + "æœˆ" + day + "æ—¥ " + curWeek + " " + hour + ":" + minute + ":" + second;
             document.getElementById("time").innerHTML = time;
         }
         setInterval("showTime()", 1000);
@@ -193,7 +193,7 @@ catch(Exception e)
                 if (temp ><%= count %>) {
                     temp =<%=count %>;
                     document.getElementById("num").value = temp;
-                    alert('¿â´æ²»¹»');
+                    alert('åº“å­˜ä¸å¤Ÿ');
                 }
             }
         }
@@ -215,7 +215,7 @@ catch(Exception e)
             if (currimg < 0) {
                 for (var i = 0; i < imglist.length; i++) {
                     if (imglist[i].style.display != "none")
-                        if (currimg < i) currimg = i;/*ÕÒ×îÓÒµÄÖµ*/
+                        if (currimg < i) currimg = i;/*æ‰¾æœ€å³çš„å€¼*/
                 }
             }
             if (imglist[currimg].style.display != "none") {
@@ -228,7 +228,7 @@ catch(Exception e)
                 if (flag == 8) {
                     flag = 0;
                     clearInterval(time);
-                    return 0;/*·ÀÖ¹Ò»Ö±µİ¹é*/
+                    return 0;/*é˜²æ­¢ä¸€ç›´é€’å½’*/
                 }
                 switchimg();
             }
@@ -238,20 +238,20 @@ catch(Exception e)
 </head>
 
 <body style="margin: 0;padding: 0;overflow: visible;background-color: #f5f5f5;" onload="showTime()">
-    <!--È¡ÏûbodyÇ°µÄ¿ÕÏ¶-->
+    <!--å–æ¶ˆbodyå‰çš„ç©ºéš™-->
     <div class="firsttitle">
         <a href="loginregister.html?login=true"
-            style="color: red;margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">µÇÂ¼</a>
-        <a href="currentregister.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">×¢²á</a>
-        <a href="userimf.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">¸öÈËÒ³Ãæ</a>
-        <a href="Cart.jsp" style="margin-left: 10px;margin-right: 10px;">ÎÒµÄ¹ºÎï³µ</a>
+            style="color: red;margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">ç™»å½•</a>
+        <a href="currentregister.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">æ³¨å†Œ</a>
+        <a href="userimf.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">ä¸ªäººé¡µé¢</a>
+        <a href="Cart.jsp" style="margin-left: 10px;margin-right: 10px;">æˆ‘çš„è´­ç‰©è½¦</a>
         <a href="orderManage.jsp?action=1"
-            style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">¹ºÂò¼ÇÂ¼</a>
-        <a href="logout.jsp" style="margin-left: 10px;margin-right: 10px;">×¢Ïú</a>
-        <a href="index.jsp" style="margin-left: 10px;margin-right: 10px;">Ö÷Ò³</a>
+            style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">è´­ä¹°è®°å½•</a>
+        <a href="logout.jsp" style="margin-left: 10px;margin-right: 10px;">æ³¨é”€</a>
+        <a href="index.jsp" style="margin-left: 10px;margin-right: 10px;">ä¸»é¡µ</a>
         <span id="time" style="float:right;width: 150px;"> </span>
-        <a href="goodsManage.jsp" style="float: right;margin-left: 10px;margin-right: 10px;">ÉÌ¼ÒÈë¿Ú</a>
-        <a href="mailo:GREYSEID@hotmail.com" style="float: right;margin-left: 10px;margin-right: 10px;">¿Í·ş</a>
+        <a href="goodsManage.jsp" style="float: right;margin-left: 10px;margin-right: 10px;">å•†å®¶å…¥å£</a>
+        <a href="mailo:GREYSEID@hotmail.com" style="float: right;margin-left: 10px;margin-right: 10px;">å®¢æœ</a>
     </div>
     <div style="background-color: white;width: 100%;height: 150px;">
         <div style="width: 1500px;height: 150px;border:  0;background-color: white;margin: 0 auto;">
@@ -262,15 +262,15 @@ catch(Exception e)
                 <center>
                     <form action="search.jsp" style="padding: 40px 0;">
                         <input type="text" id="searchText" placeholder="SEARCH" class="searchstyle" name='search'><input
-                            type="submit" value="ËÑË÷" class="searchButton">
+                            type="submit" value="æœç´¢" class="searchButton">
                     </form>
                 </center>
             </div>
             <div style="float: left;height: 100%;width: 25%;">
                 <form action="login.jsp" class="loginregister" style="display:<%=boolblockout%>;">
-                    <label for="userid">ÕË&nbsp;ºÅ </label><input type="text" id="userid" placeholder="USERID"
+                    <label for="userid">è´¦&nbsp;å· </label><input type="text" id="userid" placeholder="USERID"
                         class="lrstyle" required="required" name="userid"><br>
-                    <label for="userpwd">ÃÜ&nbsp;Âë </label><input type="password" id="userpwd" placeholder="PASSWORD"
+                    <label for="userpwd">å¯†&nbsp;ç  </label><input type="password" id="userpwd" placeholder="PASSWORD"
                         class="lrstyle" required="required" name="userpwd">
                     <div>
                         <input type='hidden' name='action' value='1'><input type='hidden' name='goodsid'
@@ -287,11 +287,11 @@ catch(Exception e)
                 	if(userid!=null&&!"".equals(userid))
                 	{
 	                	Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-	                    //¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+	                    //å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
 	                    String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-	                    //ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
+	                    //å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
 	                    Connection conn= DriverManager.getConnection(url,"root","yuan1234");
-	                	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
+	                	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
 	                	ResultSet rs=st.executeQuery("select nickname,head from myuser where id="+userid);
 	                	while(rs.next())
 	                	{
@@ -312,7 +312,7 @@ catch(Exception e)
                                 href="userimf.jsp"><%=nickname %></a></span></div>
                     <div
                         style="width:100px;height:100px;border-radius:50%;overflow: hidden;float:right;position: relative;top: 10%;">
-                        <img alt="Í·Ïñ" src="<%=head %>" style="height:100%;width: 100%"></div>
+                        <img alt="å¤´åƒ" src="<%=head %>" style="height:100%;width: 100%"></div>
                 </div>
             </div>
         </div>
@@ -324,16 +324,16 @@ String storepicture="";
 String storeaddress="";
 String storephone="";
 String storeemail="";
-try{//ÒòÎª²»»áÍÆ¼öËã·¨£¬ËùÒÔ¼òµ¥Õ¹Ê¾Ò»ÏÂ±í¸ñÖĞÇ°¼¸ÏîµÄÉÌÆ·
+try{//å› ä¸ºä¸ä¼šæ¨èç®—æ³•ï¼Œæ‰€ä»¥ç®€å•å±•ç¤ºä¸€ä¸‹è¡¨æ ¼ä¸­å‰å‡ é¡¹çš„å•†å“
 	Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-	//¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+	//å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
 	String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-	//ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
+	//å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
 	Connection conn= DriverManager.getConnection(url,"root","yuan1234");
-	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
+	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
 	String str="select picture,email,phone,address from storeacc where storeid="+storeid;
 	ResultSet rs=st.executeQuery(str);
-	while(rs.next())//ÏÔÊ¾ÉÌµêĞÅÏ¢
+	while(rs.next())//æ˜¾ç¤ºå•†åº—ä¿¡æ¯
 	{
 		storepicture=rs.getString("picture");
 		storeemail=rs.getString("email");
@@ -352,26 +352,26 @@ finally{}
 %>
             <br>
             <div>
-                <a href='index.jsp?storeid=<%=storeid %>'><img style='width: 100px;height: 100px;' alt="µêÍ¼"
+                <a href='index.jsp?storeid=<%=storeid %>'><img style='width: 100px;height: 100px;' alt="åº—å›¾"
                         src="<%=storepicture==null||"".equals(storepicture)?"/pt/imeg/timg (3).jpg":"/pt/imeg/"+URLEncoder.encode(storepicture,"gb18030") %>"></a>
-                <p>µêÃû£º<a href='index.jsp?storeid=<%=storeid %>'><%=store %></a></p>
-                <p>ÓÊÏä£º<a href='mailo:<%=storeemail %>'><%=storeemail==null||"".equals(storeemail)?"":storeemail %></a>
+                <p>åº—åï¼š<a href='index.jsp?storeid=<%=storeid %>'><%=store %></a></p>
+                <p>é‚®ç®±ï¼š<a href='mailo:<%=storeemail %>'><%=storeemail==null||"".equals(storeemail)?"":storeemail %></a>
                 </p>
-                <p>ÁªÏµµç»°£º<%=storephone==null||"".equals(storephone)?"":storephone %>
+                <p>è”ç³»ç”µè¯ï¼š<%=storephone==null||"".equals(storephone)?"":storephone %>
                 <p>
-                <p>µØÖ·£º<%=storeaddress==null||"".equals(storeaddress)?"":storeaddress %></p>
+                <p>åœ°å€ï¼š<%=storeaddress==null||"".equals(storeaddress)?"":storeaddress %></p>
             </div>
         </div>
         <div style="float:left;width:50%;height: 100%;float:left;">
-            <h1 style="<%=disabled=="disabled"?"":"visibility:hidden;"%>position:relative;left:25%;">ÒÑÏÂ¼Ü</h1>
+            <h1 style="<%=disabled=="disabled"?"":"visibility:hidden;"%>position:relative;left:25%;">å·²ä¸‹æ¶</h1>
             <table cellspacing="0" style=''>
-                <caption style='float:left;'>ÉÌÆ·±àºÅ:<%=goodsid %></caption>
+                <caption style='float:left;'>å•†å“ç¼–å·:<%=goodsid %></caption>
                 <tbody>
                     <tr>
                         <td rowspan="4" style='position: relative;'>
-                            <a style='left:0;' class='arrow' onclick='currimg=currimg-2;switchimg();'>¡û</a>
-                            <a style='right:0px;' onclick='switchimg();' class='arrow'>¡ú</a>
-                            <div style="height: 300px;width: 300px;margin:0 auto;"><img alt="Í¼Æ¬" src="<%=thepicture %>"
+                            <a style='left:0;' class='arrow' onclick='currimg=currimg-2;switchimg();'>â†</a>
+                            <a style='right:0px;' onclick='switchimg();' class='arrow'>â†’</a>
+                            <div style="height: 300px;width: 300px;margin:0 auto;"><img alt="å›¾ç‰‡" src="<%=thepicture %>"
                                     style="width: 100%;height:100%;" id="picture"></div>
                         </td>
                     </tr>
@@ -379,23 +379,23 @@ finally{}
                         <td style="vertical-align: top;"><%=goodsname==null?"":goodsname %></td>
                     </tr>
                     <tr>
-                        <td style="vertical-align: top;">¿â´æ:<%=count %></td>
+                        <td style="vertical-align: top;">åº“å­˜:<%=count %></td>
                     </tr>
                     <tr>
-                        <td style="vertical-align: top;">¼Û¸ñ:<%=price %></td>
+                        <td style="vertical-align: top;">ä»·æ ¼:<%=price %></td>
                     </tr>
                     <tr>
                         <td style='text-align:center;'>
-                            <img alt='Í¼Æ¬' src='<%=thepicture%>' name='img'
+                            <img alt='å›¾ç‰‡' src='<%=thepicture%>' name='img'
                                 style='display:<%=(defaultpicture.equals(picture)?"none":"inline-block") %>;'
                                 onclick='currimg=0;switchimg();' onmouseover='currimg=0;switchimg();'>
-                            <img alt='Í¼Æ¬' src='<%=picture2%>' name='img'
+                            <img alt='å›¾ç‰‡' src='<%=picture2%>' name='img'
                                 style='display:<%=(defaultpicture.equals(picture2)?"none":"inline-block") %>;'
                                 onclick='currimg=1;switchimg();' onmouseover='currimg=1;switchimg();'>
-                            <img alt='Í¼Æ¬' src='<%=picture3%>' name='img'
+                            <img alt='å›¾ç‰‡' src='<%=picture3%>' name='img'
                                 style='display:<%=(defaultpicture.equals(picture3)?"none":"inline-block") %>;'
                                 onclick='currimg=2;switchimg();' onmouseover='currimg=2;switchimg();'>
-                            <img alt='Í¼Æ¬' src='<%=picture4%>' name='img'
+                            <img alt='å›¾ç‰‡' src='<%=picture4%>' name='img'
                                 style='display:<%=(defaultpicture.equals(picture4)?"none":"inline-block") %>;'
                                 onclick='currimg=3;switchimg();' onmouseover='currimg=3;switchimg();'>
                         </td>
@@ -408,19 +408,19 @@ finally{}
                                 <input type="hidden" value="<%=goodsid %>" name="goodsid">
                                 <button
                                     onclick="var num=document.getElementById('num').value;if(!isNaN(num)){var temp=parseInt(num);temp++;if(temp><%=count %>)temp=<%=count %>; document.getElementById('num').value=temp; }"
-                                    type="button">¡ü</button><input type="text" value=1 name="num" size=1 id="num"
+                                    type="button">â†‘</button><input type="text" value=1 name="num" size=1 id="num"
                                     onkeyup="number()" oninput="value=value.replace(/\D|^0/g,'')"><button type="button"
-                                    onclick="var num=document.getElementById('num').value;if(!isNaN(num)){var temp=parseInt(num);temp--;if(temp<=0)document.getElementById('num').value=1;else document.getElementById('num').value=temp;}">¡ı</button>
+                                    onclick="var num=document.getElementById('num').value;if(!isNaN(num)){var temp=parseInt(num);temp--;if(temp<=0)document.getElementById('num').value=1;else document.getElementById('num').value=temp;}">â†“</button>
                                 <input type="submit" id="submit" hidden>
                             </form>
                         </td>
                     </tr>
                     <tr>
-                        <td style='text-align:center;'><button onclick="addcart()" <%=disabled %>>¼ÓÈë¹ºÎï³µ</button><button
-                                onclick="pay()" <%=disabled %>>Á¢¼´¹ºÂò</button></td>
+                        <td style='text-align:center;'><button onclick="addcart()" <%=disabled %>>åŠ å…¥è´­ç‰©è½¦</button><button
+                                onclick="pay()" <%=disabled %>>ç«‹å³è´­ä¹°</button></td>
                     </tr>
                     <tr>
-                        <td colspan="2">ÉÌµêµØÖ·:<%=address==null?"":address %></td>
+                        <td colspan="2">å•†åº—åœ°å€:<%=address==null?"":address %></td>
                     </tr>
                     <tr>
                         <td colspan="2" rowspan="3"><%=introduction==null?"":introduction %></td>
@@ -432,22 +432,22 @@ finally{}
         </div>
         <div style='height:100%;width:15%;float: left;' class='goods'>
             <%
-        try{//ÒòÎª²»»áÍÆ¼öËã·¨£¬ËùÒÔ¼òµ¥Õ¹Ê¾Ò»ÏÂ±í¸ñÖĞÇ°¼¸ÏîµÄÉÌÆ·
+        try{//å› ä¸ºä¸ä¼šæ¨èç®—æ³•ï¼Œæ‰€ä»¥ç®€å•å±•ç¤ºä¸€ä¸‹è¡¨æ ¼ä¸­å‰å‡ é¡¹çš„å•†å“
         	Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-        	//¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+        	//å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
         	String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-        	//ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
+        	//å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
         	Connection conn= DriverManager.getConnection(url,"root","yuan1234");
-        	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
+        	Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
         	String str="select id,picture,name from goods";
         	ResultSet rs=st.executeQuery(str);
         	//rs.last();
         	//if(rs.getRow()>0){
        		int v=0;
        		//rs.first();
-       		while(rs.next()&&v!=8)//ÏÔÊ¾ÉÌÆ·ĞÅÏ¢
+       		while(rs.next()&&v!=8)//æ˜¾ç¤ºå•†å“ä¿¡æ¯
        		{
-       			out.print("<a href='Goods.jsp?goodsid="+rs.getString("id")+"'><div class='divdiv' ><img src='"+(rs.getString("picture")==null||"".equals(rs.getString("picture"))?"/pt/imeg/timg (3).jpg":"/pt/imeg/"+URLEncoder.encode(rs.getString("picture"),"gb18030"))+"' alt='ÕâÊÇÉÌÆ·'></div></a>");
+       			out.print("<a href='Goods.jsp?goodsid="+rs.getString("id")+"'><div class='divdiv' ><img src='"+(rs.getString("picture")==null||"".equals(rs.getString("picture"))?"/pt/imeg/timg (3).jpg":"/pt/imeg/"+URLEncoder.encode(rs.getString("picture"),"gb18030"))+"' alt='è¿™æ˜¯å•†å“'></div></a>");
        			out.print("<a href='Goods.jsp?goodsid="+rs.getString("id")+"'><div class='divstyle' >"+rs.getString("name")+"</div></a><br>");
        			v++;
        		}
