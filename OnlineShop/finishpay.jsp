@@ -5,27 +5,27 @@
 
 <head>
 	<meta charset="GB18030">
-	<title>Ö§¸¶³É¹¦</title>
+	<title>æ”¯ä»˜æˆåŠŸ</title>
 </head>
 
 <body>
-	<%//¸üĞÂ×´Ì¬£¬Íê³ÉÖ§¸¶
+	<%//æ›´æ–°çŠ¶æ€ï¼Œå®Œæˆæ”¯ä»˜
 String userid=(String)session.getAttribute("userid");
 if(userid==null)out.print("<script>window.location.href='loginregister.html'</script>");
 request.setCharacterEncoding("gb18030");
 String[]orderid=request.getParameterValues("orderid");
 try{
 	  Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-	  //¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+	  //å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
 	  String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai";
-	  //ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
-	  Connection conn= DriverManager.getConnection(url,"root","yuan1234");
+	  //å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
+	  Connection conn= DriverManager.getConnection(url,"root","********");
 	  for(int i=0;i<orderid.length;i++)
 	  {
 		  Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-		  String str="update orderlist set status='ÒÑÖ§¸¶' where id="+orderid[i];
+		  String str="update orderlist set status='å·²æ”¯ä»˜' where id="+orderid[i];
 		  int result=st.executeUpdate(str);
-		  if(result==0)out.print("<script>alert('Ö§¸¶Ê§°Ü')</script>");
+		  if(result==0)out.print("<script>alert('æ”¯ä»˜å¤±è´¥')</script>");
 		  st.close();
 		  response.sendRedirect("index.jsp");
 		  out.print("<script>window.location.href = 'index.jsp'</script>");
@@ -34,7 +34,7 @@ try{
 catch(Exception e)
 {
 	e.printStackTrace();
-	out.print("Ö§¸¶Ê§°Ü");
+	out.print("æ”¯ä»˜å¤±è´¥");
 }
 %>
 </body>
