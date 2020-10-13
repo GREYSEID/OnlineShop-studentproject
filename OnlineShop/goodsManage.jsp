@@ -19,7 +19,7 @@ else{
 }
 %>
     <meta charset="GB18030">
-    <title>ÉÌÆ·¹ÜÀí</title>
+    <title>å•†å“ç®¡ç†</title>
     <link rel="stylesheet" type="text/css" href="taotao.css">
     <style>
         td {
@@ -38,15 +38,15 @@ else{
             var second = t.getSeconds();
             var curWeek;
             switch (week) {
-                case 0: curWeek = "ĞÇÆÚÈÕ"; break;
-                case 1: curWeek = "ĞÇÆÚÒ»"; break;
-                case 2: curWeek = "ĞÇÆÚ¶ş"; break;
-                case 3: curWeek = "ĞÇÆÚÈı"; break;
-                case 4: curWeek = "ĞÇÆÚËÄ"; break;
-                case 5: curWeek = "ĞÇÆÚÎå"; break;
-                case 6: curWeek = "ĞÇÆÚÁù"; break;
+                case 0: curWeek = "æ˜ŸæœŸæ—¥"; break;
+                case 1: curWeek = "æ˜ŸæœŸä¸€"; break;
+                case 2: curWeek = "æ˜ŸæœŸäºŒ"; break;
+                case 3: curWeek = "æ˜ŸæœŸä¸‰"; break;
+                case 4: curWeek = "æ˜ŸæœŸå››"; break;
+                case 5: curWeek = "æ˜ŸæœŸäº”"; break;
+                case 6: curWeek = "æ˜ŸæœŸå…­"; break;
             }
-            var time = " " + year + "Äê" + month + "ÔÂ" + day + "ÈÕ " + curWeek + " " + hour + ":" + minute + ":" + second;
+            var time = " " + year + "å¹´" + month + "æœˆ" + day + "æ—¥ " + curWeek + " " + hour + ":" + minute + ":" + second;
             document.getElementById("time").innerHTML = time;
         }
         setInterval("showTime()", 1000);
@@ -56,52 +56,52 @@ else{
 <body style="margin: 0;padding: 0;overflow: visible;background-color: #f5f5f5;" onload="showTime()">
     <div class="firsttitle">
         <a href="storeLogin.html"
-            style="color: red;margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">µÇÂ¼</a>
+            style="color: red;margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">ç™»å½•</a>
         <a href="storecurrentregister.jsp"
-            style="margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">×¢²á</a>
-        <a href="storeuserimf.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">ÉÌ¼ÒĞÅÏ¢ĞŞ¸Ä</a>
+            style="margin-left: 10px;margin-right: 10px;display: <%=boolcodeout%>;">æ³¨å†Œ</a>
+        <a href="storeuserimf.jsp" style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">å•†å®¶ä¿¡æ¯ä¿®æ”¹</a>
         <a href="orderManage.jsp?action=2"
-            style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">¹ºÂò¼ÇÂ¼</a>
-        <a href="logout.jsp?action=2" style="margin-left: 10px;margin-right: 10px;">×¢Ïú</a>
-        <a href="goodsManage.jsp" style="margin-left: 10px;margin-right: 10px;">Ö÷Ò³</a>
+            style="margin-left: 10px;margin-right: 10px;display: <%=boolcodein%>;">è´­ä¹°è®°å½•</a>
+        <a href="logout.jsp?action=2" style="margin-left: 10px;margin-right: 10px;">æ³¨é”€</a>
+        <a href="goodsManage.jsp" style="margin-left: 10px;margin-right: 10px;">ä¸»é¡µ</a>
         <span id="time" style="float:right;width: 150px;"> </span>
-        <a href="index.jsp" style="float: right;margin-left: 10px;margin-right: 10px;">¿Í»§Èë¿Ú</a>
-        <a href="mailo:GREYSEID@hotmail.com" style="float: right;margin-left: 10px;margin-right: 10px;">¿Í·ş</a>
+        <a href="index.jsp" style="float: right;margin-left: 10px;margin-right: 10px;">å®¢æˆ·å…¥å£</a>
+        <a href="mailo:GREYSEID@hotmail.com" style="float: right;margin-left: 10px;margin-right: 10px;">å®¢æœ</a>
     </div>
     <%
-int PageSize=20;//Ò»Ò³ÏÔÊ¾20Ìõ
-int RowCount=0;//¼ÇÂ¼×ÜÊı
-int PageCount=1;//×ÜÒ³Êı
-int Page=1;//ÏÔÊ¾µÄÒ³Âë
-String strPage=null;//½ÓÊÕÒ³Âë
+int PageSize=20;//ä¸€é¡µæ˜¾ç¤º20æ¡
+int RowCount=0;//è®°å½•æ€»æ•°
+int PageCount=1;//æ€»é¡µæ•°
+int Page=1;//æ˜¾ç¤ºçš„é¡µç 
+String strPage=null;//æ¥æ”¶é¡µç 
 %>
-    <button onclick="window.location.href='addGoods.jsp';">Ìí¼ÓÉÌÆ·</button>
-    <button onclick="window.location.href='orderManage.jsp?action=2'">¶©µ¥²éÑ¯</button>
-    <button onclick="window.location.href='storeuserimf.jsp'">µê¼ÒĞÅÏ¢ĞŞ¸Ä</button>
-    <button onclick="window.location.href='logout.jsp'">×¢Ïú</button>
+    <button onclick="window.location.href='addGoods.jsp';">æ·»åŠ å•†å“</button>
+    <button onclick="window.location.href='orderManage.jsp?action=2'">è®¢å•æŸ¥è¯¢</button>
+    <button onclick="window.location.href='storeuserimf.jsp'">åº—å®¶ä¿¡æ¯ä¿®æ”¹</button>
+    <button onclick="window.location.href='logout.jsp'">æ³¨é”€</button>
     <table align="center">
         <tr>
-            <td>ÉÌÆ·id</td>
-            <td>ÉÌÆ·Ãû</td>
-            <td>¼Û¸ñ</td>
-            <td>¿â´æ</td>
-            <td>É¾³ı</td>
-            <td>ĞŞ¸Ä</td>
+            <td>å•†å“id</td>
+            <td>å•†å“å</td>
+            <td>ä»·æ ¼</td>
+            <td>åº“å­˜</td>
+            <td>åˆ é™¤</td>
+            <td>ä¿®æ”¹</td>
         </tr>
         <%
 try{
 Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-//¶¨ÒåÁ¬½Ó×Ö·û´®,¶«°ËÇøGMT%2B8
+//å®šä¹‰è¿æ¥å­—ç¬¦ä¸²,ä¸œå…«åŒºGMT%2B8
 String url ="jdbc:mysql://localhost:3306/company?useSSL=FALSE&serverTimezone=Asia/Shanghai"; 
-//ºÍÊı¾İ¿â½¨Á¢Á¬½Ó
-Connection conn= DriverManager.getConnection(url,"root","yuan1234");
-Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//²ÎÊıÉèÖÃÄ¬ÈÏµÄ»°rsÖ»ÄÜÓÃnext()
+//å’Œæ•°æ®åº“å»ºç«‹è¿æ¥
+Connection conn= DriverManager.getConnection(url,"root","********");
+Statement st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);//å‚æ•°è®¾ç½®é»˜è®¤çš„è¯rsåªèƒ½ç”¨next()
 ResultSet rs=st.executeQuery("select * from goods where storeid="+"\""+storeid+"\"");
 if(rs.next())
 {
 	rs.last();
 	RowCount=rs.getRow();
-	PageCount=(RowCount+PageSize-1)/PageSize;//×ÜÒ³Êı£¬¼Ó1´Ó1¿ªÊ¼Êı
+	PageCount=(RowCount+PageSize-1)/PageSize;//æ€»é¡µæ•°ï¼ŒåŠ 1ä»1å¼€å§‹æ•°
 
 strPage=request.getParameter("page");
 if(strPage==null)Page=1;
@@ -110,7 +110,7 @@ else{
 	if(Page>PageCount)Page=PageCount;
 	if(Page<1)Page=1;
 }
-if(PageCount>0)rs.absolute((Page-1)*PageSize+1);//Ìø×ªµ½Ö¸¶¨¼ÇÂ¼Î»ÖÃ
+if(PageCount>0)rs.absolute((Page-1)*PageSize+1);//è·³è½¬åˆ°æŒ‡å®šè®°å½•ä½ç½®
 %>
         <%
 int i=0;
@@ -120,8 +120,8 @@ while(i<PageSize&&rs!=null&&!rs.isAfterLast())
 	out.print("<td>"+(rs.getString("name")==null?"":rs.getString("name"))+"</td>");
 	out.print("<td>"+(rs.getString("price")==null?"":rs.getString("price"))+"</td>");
 	out.print("<td>"+(rs.getString("count")==null?"":rs.getString("count"))+"</td>");
-	out.print("<td><a href='deleteGoods.jsp?goodsid="+rs.getString("id")+"'>É¾³ı</a></td>");
-	out.print("<td><a href='changeGoods.jsp?goodsid="+rs.getString("id")+"'>ĞŞ¸Ä</a></td></tr>");
+	out.print("<td><a href='deleteGoods.jsp?goodsid="+rs.getString("id")+"'>åˆ é™¤</a></td>");
+	out.print("<td><a href='changeGoods.jsp?goodsid="+rs.getString("id")+"'>ä¿®æ”¹</a></td></tr>");
 	i++;
 	rs.next();
 }
@@ -142,16 +142,16 @@ catch(Exception e)
         <%
 if(Page>1)
 {
-	out.print("&nbsp;<a href='goodsManage.jsp?page=1'>Ê×&nbsp;Ò³</a>&nbsp;");
-	out.print("&nbsp;<a href='goodsManage.jsp?page="+(Page-1)+"'>ÉÏÒ»Ò³</a>&nbsp;");
+	out.print("&nbsp;<a href='goodsManage.jsp?page=1'>é¦–&nbsp;é¡µ</a>&nbsp;");
+	out.print("&nbsp;<a href='goodsManage.jsp?page="+(Page-1)+"'>ä¸Šä¸€é¡µ</a>&nbsp;");
 }
-out.print("&nbsp;µÚ"+Page+"Ò³&nbsp;");
+out.print("&nbsp;ç¬¬"+Page+"é¡µ&nbsp;");
 if(Page<PageCount)
 {
-	out.print("&nbsp;<a href='goodsManage.jsp?page="+(Page+1)+"'>ÏÂÒ»Ò³</a>&nbsp;");
-	out.print("&nbsp;<a href='goodsManage.jsp?page="+PageCount+"'>Î²&nbsp;Ò³</a>&nbsp;");
+	out.print("&nbsp;<a href='goodsManage.jsp?page="+(Page+1)+"'>ä¸‹ä¸€é¡µ</a>&nbsp;");
+	out.print("&nbsp;<a href='goodsManage.jsp?page="+PageCount+"'>å°¾&nbsp;é¡µ</a>&nbsp;");
 }
-out.print("&nbsp;Ìø×ªµ½<input type='text' name='page' size=2>Ò³&nbsp;¹²"+PageCount+"Ò³&nbsp;<input type='submit' value='go'>&nbsp;");
+out.print("&nbsp;è·³è½¬åˆ°<input type='text' name='page' size=2>é¡µ&nbsp;å…±"+PageCount+"é¡µ&nbsp;<input type='submit' value='go'>&nbsp;");
 %>
     </form>
     <%
